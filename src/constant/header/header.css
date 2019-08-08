@@ -1,0 +1,9 @@
+.TopBar {
+  border-style: solid;
+  border-width: 3px;
+  border-color: pink;
+}
+
+.TopBar p {
+  font-size: 25px;
+}
