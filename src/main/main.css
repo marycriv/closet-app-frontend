@@ -1,0 +1,9 @@
+p {
+  font-size: 20px;
+}
+
+.MainContainer {
+  border-style: solid;
+  border-width: 3px;
+  border-color: purple;
+}
