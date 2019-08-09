@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 const ItemCard = (props) => {
 
-  const user = props.users.find(user => user.id === props.currentUserId)
+  // const user = props.users.find(user => user.id === props.currentUserId)
 
   const items = props.items.filter(item => {return item.user_id === props.currentUserId})
 
