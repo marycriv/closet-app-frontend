@@ -1,18 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import TopBar from './constant/header/TopBar';
 import MainContainer from './constant/main/MainContainer';
+import { connect } from 'react-redux';
 
 const API = "http://localhost:3001"
 
-export default class App extends React.Component {
-  state = {
-    users: [],
-    items: [],
-    currentUserId: null
-  }
+class App extends React.Component {
 
+  // state = {
+  //   users: [],
+  //   items: [],
+  //   currentUserId: null
+  // }
+  //
   componentDidMount(){
     this.getUsers()
     this.getItems()
@@ -21,28 +22,45 @@ export default class App extends React.Component {
   getUsers = () => {
     fetch(`${API}/users`)
     .then(resp => resp.json())
-    .then(users => this.setState({
-      users: users
-    }, console.log(this.state.users)))
+    .then(users => this.props.sendUsersToState(users))
   }
 
   getItems = () => {
     fetch(`${API}/items`)
     .then(resp => resp.json())
-    .then(items => this.setState({
-      items: items
-    }, console.log(this.state.items)))
+    .then(items => this.props.sendItemsToState(items))
   }
 
   render(){
+    console.log("app props", this.props)
     return (
       <div className="App">
         <TopBar />
-        <MainContainer currentUserId={this.state.currentUserId}
-        users={this.state.users}
-        items={this.state.items}
-        />
+        {this.props.loggedIn ? <MainContainer /> : null}
       </div>
     );
   }
-} // end app class
+} // end app component
+
+function msp(state){
+  return {
+    loggedIn: state.loggedIn,
+    currentUserId: state.currentUserId,
+    users: state.users,
+    items: state.items
+  }
+}
+
+function mdp(dispatch){
+  console.log("inside mdp")
+  return {
+    sendUsersToState: (users) => {
+      dispatch({type: "GET_USERS", payload: users})
+    },
+    sendItemsToState: (items) => {
+      dispatch({type: "GET_ITEMS", payload: items})
+    }
+  }
+}
+
+export default connect(msp, mdp)(App);

@@ -7,3 +7,10 @@
 .MainContainer p {
   font-size: 15px;
 }
+
+.MainContainer h2 {
+  font-size: 30px;
+  color: hotpink;
+  weight: bold;
+  text-transform: capitalize;
+}
