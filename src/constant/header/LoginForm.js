@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class LoginForm extends React.Component {
 
   state = {
-    value: 5
+    value: 11
   }
 
   submission = (e, userInput) => {
