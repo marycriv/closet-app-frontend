@@ -4,20 +4,33 @@ import { connect } from 'react-redux';
 
 class LoginForm extends React.Component {
 
-  submission = (e) => {
-    e.preventDefault();
-    //if user # present in users
-    // this.props.users.find()
-    this.props.login()
+  state = {
+    value: 5
+  }
 
+  submission = (e, userInput) => {
+    e.preventDefault();
+    userInput = parseInt(userInput)
+    this.props.users.map(user => {return user.id}).includes(userInput) ? this.props.login(userInput) : alert("Invalid login credentials")
+  }
+
+  handleLoginChange = (event) => {
+    this.setState({
+      value: event.target.value
+    })
   }
 
 
   render(){
     return (
-      <form onSubmit={(e) => this.submission(e)}>
+      <form onSubmit={(e) => this.submission(e, this.state.value)}>
       User Id:
-        <input type="text" defaultValue="5" />
+        <input
+          type="text"
+          // defaultValue="5"
+          value={this.state.value}
+          onChange={this.handleLoginChange}
+        />
         <input type="submit" value="Submit" />
       </form>
     )
@@ -34,10 +47,9 @@ function msp(state){
 }
 
 function mdp(dispatch){
-  console.log("inside mdp")
   return {
-    login: () => {
-      dispatch({type: "LOGIN"})
+    login: (id) => {
+      dispatch({type: "LOGIN", payload: id})
     }
   }
 }

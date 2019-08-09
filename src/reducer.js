@@ -9,7 +9,7 @@ const defaultState = {
 function reducer(prevState=defaultState, action) {
   switch(action.type){
     case "LOGIN":
-      return {...prevState, loggedIn: true, currentUserId: 5}
+      return {...prevState, loggedIn: true, currentUserId: action.payload}
     case "HANDLE_CHANGE":
       return {...prevState, text: action.payload}
     case "GET_USERS":

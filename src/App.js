@@ -32,7 +32,6 @@ class App extends React.Component {
   }
 
   render(){
-    console.log("app props", this.props)
     return (
       <div className="App">
         <TopBar />
@@ -52,7 +51,6 @@ function msp(state){
 }
 
 function mdp(dispatch){
-  console.log("inside mdp")
   return {
     sendUsersToState: (users) => {
       dispatch({type: "GET_USERS", payload: users})
