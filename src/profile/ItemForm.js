@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-class NewItemForm extends React.Component {
+class ItemForm extends React.Component {
   state = {
     userId: this.props.currentUserId,
     imageUrl: "https://d2h1pu99sxkfvn.cloudfront.net/b0/153222/537640379_dantM51G6C/P0.jpg",
@@ -75,4 +75,4 @@ function mdp(dispatch){
   }
 }
 
-export default connect(msp, mdp)(NewItemForm);
+export default connect(msp, mdp)(ItemForm);

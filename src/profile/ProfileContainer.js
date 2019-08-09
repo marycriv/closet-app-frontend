@@ -5,13 +5,13 @@ import { connect } from 'react-redux';
 import ItemCard from './ItemCard';
 
 import UserData from './UserData';
-import NewItemForm from './NewItemForm';
+import ItemForm from './ItemForm';
 
 const ProfileContainer = (props) => {
   return (
     <div className="ProfileContainer">
       <UserData />
-      <NewItemForm postFunction={props.postFunction} />
+      <ItemForm postFunction={props.postFunction} />
       <ItemCard patchFunction={props.patchFunction} deleteFunction={props.deleteFunction} />
     </div>
   )
