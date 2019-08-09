@@ -1,19 +1,15 @@
 import React from 'react';
 import './main.css';
 
-import { connect } from 'react-redux';
+import ProfileContainer from './../../profile/ProfileContainer'
 
-import ItemCard from './../../profile/ItemCard';
+import { connect } from 'react-redux';
 
 const MainContainer = (props) => {
 
-  const user = props.users.find(user => user.id === props.currentUserId)
-
   return (
     <div className="MainContainer">
-      <p>Main Container</p>
-      <h2>{user.username}</h2>
-      <ItemCard />
+        <ProfileContainer />
     </div>
   )
 }
@@ -21,7 +17,9 @@ const MainContainer = (props) => {
 function msp(state){
   return {
     currentUserId: state.currentUserId,
-    users: state.users
+    users: state.users,
+    user: state.user,
+    loggedIn: state.loggedIn
   }
 }
 
