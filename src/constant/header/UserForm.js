@@ -16,10 +16,11 @@ class UserForm extends React.Component {
     const itemId = e.target.parentElement.id
     let params = {}
 
-    if (parent === "UserCard") {
-      this.props.universalPatchFunction(state.username, state.profilePicture, "EDIT_USER")
+    if (parent === "UserData") {
+      params = {username: state.username, profilePicture: state.profilePicture, id: this.state.userId}
+      this.props.universalPatchFunction(params, "EDIT_USER")
     } else {
-      params = {username: state.username, profilePicture: state.profilePicture}
+      params = {username: state.username, profilePicture: state.profilePicture, id: this.state.userId}
       this.props.universalPostFunction(params, "NEW_USER")
     }
 

@@ -20,6 +20,8 @@ function reducer(prevState=defaultState, action) {
       return {...prevState, items: action.payload}
     case "GET_OUTFITS":
       return {...prevState, outfits: action.payload}
+    case "ADD_USER":
+      return {...prevState, users: [...prevState.users, action.payload]}
     default:
       return prevState
   }

@@ -9,7 +9,8 @@ const OutfitsContainer = (props) => {
   return (
     <div className="OutfitsContainer">
       <OutfitCard universalDeleteFunction={props.universalDeleteFunction} />
-      <OutfitForm />
+      <OutfitForm universalPostFunction={props.universalPostFunction}
+      universalPatchFunction={props.universalPatchFunction} />
     </div>
   )
 }

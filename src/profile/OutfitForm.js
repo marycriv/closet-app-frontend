@@ -12,11 +12,17 @@ class OutfitForm extends React.Component {
 
     const parent = e.target.parentElement.className
     const itemId = e.target.parentElement.id
+    let params = {}
 
     if (parent === "OutfitCard") {
       this.props.universalPatchFunction(itemId, state.imageUrl, state.brand, state.classification)
     } else {
-      this.props.universalPostFunction(state.imageUrl, state.brand, state.classification)
+      params = {
+        name: "outfit three",
+        user_id: 15
+      }
+
+      this.props.universalPostFunction(params, "NEW_OUTFIT")
     }
 
   }
@@ -39,33 +45,19 @@ class OutfitForm extends React.Component {
           onChange={this.handleChange}
         />
 
-        Items:
+        <select
+          name="top"
+          value={this.state.value} onChange={this.handleChange}>
+            <option value="1">t1</option>
+            <option value="2">t2</option>
+        </select>
 
-        <label><img width="50px" src="https://d2h1pu99sxkfvn.cloudfront.net/b0/153222/483700166_sRmhL35Pri/P0.jpg"/></label>
-        <input
-          type="checkbox"
-          name="imageUrl"
-          value={this.state.imageUrl}
-          onChange={this.handleChange}
-        />
-
-        <label><img width="50px" src="https://d2h1pu99sxkfvn.cloudfront.net/b0/153222/483700166_sRmhL35Pri/P0.jpg"/></label>
-        <input
-          type="checkbox"
-          name="imageUrl"
-          value={this.state.imageUrl}
-          onChange={this.handleChange}
-        />
-
-        <label><img width="50px" src="https://d2h1pu99sxkfvn.cloudfront.net/b0/153222/483700166_sRmhL35Pri/P0.jpg"/></label>
-        <input
-          type="checkbox"
-          name="imageUrl"
-          value={this.state.imageUrl}
-          onChange={this.handleChange}
-        />
-
-
+        <select
+          name="bottom"
+          value={this.state.value} onChange={this.handleChange}>
+            <option value="1">b1</option>
+            <option value="2">b2</option>
+        </select>
 
         <input type="submit" value="Submit" />
       </form>

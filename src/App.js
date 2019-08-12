@@ -27,18 +27,7 @@ class App extends React.Component {
     let payload = {}
     let loc = null
 
-    function fetchFunction(loc, payload){
-      fetch(`${API}/${loc}`, {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        method: 'POST',
-        body: JSON.stringify(payload)
-      })
-      .then(resp => resp.json())
-      .then(console.log)
-    }
+    postFunc(params, type)
 
     function postFunc(params, type){
 
@@ -59,10 +48,30 @@ class App extends React.Component {
         }
         loc = 'users'
         fetchFunction(loc, payload)
+
+      case "NEW_OUTFIT":
+        payload = {
+          name: params.name,
+          user_id: params.user_id
+          // ITEMS GO HERE
+        }
+        loc = 'outfits'
+        fetchFunction(loc, payload)
       }
     }
 
-    postFunc(params, type)
+    function fetchFunction(loc, payload){
+      fetch(`${API}/${loc}`, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(payload)
+      })
+      .then(resp => resp.json())
+      .then(console.log)
+    }
 
 
   }
@@ -72,9 +81,38 @@ class App extends React.Component {
     let currentUserId = this.props.currentUserId
     let payload = {}
     let loc = null
-    let patchLoc = parseInt(params.item_id)
+    let patchLoc = null
 
-    function fetchFunction(loc, patchLoc, payload){
+    function postFunc(params, type){
+
+      switch(type){
+      case "EDIT_ITEM":
+        patchLoc = parseInt(params.item_id)
+        payload = {
+          user_id: currentUserId,
+          image: params.image,
+          classification: params.classification,
+          brand: params.brand
+        }
+        loc = 'items'
+        fetchFunction(loc, patchLoc, payload)
+      case "EDIT_USER":
+        patchLoc = parseInt(params.id)
+        payload = {
+          username: params.username,
+          profile_picture: params.profilePicture
+        }
+        loc = 'users'
+        fetchFunction(loc, patchLoc, payload)
+      default:
+        return  null
+      }
+
+    }
+
+
+
+    const fetchFunction = (loc, patchLoc, payload) => {
       fetch(`${API}/${loc}/${patchLoc}`, {
         headers: {
           'Accept': 'application/json',
@@ -84,34 +122,12 @@ class App extends React.Component {
         body: JSON.stringify(payload)
       })
       .then(resp => resp.json())
-      .then(console.log)
-    }
-
-    function postFunc(params, type){
-
-      switch(type){
-      case "EDIT_ITEM":
-        payload = {
-          user_id: currentUserId,
-          image: params.image,
-          classification: params.classification,
-          brand: params.brand
-        }
-        loc = 'items'
-        fetchFunction(loc, patchLoc, payload)
-      // case "EDIT_USER":
-      //   payload = {
-      //     username: params.username,
-      //     profile_picture: params.profilePicture
-      //   }
-      //   loc = 'users'
-      //   fetchFunction(loc, payload)
-      }
+      .then((bepis) => this.getUsers())
     }
 
     postFunc(params, type)
-  }
 
+  }
 
   universalDeleteFunction = (id, loc) => {
     fetch(`${API}/${loc}/${parseInt(id)}`, {
@@ -173,6 +189,9 @@ function mdp(dispatch){
     },
     sendOutfitsToState: (outfits) => {
       dispatch({type: "GET_OUTFITS", payload: outfits})
+    },
+    addUser: (user) => {
+      dispatch({type: "ADD_USER", payload: user})
     }
   }
 }
