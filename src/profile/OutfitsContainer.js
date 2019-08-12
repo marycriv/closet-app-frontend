@@ -8,7 +8,7 @@ import OutfitForm from './OutfitForm';
 const OutfitsContainer = (props) => {
   return (
     <div className="OutfitsContainer">
-      <OutfitCard />
+      <OutfitCard universalDeleteFunction={props.universalDeleteFunction} />
       <OutfitForm />
     </div>
   )

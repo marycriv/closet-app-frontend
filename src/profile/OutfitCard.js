@@ -30,6 +30,7 @@ class OutfitCard extends React.Component {
                   <img width="100px" alt="item" src={item.image} />
                 </div>
               )})}
+              <button onClick={() => this.props.universalDeleteFunction(outfit.id, 'outfits')}>Delete</button>
           </div>
         )
       })}

@@ -12,12 +12,12 @@ import OutfitsContainer from './OutfitsContainer';
 const ProfileContainer = (props) => {
   return (
     <div className="ProfileContainer">
-      <UserData />
+      <UserData universalDeleteFunction={props.universalDeleteFunction} />
       <ItemForm universalPostFunction={props.universalPostFunction}
       universalPatchFunction={props.universalPatchFunction}
       />
-      <ItemCard universalPatchFunction={props.universalPatchFunction} deleteFunction={props.deleteFunction} />
-      <OutfitsContainer />
+      <ItemCard universalPatchFunction={props.universalPatchFunction} universalDeleteFunction={props.universalDeleteFunction} />
+      <OutfitsContainer universalDeleteFunction={props.universalDeleteFunction} />
     </div>
   )
 }

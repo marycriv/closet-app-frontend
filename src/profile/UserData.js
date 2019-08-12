@@ -11,6 +11,7 @@ const UserData = (props) => {
       <h1>{user.username}</h1>
       <h2>{user.id}</h2>
       <img width="100px" className="ProfilePicture" alt="profile pic" src={user.profile_picture} />
+      <button onClick={() => props.universalDeleteFunction(user.id, 'users')}>Delete</button>
     </div>
   )
 

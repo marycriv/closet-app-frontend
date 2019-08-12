@@ -31,7 +31,7 @@ render(){
             </ul>
 
             <button onClick={(e) => this.setState({toggleEdit: !this.state.toggleEdit, itemId: e.target.parentElement.id})} >Edit item</button>
-            <button onClick={(e) => this.props.deleteFunction(e.target.parentElement.id)} >Delete item</button>
+            <button onClick={(e) => this.props.universalDeleteFunction(e.target.parentElement.id, 'items')} >Delete item</button>
 
 
             {this.state.toggleEdit && (parseInt(this.state.itemId) === item.id) ? <ItemForm universalPatchFunction={this.props.universalPatchFunction} /> : null}

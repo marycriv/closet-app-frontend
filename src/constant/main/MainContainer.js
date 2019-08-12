@@ -9,7 +9,7 @@ const MainContainer = (props) => {
 
   return (
     <div className="MainContainer">
-        <ProfileContainer universalPostFunction={props.universalPostFunction} universalPatchFunction={props.universalPatchFunction} deleteFunction={props.deleteFunction} />
+        <ProfileContainer universalPostFunction={props.universalPostFunction} universalPatchFunction={props.universalPatchFunction} universalDeleteFunction={props.universalDeleteFunction} />
     </div>
   )
 }

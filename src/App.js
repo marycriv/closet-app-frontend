@@ -113,8 +113,8 @@ class App extends React.Component {
   }
 
 
-  deleteFunction = (itemId) => {
-    fetch(`${API}/items/${parseInt(itemId)}`, {
+  universalDeleteFunction = (id, loc) => {
+    fetch(`${API}/${loc}/${parseInt(id)}`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -147,7 +147,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <TopBar />
-        {this.props.loggedIn ? <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} deleteFunction={this.deleteFunction} /> : <UserForm universalPostFunction={this.universalPostFunction} />}
+        {this.props.loggedIn ? <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction} /> : <UserForm universalPostFunction={this.universalPostFunction} />}
       </div>
     );
   }
