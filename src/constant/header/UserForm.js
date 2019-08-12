@@ -12,7 +12,7 @@ class UserForm extends React.Component {
   handleSubmit = (e, state) => {
     e.preventDefault();
 
-    const parent = e.target.parentElement.className
+    const parent = e.target.parentElement.parentElement.className
     const itemId = e.target.parentElement.id
     let params = {}
 
@@ -35,23 +35,26 @@ class UserForm extends React.Component {
 
   render(){
     return (
-      <form onSubmit={(e) => this.handleSubmit(e, this.state)}>
-        Username:
-        <input
-          type="text"
-          name="username"
-          value={this.state.username}
-          onChange={this.handleChange}
-        />
-        Profile picture:
-        <input
-          type="text"
-          name="profilePicture"
-          value={this.state.profilePicture}
-          onChange={this.handleChange}
-        />
-        <input type="submit" value="Submit" />
-      </form>
+      <div className="UserForm">
+        {!this.props.currentUserId ? <h2>New user form:</h2> : <h3>Edit current user info:</h3>}
+        <form onSubmit={(e) => this.handleSubmit(e, this.state)}>
+          Username:
+          <input
+            type="text"
+            name="username"
+            value={this.state.username}
+            onChange={this.handleChange}
+          />
+          Profile picture:
+          <input
+            type="text"
+            name="profilePicture"
+            value={this.state.profilePicture}
+            onChange={this.handleChange}
+          />
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     )
   }
 }

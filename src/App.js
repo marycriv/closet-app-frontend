@@ -27,7 +27,23 @@ class App extends React.Component {
     let payload = {}
     let loc = null
 
-    postFunc(params, type)
+    const fetchFunction = (loc, payload) => {
+      fetch(`${API}/${loc}`, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(payload)
+      })
+      .then(resp => resp.json())
+      .then((json) => {
+          this.getUsers()
+          this.getItems()
+          this.getOutfits()
+        }
+      )
+    }
 
     function postFunc(params, type){
 
@@ -60,18 +76,7 @@ class App extends React.Component {
       }
     }
 
-    function fetchFunction(loc, payload){
-      fetch(`${API}/${loc}`, {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        method: 'POST',
-        body: JSON.stringify(payload)
-      })
-      .then(resp => resp.json())
-      .then(console.log)
-    }
+    postFunc(params, type)
 
 
   }
@@ -110,8 +115,6 @@ class App extends React.Component {
 
     }
 
-
-
     const fetchFunction = (loc, patchLoc, payload) => {
       fetch(`${API}/${loc}/${patchLoc}`, {
         headers: {
@@ -122,7 +125,12 @@ class App extends React.Component {
         body: JSON.stringify(payload)
       })
       .then(resp => resp.json())
-      .then((bepis) => this.getUsers())
+      .then((json) => {
+          this.getUsers()
+          this.getItems()
+          this.getOutfits()
+        }
+      )
     }
 
     postFunc(params, type)

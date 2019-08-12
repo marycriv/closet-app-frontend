@@ -34,7 +34,15 @@ class OutfitForm extends React.Component {
 }
 
 
+
+
   render(){
+    const myItems = this.props.items.filter((item) => {return item.user_id === this.state.userId})
+
+    const myTops = myItems.filter(item => {return item.classification === 'top'})
+
+    const myBottoms = myItems.filter(item => {return item.classification === 'bottom'})
+
     return (
       <form onSubmit={(e) => this.handleSubmit(e, this.state)}>
         Name:
@@ -44,19 +52,26 @@ class OutfitForm extends React.Component {
           value={this.state.imageUrl}
           onChange={this.handleChange}
         />
-
+        <label>Top:</label>
         <select
           name="top"
           value={this.state.value} onChange={this.handleChange}>
-            <option value="1">t1</option>
-            <option value="2">t2</option>
+        {myTops.map(top => {
+          return (
+            <option value={top.id}>{top.id}</option>
+          )
+        })}
         </select>
 
+        <label>Bottom:</label>
         <select
           name="bottom"
           value={this.state.value} onChange={this.handleChange}>
-            <option value="1">b1</option>
-            <option value="2">b2</option>
+          {myBottoms.map(bottom => {
+            return (
+              <option value={bottom.id}>{bottom.id}</option>
+            )
+          })}
         </select>
 
         <input type="submit" value="Submit" />
@@ -70,7 +85,8 @@ function msp(state){
     loggedIn: state.loggedIn,
     currentUserId: state.currentUserId,
     users: state.users,
-    items: state.items
+    items: state.items,
+    outfits: state.outfits
   }
 }
 
