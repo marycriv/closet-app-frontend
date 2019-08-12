@@ -10,14 +10,14 @@ class OutfitForm extends React.Component {
   handleSubmit = (e, state) => {
     e.preventDefault();
 
-    // const parent = e.target.parentElement.className
-    // const itemId = e.target.parentElement.id
-    //
-    // if (parent === "OutfitCard") {
-    //   this.props.patchFunction(itemId, state.imageUrl, state.brand, state.classification)
-    // } else {
-    //   this.props.postFunction(state.imageUrl, state.brand, state.classification)
-    // }
+    const parent = e.target.parentElement.className
+    const itemId = e.target.parentElement.id
+
+    if (parent === "OutfitCard") {
+      this.props.universalPatchFunction(itemId, state.imageUrl, state.brand, state.classification)
+    } else {
+      this.props.universalPostFunction(state.imageUrl, state.brand, state.classification)
+    }
 
   }
 

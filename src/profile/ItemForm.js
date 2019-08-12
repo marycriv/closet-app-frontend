@@ -15,11 +15,25 @@ class ItemForm extends React.Component {
 
     const parent = e.target.parentElement.className
     const itemId = e.target.parentElement.id
+    let params = {}
 
     if (parent === "ItemCard") {
-      this.props.patchFunction(itemId, state.imageUrl, state.brand, state.classification)
+      params = {
+        image: state.imageUrl,
+        brand: state.brand,
+        classification: state.classification,
+        item_id: itemId
+      }
+
+      this.props.universalPatchFunction(params, "EDIT_ITEM")
     } else {
-      this.props.postFunction(state.imageUrl, state.brand, state.classification)
+      params = {
+        image: state.imageUrl,
+        brand: state.brand,
+        classification: state.classification
+      }
+
+      this.props.universalPostFunction(params, "NEW_ITEM")
     }
 
   }

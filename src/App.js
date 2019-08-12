@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import TopBar from './constant/header/TopBar';
+import UserForm from './constant/header/UserForm';
 import MainContainer from './constant/main/MainContainer';
 import { connect } from 'react-redux';
 
@@ -20,49 +21,97 @@ class App extends React.Component {
     this.getOutfits()
   }
 
-  postFunction = (imageUrl, brand, classification) => {
-    console.log(this.props.currentUserId, imageUrl, brand, classification)
-    let newItemSubmission = {
-      user_id: this.props.currentUserId,
-      image: imageUrl,
-      classification: classification,
-      brand: brand
+  universalPostFunction = (params, type) => {
+
+    let currentUserId = this.props.currentUserId
+    let payload = {}
+    let loc = null
+
+    function fetchFunction(loc, payload){
+      fetch(`${API}/${loc}`, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(payload)
+      })
+      .then(resp => resp.json())
+      .then(console.log)
     }
 
-    fetch(`${API}/items`, {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      method: 'POST',
-      body: JSON.stringify(newItemSubmission)
-    })
-    .then(resp => resp.json())
-    .then(console.log)
-  }
+    function postFunc(params, type){
 
-  patchFunction = (itemId, imageUrl, brand, classification) => {
-    console.log(itemId, this.props.currentUserId, imageUrl, brand, classification)
-
-    let newItemSubmission = {
-      user_id: this.props.currentUserId,
-      image: imageUrl,
-      classification: classification,
-      brand: brand
-
+      switch(type){
+      case "NEW_ITEM":
+        payload = {
+          user_id: currentUserId,
+          image: params.image,
+          classification: params.classification,
+          brand: params.brand
+        }
+        loc = 'items'
+        fetchFunction(loc, payload)
+      case "NEW_USER":
+        payload = {
+          username: params.username,
+          profile_picture: params.profilePicture
+        }
+        loc = 'users'
+        fetchFunction(loc, payload)
+      }
     }
 
-    fetch(`${API}/items/${parseInt(itemId)}`, {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      method: 'PATCH',
-      body: JSON.stringify(newItemSubmission)
-    })
-    .then(resp => resp.json())
-    .then(console.log)
+    postFunc(params, type)
+
+
   }
+
+  universalPatchFunction = (params, type) => {
+
+    let currentUserId = this.props.currentUserId
+    let payload = {}
+    let loc = null
+    let patchLoc = parseInt(params.item_id)
+
+    function fetchFunction(loc, patchLoc, payload){
+      fetch(`${API}/${loc}/${patchLoc}`, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: 'PATCH',
+        body: JSON.stringify(payload)
+      })
+      .then(resp => resp.json())
+      .then(console.log)
+    }
+
+    function postFunc(params, type){
+
+      switch(type){
+      case "EDIT_ITEM":
+        payload = {
+          user_id: currentUserId,
+          image: params.image,
+          classification: params.classification,
+          brand: params.brand
+        }
+        loc = 'items'
+        fetchFunction(loc, patchLoc, payload)
+      // case "EDIT_USER":
+      //   payload = {
+      //     username: params.username,
+      //     profile_picture: params.profilePicture
+      //   }
+      //   loc = 'users'
+      //   fetchFunction(loc, payload)
+      }
+    }
+
+    postFunc(params, type)
+  }
+
 
   deleteFunction = (itemId) => {
     fetch(`${API}/items/${parseInt(itemId)}`, {
@@ -98,7 +147,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <TopBar />
-        {this.props.loggedIn ? <MainContainer postFunction={this.postFunction} patchFunction={this.patchFunction} deleteFunction={this.deleteFunction} /> : null}
+        {this.props.loggedIn ? <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} deleteFunction={this.deleteFunction} /> : <UserForm universalPostFunction={this.universalPostFunction} />}
       </div>
     );
   }
