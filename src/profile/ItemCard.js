@@ -11,7 +11,6 @@ class ItemCard extends React.Component {
     itemId: null
   }
 
-
   // const user = props.users.find(user => user.id === props.currentUserId)
 
 

@@ -17,6 +17,7 @@ class App extends React.Component {
   componentDidMount(){
     this.getUsers()
     this.getItems()
+    this.getOutfits()
   }
 
   postFunction = (imageUrl, brand, classification) => {
@@ -87,6 +88,12 @@ class App extends React.Component {
     .then(items => this.props.sendItemsToState(items))
   }
 
+  getOutfits = () => {
+    fetch(`${API}/outfits`)
+    .then(resp => resp.json())
+    .then(outfits => this.props.sendOutfitsToState(outfits))
+  }
+
   render(){
     return (
       <div className="App">
@@ -102,7 +109,8 @@ function msp(state){
     loggedIn: state.loggedIn,
     currentUserId: state.currentUserId,
     users: state.users,
-    items: state.items
+    items: state.items,
+    outfits: state.outfits
   }
 }
 
@@ -113,6 +121,9 @@ function mdp(dispatch){
     },
     sendItemsToState: (items) => {
       dispatch({type: "GET_ITEMS", payload: items})
+    },
+    sendOutfitsToState: (outfits) => {
+      dispatch({type: "GET_OUTFITS", payload: outfits})
     }
   }
 }

@@ -5,6 +5,7 @@ const defaultState = {
   user: null,
   users: [],
   items: [],
+  outfits: []
 }
 
 function reducer(prevState=defaultState, action) {
@@ -17,6 +18,8 @@ function reducer(prevState=defaultState, action) {
       return {...prevState, users: action.payload}
     case "GET_ITEMS":
       return {...prevState, items: action.payload}
+    case "GET_OUTFITS":
+      return {...prevState, outfits: action.payload}
     default:
       return prevState
   }

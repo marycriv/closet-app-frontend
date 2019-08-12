@@ -12,6 +12,10 @@ function getUsers(){
   return {type: "GET_ITEMS"}
 }
 
+function getOutfits(){
+  return {type: "GET_OUTFITS"}
+}
+
 function handleChange(text){
   return {type: "HANDLE_CHANGE", payload: text}
 }
