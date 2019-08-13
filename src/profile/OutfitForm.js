@@ -4,25 +4,45 @@ import { connect } from 'react-redux';
 
 class OutfitForm extends React.Component {
   state = {
-    userId: this.props.currentUserId
+    userId: this.props.currentUserId,
+    outfitName: "outfit test",
+    top: "39",
+    bottom: "38"
   }
 
   handleSubmit = (e, state) => {
     e.preventDefault();
 
     const parent = e.target.parentElement.className
-    const itemId = e.target.parentElement.id
+
     let params = {}
 
+    console.log(this.state.top, this.state.bottom)
+
+
     if (parent === "OutfitCard") {
-      this.props.universalPatchFunction(itemId, state.imageUrl, state.brand, state.classification)
+      this.props.universalPatchFunction()
     } else {
       params = {
-        name: "outfit three",
+        name: this.state.outfitName,
         user_id: 15
-      }
-
+    }
       this.props.universalPostFunction(params, "NEW_OUTFIT")
+
+      //top
+      params = {
+        outfit_id: this.props.outfits.slice(-1)[0].id + 1,
+        item_id: parseInt(this.state.top)
+      }
+      this.props.universalPostFunction(params, "NEW_OUTFIT_ITEM")
+
+      // bottom
+      params = {
+        outfit_id: this.props.outfits.slice(-1)[0].id + 1,
+        item_id: parseInt(this.state.bottom)
+      }
+      this.props.universalPostFunction(params, "NEW_OUTFIT_ITEM")
+
     }
 
   }
@@ -48,31 +68,25 @@ class OutfitForm extends React.Component {
         Name:
         <input
           type="text"
-          name="imageUrl"
-          value={this.state.imageUrl}
+          name="outfitName"
+          value={this.state.outfitName}
           onChange={this.handleChange}
         />
         <label>Top:</label>
-        <select
+        <input
+          type="text"
           name="top"
-          value={this.state.value} onChange={this.handleChange}>
-        {myTops.map(top => {
-          return (
-            <option value={top.id}>{top.id}</option>
-          )
-        })}
-        </select>
+          value={this.state.top}
+          onChange={this.handleChange}
+        />
 
         <label>Bottom:</label>
-        <select
+        <input
+          type="text"
           name="bottom"
-          value={this.state.value} onChange={this.handleChange}>
-          {myBottoms.map(bottom => {
-            return (
-              <option value={bottom.id}>{bottom.id}</option>
-            )
-          })}
-        </select>
+          value={this.state.bottom}
+          onChange={this.handleChange}
+        />
 
         <input type="submit" value="Submit" />
       </form>

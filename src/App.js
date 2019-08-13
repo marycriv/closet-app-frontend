@@ -69,10 +69,17 @@ class App extends React.Component {
         payload = {
           name: params.name,
           user_id: params.user_id
-          // ITEMS GO HERE
         }
         loc = 'outfits'
         fetchFunction(loc, payload)
+      case "NEW_OUTFIT_ITEM":
+      payload = {
+        outfit_id: params.outfit_id,
+        item_id: params.item_id
+      }
+      fetchFunction('outfit_items', payload)
+      default:
+        return null
       }
     }
 
@@ -145,8 +152,12 @@ class App extends React.Component {
       },
       method: 'DELETE'
     })
-    .then(resp => resp.json())
-    .then(console.log)
+    .then(() => {
+        this.getUsers()
+        this.getItems()
+        this.getOutfits()
+      })
+
   }
 
   getUsers = () => {
