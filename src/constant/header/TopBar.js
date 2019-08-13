@@ -1,16 +1,35 @@
 import React from 'react';
 import './header.css';
 import LoginForm from './LoginForm';
+import UserHeader from './UserHeader';
 
 import { Link } from 'react-router-dom';
 
-const TopBar = () => {
-  return (
-    <div className="TopBar">
-      <Link to="/">My Closet App</Link>
-      <LoginForm />
-    </div>
-  )
+import { connect } from 'react-redux';
+
+class TopBar extends React.Component{
+  render(){
+    return (
+      <div className="TopBar">
+        <Link to="/">My Closet App</Link>
+        {!this.props.loggedIn ? <LoginForm /> : <UserHeader universalPostFunction={this.props.universalPostFunction} />}
+      </div>
+    )
+  }
 }
 
-export default TopBar
+function msp(state){
+  return {
+    loggedIn: state.loggedIn,
+    currentUserId: state.currentUserId,
+    users: state.users
+  }
+}
+
+function mdp(dispatch){
+  return {
+
+  }
+}
+
+export default connect(msp, mdp)(TopBar)

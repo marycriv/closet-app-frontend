@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './profile.css';
+
 import './../App.css';
 
 import { connect } from 'react-redux';
@@ -20,20 +22,20 @@ class OutfitCard extends React.Component {
     const outfits = this.props.outfits.filter(outfit => {return outfit.user_id === this.props.currentUserId})
 
     return (
-      <div>
+      <div className="OutfitCard">
       {outfits.map((outfit) => {
         return (
-          <div id={outfit.id} className="OutfitCard">
+          <div id={outfit.id}>
             <h3>Outfit name: {outfit.name}</h3>
+            <div className="gallery">
             {outfit.items.map((item) => {
               return (
-                <div>
-                  <p id={item.id}>{item.classification}</p>
-                  <h4>{item.brand}</h4>
+                <div className="gallery-item">
+                  <p hidden id={item.id}>{item.classification}</p>
                   <img width="100px" alt="item" src={item.image} />
                 </div>
               )})}
-
+              </div>
               <button onClick={(e) => this.props.universalDeleteFunction(e.target.parentElement.id, 'outfits')} >Delete outfit</button>
 
           </div>

@@ -16,8 +16,8 @@ class ItemForm extends React.Component {
     const parent = e.target.parentElement.className
     const itemId = e.target.parentElement.id
     let params = {}
-
-    if (parent === "ItemCard") {
+    //remember this is conditional
+    if (parent === "gallery-item") {
       params = {
         image: state.imageUrl,
         brand: state.brand,

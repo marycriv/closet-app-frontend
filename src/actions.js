@@ -1,4 +1,4 @@
-import { LOGIN, HANDLE_CHANGE, GET_USERS, GET_ITEMS, ADD_USER } from './types'
+import { LOGIN, HANDLE_CHANGE, GET_USERS, GET_ITEMS, ADD_USER, GET_FOLLOWS} from './types'
 
 function login(){
   return {type: LOGIN}
@@ -10,6 +10,10 @@ function getUsers(){
 
 function getItems(){
   return {type: GET_ITEMS}
+}
+
+function getFollows(){
+  return {type: GET_FOLLOWS}
 }
 
 function getOutfits(){

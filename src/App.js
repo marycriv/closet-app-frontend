@@ -19,6 +19,7 @@ class App extends React.Component {
     this.getUsers()
     this.getItems()
     this.getOutfits()
+    this.getFollows()
   }
 
   universalPostFunction = (params, type) => {
@@ -76,13 +77,21 @@ class App extends React.Component {
         loc = 'outfits'
         fetchFunction(loc, payload)
         break
+      //UNTESTED:
+      case "NEW_FOLLOW":
+        payload = {
+          follower_id: currentUserId,
+          followee_id: params
+        }
+        loc = 'follows'
+        fetchFunction(loc, payload)
+        break
       default:
         return null
       }
     }
 
     postFunc(params, type)
-
 
   }
 
@@ -172,6 +181,12 @@ class App extends React.Component {
     .then(items => this.props.sendItemsToState(items))
   }
 
+  getFollows = () => {
+    fetch(`${API}/follows`)
+    .then(resp => resp.json())
+    .then(follows => this.props.sendFollowsToState(follows))
+  }
+
   getOutfits = () => {
     fetch(`${API}/outfits`)
     .then(resp => resp.json())
@@ -181,7 +196,7 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <TopBar />
+        <TopBar universalPostFunction={this.universalPostFunction} />
         {this.props.loggedIn ? <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction} /> : <UserForm universalPostFunction={this.universalPostFunction} />}
       </div>
     );
@@ -205,6 +220,9 @@ function mdp(dispatch){
     },
     sendItemsToState: (items) => {
       dispatch({type: "GET_ITEMS", payload: items})
+    },
+    sendFollowsToState: (follows) => {
+      dispatch({type: "GET_FOLLOWS", payload: follows})
     },
     sendOutfitsToState: (outfits) => {
       dispatch({type: "GET_OUTFITS", payload: outfits})

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './profile.css'
+
 import { connect } from 'react-redux';
 
 import ItemForm from './ItemForm';
@@ -14,14 +16,15 @@ class ItemCard extends React.Component {
   // const user = props.users.find(user => user.id === props.currentUserId)
 
 
-
+  // remember patch by element id!!
+  
 render(){
   const items = this.props.items.filter(item => {return item.user_id === this.props.currentUserId})
   return (
-    <div className="ItemCard">
+    <div className="gallery">
       {items.map((item) => {
         return (
-          <div className="ItemCard" id={item.id}>
+          <div className="gallery-item" id={item.id}>
             <img width="250px" alt={`${item.user_id}-${item.brand}`} key={`${item.brand}-${item.id}`} src={item.image}  />
             <ul>
               <li>Id: {item.id}</li>

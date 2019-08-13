@@ -2,6 +2,8 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
+import './profile.css'
+
 import ItemCard from './ItemCard';
 
 import UserData from './UserData';
@@ -12,11 +14,15 @@ import OutfitsContainer from './OutfitsContainer';
 const ProfileContainer = (props) => {
   return (
     <div className="ProfileContainer">
-      <UserData universalDeleteFunction={props.universalDeleteFunction} universalPatchFunction={props.universalPatchFunction}/>
-      <h3>New item form:</h3>
-      <ItemForm universalPostFunction={props.universalPostFunction}
-      universalPatchFunction={props.universalPatchFunction}
-      />
+      <div>
+        <UserData universalDeleteFunction={props.universalDeleteFunction} universalPatchFunction={props.universalPatchFunction}/>
+        <br/>
+        <h3>New item form:</h3>
+        <br/>
+        <ItemForm universalPostFunction={props.universalPostFunction}
+        universalPatchFunction={props.universalPatchFunction}
+        />
+      </div>
       <ItemCard universalPatchFunction={props.universalPatchFunction} universalDeleteFunction={props.universalDeleteFunction} />
       <OutfitsContainer
       universalPostFunction={props.universalPostFunction}
