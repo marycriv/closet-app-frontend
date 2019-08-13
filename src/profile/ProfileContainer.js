@@ -13,6 +13,7 @@ const ProfileContainer = (props) => {
   return (
     <div className="ProfileContainer">
       <UserData universalDeleteFunction={props.universalDeleteFunction} universalPatchFunction={props.universalPatchFunction}/>
+      <h3>New item form:</h3>
       <ItemForm universalPostFunction={props.universalPostFunction}
       universalPatchFunction={props.universalPatchFunction}
       />

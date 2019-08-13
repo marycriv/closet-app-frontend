@@ -10,63 +10,18 @@ class OutfitForm extends React.Component {
     bottom: "38"
   }
 
-  handleSubmit = (e, state) => {
+  handleSubmit = (e, state, topItem, bottomItem) => {
     e.preventDefault();
-    const parent = e.target.parentElement.className
 
     let params = {}
 
-    console.log(this.state.top, this.state.bottom)
-
-
-    if (parent === "OutfitCard") {
-      console.log("EDIT OUTFIT BUTTON CLICKED")
-      this.props.universalDeleteFunction(this.props.outfitId, "outfits")
-      console.log("Now time to edit")
-
-      params = {
+    params = {
         name: this.state.outfitName,
-        user_id: 15
+        user_id: this.state.userId,
+        topItem: topItem.id,
+        bottomItem: bottomItem.id
     }
-      this.props.universalPostFunction(params, "NEW_OUTFIT")
-
-      //top
-      params = {
-        outfit_id: this.props.outfits.slice(-1)[0].id + 1,
-        item_id: parseInt(this.state.top)
-      }
-      this.props.universalPostFunction(params, "NEW_OUTFIT_ITEM")
-
-      // bottom
-      params = {
-        outfit_id: this.props.outfits.slice(-1)[0].id + 1,
-        item_id: parseInt(this.state.bottom)
-      }
-      this.props.universalPostFunction(params, "NEW_OUTFIT_ITEM")
-
-
-    } else {
-      params = {
-        name: this.state.outfitName,
-        user_id: 15
-    }
-      this.props.universalPostFunction(params, "NEW_OUTFIT")
-
-      //top
-      params = {
-        outfit_id: this.props.outfits.slice(-1)[0].id + 1,
-        item_id: parseInt(this.state.top)
-      }
-      this.props.universalPostFunction(params, "NEW_OUTFIT_ITEM")
-
-      // bottom
-      params = {
-        outfit_id: this.props.outfits.slice(-1)[0].id + 1,
-        item_id: parseInt(this.state.bottom)
-      }
-      this.props.universalPostFunction(params, "NEW_OUTFIT_ITEM")
-
-    }
+    this.props.universalPostFunction(params, "NEW_OUTFIT")
 
   }
 
@@ -77,14 +32,13 @@ class OutfitForm extends React.Component {
 }
 
   render(){
-    const myItems = this.props.items.filter((item) => {return item.user_id === this.state.userId})
 
-    const myTops = myItems.filter(item => {return item.classification === 'top'})
+    let topItem = this.props.items.find(item => item.id === parseInt(this.state.top) && item.user_id === this.state.userId)
 
-    const myBottoms = myItems.filter(item => {return item.classification === 'bottom'})
+    let bottomItem = this.props.items.find(item => item.id === parseInt(this.state.bottom) && item.user_id === this.state.userId)
 
     return (
-      <form onSubmit={(e) => this.handleSubmit(e, this.state)}>
+      <form onSubmit={(e) => this.handleSubmit(e, this.state, topItem, bottomItem)}>
         Name:
         <input
           type="text"

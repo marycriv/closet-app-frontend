@@ -13,7 +13,6 @@ class UserForm extends React.Component {
     e.preventDefault();
 
     const parent = e.target.parentElement.parentElement.className
-    const itemId = e.target.parentElement.id
     let params = {}
 
     if (parent === "UserData") {

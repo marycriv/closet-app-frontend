@@ -57,6 +57,7 @@ class App extends React.Component {
         }
         loc = 'items'
         fetchFunction(loc, payload)
+        break
       case "NEW_USER":
         payload = {
           username: params.username,
@@ -64,20 +65,17 @@ class App extends React.Component {
         }
         loc = 'users'
         fetchFunction(loc, payload)
-
+        break
       case "NEW_OUTFIT":
         payload = {
           name: params.name,
-          user_id: params.user_id
+          user_id: params.user_id,
+          topId: params.topItem,
+          bottomId: params.bottomItem
         }
         loc = 'outfits'
         fetchFunction(loc, payload)
-      case "NEW_OUTFIT_ITEM":
-      payload = {
-        outfit_id: params.outfit_id,
-        item_id: params.item_id
-      }
-      fetchFunction('outfit_items', payload)
+        break
       default:
         return null
       }
@@ -108,6 +106,7 @@ class App extends React.Component {
         }
         loc = 'items'
         fetchFunction(loc, patchLoc, payload)
+        break
       case "EDIT_USER":
         patchLoc = parseInt(params.id)
         payload = {
@@ -116,6 +115,7 @@ class App extends React.Component {
         }
         loc = 'users'
         fetchFunction(loc, patchLoc, payload)
+        break
       default:
         return  null
       }

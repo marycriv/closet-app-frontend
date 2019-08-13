@@ -5,13 +5,15 @@ import { connect } from 'react-redux';
 class LoginForm extends React.Component {
 
   state = {
-    value: 15
+    value: "elle"
   }
 
   submission = (e, userInput) => {
     e.preventDefault();
-    userInput = parseInt(userInput)
-    this.props.users.map(user => {return user.id}).includes(userInput) ? this.props.login(userInput) : alert("Invalid login credentials")
+
+    let idNumber = this.props.users.map(user => {return user.username}).includes(userInput) ? this.props.users.find(user => user.username === userInput).id : null
+
+    this.props.users.map(user => {return user.id}).includes(idNumber) ? this.props.login(idNumber) : alert("Invalid login credentials")
   }
 
   handleLoginChange = (event) => {
@@ -24,7 +26,8 @@ class LoginForm extends React.Component {
   render(){
     return (
       <form onSubmit={(e) => this.submission(e, this.state.value)}>
-      User Id:
+      <h3>Login</h3>
+      Username:
         <input
           type="text"
           // defaultValue="5"

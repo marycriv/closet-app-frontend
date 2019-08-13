@@ -4,8 +4,6 @@ import './../App.css';
 
 import { connect } from 'react-redux';
 
-import OutfitForm from './OutfitForm';
-
 class OutfitCard extends React.Component {
 
   state = {
@@ -36,15 +34,7 @@ class OutfitCard extends React.Component {
                 </div>
               )})}
 
-              <button onClick={(e) => this.setState({toggleEdit: !this.state.toggleEdit, outfitId: e.target.parentElement.id})} >Edit outfit</button>
               <button onClick={(e) => this.props.universalDeleteFunction(e.target.parentElement.id, 'outfits')} >Delete outfit</button>
-
-              {this.state.toggleEdit && (parseInt(this.state.outfitId) === outfit.id) ?
-                <OutfitForm
-                outfitId={outfit.id}
-                universalDeleteFunction={this.props.universalDeleteFunction}
-                universalPostFunction={this.props.universalPostFunction}
-                /> : null}
 
           </div>
         )
