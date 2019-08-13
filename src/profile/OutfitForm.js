@@ -12,7 +12,6 @@ class OutfitForm extends React.Component {
 
   handleSubmit = (e, state) => {
     e.preventDefault();
-
     const parent = e.target.parentElement.className
 
     let params = {}
@@ -22,6 +21,28 @@ class OutfitForm extends React.Component {
 
     if (parent === "OutfitCard") {
       console.log("EDIT OUTFIT BUTTON CLICKED")
+      this.props.universalDeleteFunction(this.props.outfitId, "outfits")
+      console.log("Now time to edit")
+
+      params = {
+        name: this.state.outfitName,
+        user_id: 15
+    }
+      this.props.universalPostFunction(params, "NEW_OUTFIT")
+
+      //top
+      params = {
+        outfit_id: this.props.outfits.slice(-1)[0].id + 1,
+        item_id: parseInt(this.state.top)
+      }
+      this.props.universalPostFunction(params, "NEW_OUTFIT_ITEM")
+
+      // bottom
+      params = {
+        outfit_id: this.props.outfits.slice(-1)[0].id + 1,
+        item_id: parseInt(this.state.bottom)
+      }
+      this.props.universalPostFunction(params, "NEW_OUTFIT_ITEM")
 
 
     } else {

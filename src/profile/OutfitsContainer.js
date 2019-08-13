@@ -8,7 +8,10 @@ import OutfitForm from './OutfitForm';
 const OutfitsContainer = (props) => {
   return (
     <div className="OutfitsContainer">
-      <OutfitCard universalDeleteFunction={props.universalDeleteFunction} />
+      <OutfitCard universalDeleteFunction={props.universalDeleteFunction}
+      universalPatchFunction={props.universalPatchFunction}
+      universalPostFunction={props.universalPostFunction}
+       />
       <OutfitForm universalPostFunction={props.universalPostFunction}
       universalPatchFunction={props.universalPatchFunction} />
     </div>

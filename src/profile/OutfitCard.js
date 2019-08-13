@@ -21,9 +21,6 @@ class OutfitCard extends React.Component {
     // outfit doesnt have user_id
     const outfits = this.props.outfits.filter(outfit => {return outfit.user_id === this.props.currentUserId})
 
-
-    console.log("bepis", outfits)
-
     return (
       <div>
       {outfits.map((outfit) => {
@@ -33,7 +30,8 @@ class OutfitCard extends React.Component {
             {outfit.items.map((item) => {
               return (
                 <div>
-                  <p>{item.brand}</p>
+                  <p id={item.id}>{item.classification}</p>
+                  <h4>{item.brand}</h4>
                   <img width="100px" alt="item" src={item.image} />
                 </div>
               )})}
@@ -41,7 +39,12 @@ class OutfitCard extends React.Component {
               <button onClick={(e) => this.setState({toggleEdit: !this.state.toggleEdit, outfitId: e.target.parentElement.id})} >Edit outfit</button>
               <button onClick={(e) => this.props.universalDeleteFunction(e.target.parentElement.id, 'outfits')} >Delete outfit</button>
 
-              {this.state.toggleEdit && (parseInt(this.state.outfitId) === outfit.id) ? <OutfitForm universalPatchFunction={this.props.universalPatchFunction} /> : null}
+              {this.state.toggleEdit && (parseInt(this.state.outfitId) === outfit.id) ?
+                <OutfitForm
+                outfitId={outfit.id}
+                universalDeleteFunction={this.props.universalDeleteFunction}
+                universalPostFunction={this.props.universalPostFunction}
+                /> : null}
 
           </div>
         )
