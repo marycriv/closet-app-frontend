@@ -21,7 +21,9 @@ class OutfitForm extends React.Component {
 
 
     if (parent === "OutfitCard") {
-      this.props.universalPatchFunction()
+      console.log("EDIT OUTFIT BUTTON CLICKED")
+
+
     } else {
       params = {
         name: this.state.outfitName,
@@ -52,9 +54,6 @@ class OutfitForm extends React.Component {
     [e.target.name]: e.target.value
   })
 }
-
-
-
 
   render(){
     const myItems = this.props.items.filter((item) => {return item.user_id === this.state.userId})

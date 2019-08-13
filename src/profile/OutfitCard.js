@@ -4,7 +4,14 @@ import './../App.css';
 
 import { connect } from 'react-redux';
 
+import OutfitForm from './OutfitForm';
+
 class OutfitCard extends React.Component {
+
+  state = {
+    toggleEdit: false,
+    outfitId: null
+  }
 
   render(){
 
@@ -21,7 +28,7 @@ class OutfitCard extends React.Component {
       <div>
       {outfits.map((outfit) => {
         return (
-          <div className="OutfitCard">
+          <div id={outfit.id} className="OutfitCard">
             <h3>Outfit name: {outfit.name}</h3>
             {outfit.items.map((item) => {
               return (
@@ -30,7 +37,12 @@ class OutfitCard extends React.Component {
                   <img width="100px" alt="item" src={item.image} />
                 </div>
               )})}
-              <button onClick={() => this.props.universalDeleteFunction(outfit.id, 'outfits')}>Delete</button>
+
+              <button onClick={(e) => this.setState({toggleEdit: !this.state.toggleEdit, outfitId: e.target.parentElement.id})} >Edit outfit</button>
+              <button onClick={(e) => this.props.universalDeleteFunction(e.target.parentElement.id, 'outfits')} >Delete outfit</button>
+
+              {this.state.toggleEdit && (parseInt(this.state.outfitId) === outfit.id) ? <OutfitForm universalPatchFunction={this.props.universalPatchFunction} /> : null}
+
           </div>
         )
       })}
