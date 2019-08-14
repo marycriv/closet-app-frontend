@@ -2,7 +2,7 @@ import React from 'react';
 
 import './profile.css';
 
-import './../App.css';
+import './App.css';
 
 import { connect } from 'react-redux';
 
@@ -20,7 +20,7 @@ class OutfitCard extends React.Component {
 
     // outfit doesnt have user_id
     const outfits = this.props.outfits.filter(outfit => {return outfit.user_id === this.props.currentUserId})
-    
+
     return (
       <div className="OutfitCard">
       {outfits.map((outfit) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './../../profile/profile.css'
+import './profile.css'
 
 import { connect } from 'react-redux';
 

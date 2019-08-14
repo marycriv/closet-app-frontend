@@ -1,3 +1,4 @@
+import { LOGIN, LOGOUT, HANDLE_CHANGE, GET_USERS, GET_ITEMS, GET_FOLLOWS, GET_OUTFITS, ADD_USER } from './types'
 
 const defaultState = {
   loggedIn: false,

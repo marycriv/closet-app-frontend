@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
-import TopBar from './constant/header/TopBar';
-import UserForm from './constant/header/UserForm';
-import MainContainer from './constant/main/MainContainer';
+import TopBar from './TopBar';
+import UserForm from './UserForm';
+import MainContainer from './MainContainer';
 import { connect } from 'react-redux';
+
+import { Route, Switch } from 'react-router-dom'
 
 const API = "http://localhost:3001"
 

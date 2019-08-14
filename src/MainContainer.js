@@ -1,7 +1,7 @@
 import React from 'react';
 import './main.css';
 
-import ProfileContainer from './../../profile/ProfileContainer'
+import ProfileContainer from './ProfileContainer'
 
 import { connect } from 'react-redux';
 

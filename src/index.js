@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import ProfileContainer from './profile/ProfileContainer'
+import ProfileContainer from './ProfileContainer'
 
 import * as serviceWorker from './serviceWorker';
 
@@ -18,9 +18,7 @@ const store = createStore(reducer)
 
 ReactDOM.render(<Provider store={store}>
   <Router>
-    <div>
-      <Route path="/" component={App} />
-    </div>
+    <Route path="/" component={App} />
   </Router>
   </Provider>, document.getElementById('root'));
 
