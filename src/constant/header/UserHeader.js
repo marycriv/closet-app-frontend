@@ -14,6 +14,7 @@ class UserHeader extends React.Component{
         <UserData
           universalDeleteFunction={this.props.universalDeleteFunction} universalPatchFunction={this.props.universalPatchFunction}
          />
+         <h3>Follow suggestions:</h3>
          <div className="FollowersBox">
         {this.props.users.filter((user) => {return !followees.includes(user.id) && user.id !== this.props.currentUserId}).map(user =>
             <div className="FollowersItem">

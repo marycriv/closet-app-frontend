@@ -26,7 +26,7 @@ render(){
       <br/>
       <button onClick={() => this.setState({toggleEdit: !this.state.toggleEdit})}>Edit user info!</button>
       <br/><br/>
-      { !this.state.toggleEdit ? null : <div><button onClick={() => this.props.universalDeleteFunction(user.id, 'users')}>Delete</button>
+      { !this.state.toggleEdit ? null : <div className="UserSettings"><button onClick={() => this.props.universalDeleteFunction(user.id, 'users')}>Delete</button>
       <UserForm universalPatchFunction={this.props.universalPatchFunction} /><br/><br/></div>}
     </div>
   )
