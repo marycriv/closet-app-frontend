@@ -196,7 +196,9 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <TopBar universalPostFunction={this.universalPostFunction} />
+        <TopBar universalPostFunction={this.universalPostFunction}
+        universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
+        />
         {this.props.loggedIn ? <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction} /> : <UserForm universalPostFunction={this.universalPostFunction} />}
       </div>
     );

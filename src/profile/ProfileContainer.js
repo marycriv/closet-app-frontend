@@ -6,7 +6,6 @@ import './profile.css'
 
 import ItemCard from './ItemCard';
 
-import UserData from './UserData';
 import ItemForm from './ItemForm';
 
 import OutfitsContainer from './OutfitsContainer';
@@ -15,8 +14,6 @@ const ProfileContainer = (props) => {
   return (
     <div className="ProfileContainer">
       <div>
-        <UserData universalDeleteFunction={props.universalDeleteFunction} universalPatchFunction={props.universalPatchFunction}/>
-        <br/>
         <h3>New item form:</h3>
         <br/>
         <ItemForm universalPostFunction={props.universalPostFunction}

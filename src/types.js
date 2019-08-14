@@ -1,4 +1,5 @@
 const LOGIN = "LOGIN"
+const LOGOUT = "LOGOUT"
 const HANDLE_CHANGE = "HANDLE_CHANGE"
 const GET_USERS = "GET_USERS"
 const GET_ITEMS = "GET_ITEMS"
@@ -8,6 +9,7 @@ const ADD_USER = "ADD_USER"
 
 export {
   LOGIN,
+  LOGOUT,
   HANDLE_CHANGE,
   GET_USERS,
   GET_ITEMS,

@@ -25,12 +25,12 @@ class OutfitCard extends React.Component {
       <div className="OutfitCard">
       {outfits.map((outfit) => {
         return (
-          <div id={outfit.id}>
+          <div id={outfit.id} style={{border: 'solid darkviolet'}}>
             <h3>Outfit name: {outfit.name}</h3>
-            <div className="gallery">
+            <div className="CardGallery">
             {outfit.items.map((item) => {
               return (
-                <div className="gallery-item">
+                <div className="CardGalleryItem">
                   <p hidden id={item.id}>{item.classification}</p>
                   <img width="100px" alt="item" src={item.image} />
                 </div>

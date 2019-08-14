@@ -13,6 +13,8 @@ function reducer(prevState=defaultState, action) {
   switch(action.type){
     case "LOGIN":
       return {...prevState, loggedIn: true, currentUserId: action.payload, user: prevState.users.find(user => user.id === action.payload)}
+    case "LOGOUT":
+      return {...prevState, loggedIn: false, currentUserId: null, user: null}
     case "HANDLE_CHANGE":
       return {...prevState, text: action.payload}
     case "GET_USERS":

@@ -12,7 +12,9 @@ class TopBar extends React.Component{
     return (
       <div className="TopBar">
         <Link to="/">My Closet App</Link>
-        {!this.props.loggedIn ? <LoginForm /> : <UserHeader universalPostFunction={this.props.universalPostFunction} />}
+        {!this.props.loggedIn ? <LoginForm /> : <UserHeader universalPostFunction={this.props.universalPostFunction}
+        universalPatchFunction={this.props.universalPatchFunction} universalDeleteFunction={this.props.universalDeleteFunction}
+        />}
       </div>
     )
   }

@@ -17,14 +17,14 @@ class ItemCard extends React.Component {
 
 
   // remember patch by element id!!
-  
+
 render(){
   const items = this.props.items.filter(item => {return item.user_id === this.props.currentUserId})
   return (
-    <div className="gallery">
+    <div className="CardGallery">
       {items.map((item) => {
         return (
-          <div className="gallery-item" id={item.id}>
+          <div className="CardGalleryItem" id={item.id}>
             <img width="250px" alt={`${item.user_id}-${item.brand}`} key={`${item.brand}-${item.id}`} src={item.image}  />
             <ul>
               <li>Id: {item.id}</li>

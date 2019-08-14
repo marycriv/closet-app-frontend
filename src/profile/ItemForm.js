@@ -17,7 +17,7 @@ class ItemForm extends React.Component {
     const itemId = e.target.parentElement.id
     let params = {}
     //remember this is conditional
-    if (parent === "gallery-item") {
+    if (parent === "CardGalleryItem") {
       params = {
         image: state.imageUrl,
         brand: state.brand,
@@ -47,6 +47,7 @@ class ItemForm extends React.Component {
 
   render(){
     return (
+      <div className="ItemForm">
       <form onSubmit={(e) => this.handleSubmit(e, this.state)}>
         Image URL:
         <input
@@ -70,6 +71,7 @@ class ItemForm extends React.Component {
         </select>
         <input type="submit" value="Submit" />
       </form>
+      </div>
     )
   }
 }

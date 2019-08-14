@@ -1,7 +1,11 @@
-import { LOGIN, HANDLE_CHANGE, GET_USERS, GET_ITEMS, ADD_USER, GET_FOLLOWS} from './types'
+import { LOGIN, LOGOUT, HANDLE_CHANGE, GET_USERS, GET_ITEMS, ADD_USER, GET_FOLLOWS} from './types'
 
 function login(){
   return {type: LOGIN}
+}
+
+function logout(){
+  return {type: LOGOUT}
 }
 
 function getUsers(){
@@ -30,8 +34,5 @@ function addUser(user){
 
 
 export {
-  like,
-  dislike,
-  toggleDark,
-  handleChange
+  logout
 }
