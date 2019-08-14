@@ -12,7 +12,6 @@
     flex: 1 0 15rem;
     margin: 1rem;
     color: #fff;
-    cursor: pointer;
 }
 
 .UserData{
@@ -30,5 +29,5 @@
 }
 
 .FollowersItem {
-  width: 50%;
+  width: 20%;
 }

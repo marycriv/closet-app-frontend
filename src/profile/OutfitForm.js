@@ -7,10 +7,11 @@ class OutfitForm extends React.Component {
     userId: this.props.currentUserId,
     outfitName: "outfit test",
     top: "39",
-    bottom: "38"
+    bottom: "38",
+    shoes: "56"
   }
 
-  handleSubmit = (e, state, topItem, bottomItem) => {
+  handleSubmit = (e, state, topItem, bottomItem, shoesItem) => {
     e.preventDefault();
 
     let params = {}
@@ -19,7 +20,8 @@ class OutfitForm extends React.Component {
         name: this.state.outfitName,
         user_id: this.state.userId,
         topItem: topItem.id,
-        bottomItem: bottomItem.id
+        bottomItem: bottomItem.id,
+        shoesItem: shoesItem.id
     }
     this.props.universalPostFunction(params, "NEW_OUTFIT")
 
@@ -37,8 +39,11 @@ class OutfitForm extends React.Component {
 
     let bottomItem = this.props.items.find(item => item.id === parseInt(this.state.bottom) && item.user_id === this.state.userId)
 
+    let shoesItem = this.props.items.find(item => item.id === parseInt(this.state.shoes) && item.user_id === this.state.userId)
+
+
     return (
-      <form onSubmit={(e) => this.handleSubmit(e, this.state, topItem, bottomItem)}>
+      <form onSubmit={(e) => this.handleSubmit(e, this.state, topItem, bottomItem, shoesItem)}>
         Name:
         <input
           type="text"
@@ -59,6 +64,14 @@ class OutfitForm extends React.Component {
           type="text"
           name="bottom"
           value={this.state.bottom}
+          onChange={this.handleChange}
+        />
+
+        <label>Shoes:</label>
+        <input
+          type="text"
+          name="shoes"
+          value={this.state.shoes}
           onChange={this.handleChange}
         />
 

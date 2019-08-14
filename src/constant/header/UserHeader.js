@@ -18,17 +18,17 @@ class UserHeader extends React.Component{
          <div className="FollowersBox">
         {this.props.users.filter((user) => {return !followees.includes(user.id) && user.id !== this.props.currentUserId}).map(user =>
             <div className="FollowersItem">
-            <img src={user.profile_picture} /><br/>
+            <img width="100px" src={user.profile_picture} /><br/>
             <button onClick={() => this.props.universalPostFunction(user.id, "NEW_FOLLOW")}>FOLLOW {user.username}!</button>
             </div>
           )}</div>
         <h4>Followers ({followers.length}): </h4>
         <div className="FollowersBox" style={{border: 'solid hotpink'}}>
-          {followers.map(follower => this.props.users.find(user => user.id === follower)).map(user => <div><img src={user.profile_picture} title={user.username}/><h4>{user.username}</h4></div>)}
+          {followers.map(follower => this.props.users.find(user => user.id === follower)).map(user => <div><img width="100px" src={user.profile_picture} title={user.username}/><h4>{user.username}</h4></div>)}
         </div>
         <h4>Following: </h4>
         <div className="FollowersBox" style={{border: 'solid aquamarine'}}>
-          {followees.map(followee => this.props.users.find(user => user.id === followee)).map(user => <div className="FollowersItem"><img title={user.username} src={user.profile_picture}/><h4>{user.username}</h4></div>)}
+          {followees.map(followee => this.props.users.find(user => user.id === followee)).map(user => <div className="FollowersItem"><img width="100px" title={user.username} src={user.profile_picture}/><h4>{user.username}</h4></div>)}
         </div>
       </div>
     )

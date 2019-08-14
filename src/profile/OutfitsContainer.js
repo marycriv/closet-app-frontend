@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import OutfitCard from './OutfitCard';
 import OutfitForm from './OutfitForm';
 
+
 const OutfitsContainer = (props) => {
   return (
     <div className="OutfitsContainer">
@@ -15,6 +16,7 @@ const OutfitsContainer = (props) => {
       <OutfitForm
         universalPostFunction={props.universalPostFunction}
         universalPatchFunction={props.universalPatchFunction} />
+
     </div>
   )
 }

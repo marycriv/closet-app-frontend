@@ -9,12 +9,7 @@ const API = "http://localhost:3001"
 
 class App extends React.Component {
 
-  // state = {
-  //   users: [],
-  //   items: [],
-  //   currentUserId: null
-  // }
-  //
+
   componentDidMount(){
     this.getUsers()
     this.getItems()
@@ -42,6 +37,7 @@ class App extends React.Component {
           this.getUsers()
           this.getItems()
           this.getOutfits()
+          this.getFollows()
         }
       )
     }
@@ -72,7 +68,8 @@ class App extends React.Component {
           name: params.name,
           user_id: params.user_id,
           topId: params.topItem,
-          bottomId: params.bottomItem
+          bottomId: params.bottomItem,
+          shoesId: params.shoesItem
         }
         loc = 'outfits'
         fetchFunction(loc, payload)

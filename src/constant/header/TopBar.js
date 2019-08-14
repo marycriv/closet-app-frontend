@@ -2,6 +2,7 @@ import React from 'react';
 import './header.css';
 import LoginForm from './LoginForm';
 import UserHeader from './UserHeader';
+import SearchBar from './SearchBar';
 
 import { Link } from 'react-router-dom';
 
@@ -12,6 +13,7 @@ class TopBar extends React.Component{
     return (
       <div className="TopBar">
         <Link to="/">My Closet App</Link>
+        {<SearchBar />}
         {!this.props.loggedIn ? <LoginForm /> : <UserHeader universalPostFunction={this.props.universalPostFunction}
         universalPatchFunction={this.props.universalPatchFunction} universalDeleteFunction={this.props.universalDeleteFunction}
         />}

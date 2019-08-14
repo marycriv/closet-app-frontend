@@ -25,13 +25,7 @@ render(){
       {items.map((item) => {
         return (
           <div className="CardGalleryItem" id={item.id}>
-            <img width="250px" alt={`${item.user_id}-${item.brand}`} key={`${item.brand}-${item.id}`} src={item.image}  />
-            <ul>
-              <li>Id: {item.id}</li>
-              <li>Brand: {item.brand}</li>
-              <li>Classification: {item.classification}</li>
-              <li>Owner: {this.props.user.username}</li>
-            </ul>
+            <img width="250px" alt={`${item.user_id}-${item.brand}`} key={`${item.brand}-${item.id}`} src={item.image} title={item.id}  />
 
             <button onClick={(e) => this.setState({toggleEdit: !this.state.toggleEdit, itemId: e.target.parentElement.id})} >Edit item</button>
             <button onClick={(e) => this.props.universalDeleteFunction(e.target.parentElement.id, 'items')} >Delete item</button>
