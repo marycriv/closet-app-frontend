@@ -3,6 +3,7 @@ import './App.css';
 import TopBar from './TopBar';
 import UserForm from './UserForm';
 import MainContainer from './MainContainer';
+import OutfitForm from './OutfitForm';
 import LoginForm from './LoginForm';
 import NotFound from './NotFound';
 import NavBar from './NavBar';
@@ -13,7 +14,6 @@ import { Route, Switch } from 'react-router-dom'
 const API = "http://localhost:3001"
 
 class App extends React.Component {
-
 
   componentDidMount(){
     this.getUsers()
@@ -206,8 +206,8 @@ class App extends React.Component {
           <Route path='/login' component={LoginForm}/>
           <Route path='/signup' component={UserForm}/>
           <Route path='/dashboard' render={() => <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
-          />}
-          />
+          />}/>
+          <Route patch='/outfit/new' component={OutfitForm}/>
           {/*<Route path='/:username' component={}/>
           <Route path='/:username/edit' component={}/>*/}
           <Route component={NotFound} />

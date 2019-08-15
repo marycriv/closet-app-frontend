@@ -13,6 +13,8 @@ class NavBar extends React.Component {
         <div>
           <Link to='/dashboard'>Home</Link>
           <br/>
+          <Link to='/outfits/new'>New Outfit</Link>
+          <br/>
           <h3>Welcome back, {user.username}!</h3>
         </div>
         : <div>

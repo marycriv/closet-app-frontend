@@ -2,6 +2,8 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
+import {BrowserRouter} from 'react-router';
+
 class LoginForm extends React.Component {
 
   state = {
@@ -14,6 +16,8 @@ class LoginForm extends React.Component {
     let idNumber = this.props.users.map(user => {return user.username}).includes(userInput) ? this.props.users.find(user => user.username === userInput).id : null
 
     this.props.users.map(user => {return user.id}).includes(idNumber) ? this.props.login(idNumber) : alert("Invalid login credentials")
+
+    this.props.history.push('/dashboard')
   }
 
   handleLoginChange = (event) => {
