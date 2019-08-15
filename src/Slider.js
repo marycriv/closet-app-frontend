@@ -17,12 +17,25 @@ class Slider extends React.Component {
     const myBottoms = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'bottom')
     const myShoes = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'shoes')
 
-    function bepis(e){
-      let shoes = e.target.previousSibling.previousSibling.children[0].children[0].children
+    const bepis = (e) => {
 
-      let bottoms = e.target.previousSibling.previousSibling.previousSibling.previousSibling.children[0].children[0].children
-      
-      let tops = e.target.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.children[0].children[0].children
+      let params = {}
+
+      let shoeId = Array.from(e.target.previousSibling.previousSibling.children[0].children[0].children).filter(child => child.className === 'is-selected')[0].id
+
+      let bottomId = Array.from(e.target.previousSibling.previousSibling.previousSibling.previousSibling.children[0].children[0].children).filter(child => child.className === 'is-selected')[0].id
+
+      let topId = Array.from(e.target.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.children[0].children[0].children).filter(child => child.className === 'is-selected')[0].id
+
+      params = {
+          name: "testy",
+          user_id: this.props.currentUserId,
+          topItem: topId,
+          bottomItem: bottomId,
+          shoesItem: shoeId
+      }
+
+      this.props.universalPostFunction(params, "NEW_OUTFIT")
     }
 
     return (
@@ -51,7 +64,7 @@ class Slider extends React.Component {
         {myShoes.map(shoe => <img id={shoe.id} width="200px" src={shoe.image} />)}
         </Flickity>
         <br />
-        <button onClick={(e) => bepis(e)}> RATE MY FIT</button>
+        <button onClick={(e) => bepis(e)}>RATE MY FIT</button>
       </div>
     )
   }
