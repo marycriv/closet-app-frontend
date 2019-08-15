@@ -2,8 +2,6 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import {BrowserRouter} from 'react-router';
-
 class OutfitForm extends React.Component {
   state = {
     userId: this.props.currentUserId,
@@ -15,7 +13,6 @@ class OutfitForm extends React.Component {
 
   handleSubmit = (e, state, topItem, bottomItem, shoesItem) => {
     e.preventDefault();
-    debugger
 
     let params = {}
 
@@ -24,17 +21,18 @@ class OutfitForm extends React.Component {
         user_id: this.state.userId,
         topItem: topItem.id,
         bottomItem: bottomItem.id,
-        shoesItem: shoesItem.id
+        shoesItem: shoesItem.id,
+        username: this.props.user.username
     }
-
     this.props.universalPostFunction(params, "NEW_OUTFIT")
+
   }
 
   handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
+  this.setState({
+    [e.target.name]: e.target.value
+  })
+}
 
   render(){
 

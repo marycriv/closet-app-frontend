@@ -54,7 +54,7 @@ class App extends React.Component {
         this.props.history.push('/dashboard')
       } else if (loc === 'outfits') {
         this.getOutfits()
-        this.props.history.push('/dashboard')
+        this.props.history.push(`/${payload.username}`)
       } else if (loc === 'follows') {
         this.props.newFollow(json)
       }
@@ -88,7 +88,8 @@ class App extends React.Component {
           user_id: params.user_id,
           topId: params.topItem,
           bottomId: params.bottomItem,
-          shoesId: params.shoesItem
+          shoesId: params.shoesItem,
+          username: params.username
         }
         loc = 'outfits'
         fetchFunction(loc, payload)
