@@ -8,6 +8,7 @@ import LoginForm from './LoginForm';
 import NotFound from './NotFound';
 import NavBar from './NavBar';
 import Slider from './Slider';
+import LandingPage from './LandingPage'
 import { connect } from 'react-redux';
 
 import { Route, Switch } from 'react-router-dom'
@@ -220,12 +221,13 @@ class App extends React.Component {
         <div>
         <NavBar/>
         <Switch>
+          <Route path='/' exact component={LandingPage}/>
           <Route path='/login' component={LoginForm}/>
           <Route path='/signup' render={() => <UserForm universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
           />}/>
-          <Route path='/dashboard' render={() => <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
+          <Route path='/:username' exact render={() => <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
           />}/>
-          <Route patch='/outfit/new' render={() => <Slider universalPostFunction={this.universalPostFunction}
+          <Route path='/outfit/new' render={() => <Slider universalPostFunction={this.universalPostFunction}
           />}/>
           {/*<Route path='/:username' component={}/>
           <Route path='/:username/edit' component={}/>*/}

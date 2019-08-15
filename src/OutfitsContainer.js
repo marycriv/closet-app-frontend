@@ -13,9 +13,6 @@ const OutfitsContainer = (props) => {
         universalPatchFunction={props.universalPatchFunction}
         universalPostFunction={props.universalPostFunction}
       />
-      <OutfitForm
-        universalPostFunction={props.universalPostFunction}
-        universalPatchFunction={props.universalPatchFunction} />
 
     </div>
   )
