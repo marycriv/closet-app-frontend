@@ -9,8 +9,6 @@ import NotFound from './NotFound';
 import NavBar from './NavBar';
 import { connect } from 'react-redux';
 
-import Slider from './Slider';
-
 import { Route, Switch } from 'react-router-dom'
 
 const API = "http://localhost:3001"
@@ -220,7 +218,6 @@ class App extends React.Component {
       {this.state.loading ? <div><h1>loadin</h1></div> :
         <div>
         <NavBar/>
-        <Slider/>
         <Switch>
           <Route path='/login' component={LoginForm}/>
           <Route path='/signup' render={() => <UserForm universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}

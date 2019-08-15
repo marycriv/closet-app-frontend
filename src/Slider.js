@@ -1,25 +1,74 @@
 import React from 'react';
 import './flickity.css';
-import Flickity from 'react-flickity-component'
+import Flickity from 'react-flickity-component';
+
+import { connect } from 'react-redux';
 
 
-const flickityOptions = {
-    initialIndex: 0,
-    wrapAround: true
+class Slider extends React.Component {
+
+  render(){
+
+    const flickityOptions = {
+        wrapAround: true
+    }
+
+    const myTops = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'top')
+    const myBottoms = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'bottom')
+    const myShoes = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'shoes')
+
+    function bepis(e){
+      let shoes = e.target.previousSibling.previousSibling.children[0].children[0].children
+
+      let bottoms = e.target.previousSibling.previousSibling.previousSibling.previousSibling.children[0].children[0].children
+      
+      let tops = e.target.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.children[0].children[0].children
+    }
+
+    return (
+      <div>
+        <Flickity
+          className={'carousel'}
+          elementType={'div'}
+          options={flickityOptions}
+        >
+        {myTops.map(top => <img id={top.id} width="200px" src={top.image} />)}
+        </Flickity>
+        <br/>
+        <Flickity
+          className={'carousel'}
+          elementType={'div'}
+          options={flickityOptions}
+        >
+        {myBottoms.map(bottom => <img id={bottom.id} width="200px" src={bottom.image} />)}
+        </Flickity>
+        <br/>
+        <Flickity
+          className={'carousel'}
+          elementType={'div'}
+          options={flickityOptions}
+        >
+        {myShoes.map(shoe => <img id={shoe.id} width="200px" src={shoe.image} />)}
+        </Flickity>
+        <br />
+        <button onClick={(e) => bepis(e)}> RATE MY FIT</button>
+      </div>
+    )
+  }
 }
 
-function Slider() {
-  return (
-    <Flickity
-      className={'carousel'}
-      elementType={'div'}
-      options={flickityOptions}
-    >
-      <img width="200px" src="https://d2h1pu99sxkfvn.cloudfront.net/b0/153222/537654437_xSdEzVnfCO/P0.jpg"/>
-      <img width="200px" src="https://d2h1pu99sxkfvn.cloudfront.net/b0/153222/537680079_5Ah0DlgWvz/P0.jpg"/>
-      <img width="200px" src="https://d2h1pu99sxkfvn.cloudfront.net/b0/153222/537660996_xdlpiu176k/P0.jpg"/>
-    </Flickity>
-  )
+function msp(state){
+  return {
+    loggedIn: state.loggedIn,
+    currentUserId: state.currentUserId,
+    users: state.users,
+    items: state.items
+  }
 }
 
-export default Slider
+function mdp(dispatch){
+  return {
+  }
+}
+
+export default connect(msp, mdp)(Slider);
