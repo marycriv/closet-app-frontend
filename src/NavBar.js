@@ -15,6 +15,7 @@ class NavBar extends React.Component {
           <br/>
           <Link to='/outfit/new'>New Outfit</Link>
           <br/>
+          <Link onClick={() => this.props.logout()}>Logout</Link>
           <h3>Welcome back, {user.username}!</h3>
         </div>
         : <div>
@@ -39,4 +40,14 @@ function msp(state){
   }
 }
 
-export default connect(msp)(NavBar)
+function mdp(dispatch){
+  return {
+    logout: () => {
+      dispatch({type: "LOGOUT"})
+    }
+  }
+}
+
+
+
+export default connect(msp, mdp)(NavBar)
