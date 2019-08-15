@@ -51,9 +51,8 @@ class App extends React.Component {
         this.props.login(json.id)
         this.props.history.push('/dashboard')
       } else if (loc === 'outfits') {
-        console.log(json, payload)
-        // doesn't work lol
-        this.props.newOutfit(json)
+        this.getOutfits()
+        this.props.history.push('/dashboard')
       } else if (loc === 'follows') {
         this.props.newFollow(json)
       }
@@ -174,10 +173,18 @@ class App extends React.Component {
       method: 'DELETE'
     })
     .then(() => {
-        this.getUsers()
-        this.getItems()
-        this.getOutfits()
-      })
+    if (loc === 'items') {
+      this.getItems()
+    } else if (loc === 'users') {
+      this.getUsers()
+      this.props.logout()
+      this.props.history.push('/signup')
+    } else if (loc === 'outfits') {
+      this.getOutfits()
+    } else if (loc === 'follows') {
+      this.getFollows()
+    }
+    })
 
   }
 
@@ -217,7 +224,8 @@ class App extends React.Component {
           />}/>
           <Route path='/dashboard' render={() => <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
           />}/>
-          <Route patch='/outfit/new' component={OutfitForm}/>
+          <Route patch='/outfit/new' render={() => <OutfitForm universalPostFunction={this.universalPostFunction}
+          />}/>
           {/*<Route path='/:username' component={}/>
           <Route path='/:username/edit' component={}/>*/}
           <Route component={NotFound} />
@@ -274,6 +282,9 @@ function mdp(dispatch){
     },
     login: (id) => {
       dispatch({type: "LOGIN", payload: id})
+    },
+    logout: () => {
+      dispatch({type: "LOGOUT"})
     }
   }
 }
