@@ -15,9 +15,14 @@ class LoginForm extends React.Component {
 
     let idNumber = this.props.users.map(user => {return user.username}).includes(userInput) ? this.props.users.find(user => user.username === userInput).id : null
 
-    this.props.users.map(user => {return user.id}).includes(idNumber) ? this.props.login(idNumber) : alert("Invalid login credentials")
+    if (this.props.users.map(user => {return user.id}).includes(idNumber)) {
+      this.props.login(idNumber)
+      this.props.history.push('/dashboard')
+    } else {
+      alert("Invalid login credentials")
+    }
 
-    this.props.history.push('/dashboard')
+
   }
 
   handleLoginChange = (event) => {

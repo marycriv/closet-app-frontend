@@ -22,7 +22,6 @@ class UserForm extends React.Component {
       params = {username: state.username, profilePicture: state.profilePicture, id: this.state.userId}
       this.props.universalPostFunction(params, "NEW_USER")
     }
-
   }
 
   handleChange = (e) => {
@@ -69,7 +68,9 @@ function msp(state){
 
 function mdp(dispatch){
   return {
-
+    login: (id) => {
+      dispatch({type: "LOGIN", payload: id})
+    }
   }
 }
 

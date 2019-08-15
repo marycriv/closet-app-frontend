@@ -1,5 +1,6 @@
 import React from 'react';
 import './main.css';
+import UserHeader from './UserHeader'
 
 import ProfileContainer from './ProfileContainer'
 
@@ -10,7 +11,13 @@ const MainContainer = (props) => {
   return (
     <div className="MainContainer">
     {!props.loggedIn ? null :
-        <ProfileContainer universalPostFunction={props.universalPostFunction} universalPatchFunction={props.universalPatchFunction} universalDeleteFunction={props.universalDeleteFunction} />}
+      <div>
+        <UserHeader
+        universalPostFunction={props.universalPostFunction} universalPatchFunction={props.universalPatchFunction} universalDeleteFunction={props.universalDeleteFunction}
+        />
+        <ProfileContainer universalPostFunction={props.universalPostFunction} universalPatchFunction={props.universalPatchFunction} universalDeleteFunction={props.universalDeleteFunction} />
+        </div>
+      }
     </div>
   )
 }

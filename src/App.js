@@ -15,11 +15,16 @@ const API = "http://localhost:3001"
 
 class App extends React.Component {
 
+  state={
+    loading: true
+  }
+
   componentDidMount(){
     this.getUsers()
     this.getItems()
     this.getOutfits()
     this.getFollows()
+    this.setState({loading: false})
   }
 
   universalPostFunction = (params, type) => {
@@ -43,6 +48,8 @@ class App extends React.Component {
         this.props.newItem(json)
       } else if (loc === 'users') {
         this.props.newUser(json)
+        this.props.login(json.id)
+        this.props.history.push('/dashboard')
       } else if (loc === 'outfits') {
         console.log(json, payload)
         // doesn't work lol
@@ -201,10 +208,13 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
+      {this.state.loading ? <div><h1>loadin</h1></div> :
+        <div>
         <NavBar/>
         <Switch>
           <Route path='/login' component={LoginForm}/>
-          <Route path='/signup' component={UserForm}/>
+          <Route path='/signup' render={() => <UserForm universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
+          />}/>
           <Route path='/dashboard' render={() => <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
           />}/>
           <Route patch='/outfit/new' component={OutfitForm}/>
@@ -215,6 +225,8 @@ class App extends React.Component {
           />*/}
 
         </Switch>
+        </div>
+      }
         {/*<TopBar universalPostFunction={this.universalPostFunction}
         universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
         />*/}
@@ -259,6 +271,9 @@ function mdp(dispatch){
     },
     newFollow: (follow) => {
       dispatch({type: "NEW_FOLLOW", payload: follow})
+    },
+    login: (id) => {
+      dispatch({type: "LOGIN", payload: id})
     }
   }
 }
