@@ -9,7 +9,8 @@ const MainContainer = (props) => {
 
   return (
     <div className="MainContainer">
-        <ProfileContainer universalPostFunction={props.universalPostFunction} universalPatchFunction={props.universalPatchFunction} universalDeleteFunction={props.universalDeleteFunction} />
+    {!props.loggedIn ? null :
+        <ProfileContainer universalPostFunction={props.universalPostFunction} universalPatchFunction={props.universalPatchFunction} universalDeleteFunction={props.universalDeleteFunction} />}
     </div>
   )
 }

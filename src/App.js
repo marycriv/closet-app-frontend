@@ -3,6 +3,9 @@ import './App.css';
 import TopBar from './TopBar';
 import UserForm from './UserForm';
 import MainContainer from './MainContainer';
+import LoginForm from './LoginForm';
+import NotFound from './NotFound';
+import NavBar from './NavBar';
 import { connect } from 'react-redux';
 
 import { Route, Switch } from 'react-router-dom'
@@ -36,12 +39,18 @@ class App extends React.Component {
       })
       .then(resp => resp.json())
       .then((json) => {
-          this.getUsers()
-          this.getItems()
-          this.getOutfits()
-          this.getFollows()
-        }
-      )
+      if (loc === 'items') {
+        this.props.newItem(json)
+      } else if (loc === 'users') {
+        this.props.newUser(json)
+      } else if (loc === 'outfits') {
+        console.log(json, payload)
+        // doesn't work lol
+        this.props.newOutfit(json)
+      } else if (loc === 'follows') {
+        this.props.newFollow(json)
+      }
+      })
     }
 
     function postFunc(params, type){
@@ -141,11 +150,8 @@ class App extends React.Component {
       })
       .then(resp => resp.json())
       .then((json) => {
-          this.getUsers()
-          this.getItems()
-          this.getOutfits()
-        }
-      )
+      console.log("doesnt work lol", json)
+      })
     }
 
     postFunc(params, type)
@@ -195,10 +201,24 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <TopBar universalPostFunction={this.universalPostFunction}
+        <NavBar/>
+        <Switch>
+          <Route path='/login' component={LoginForm}/>
+          <Route path='/signup' component={UserForm}/>
+          <Route path='/dashboard' render={() => <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
+          />}
+          />
+          {/*<Route path='/:username' component={}/>
+          <Route path='/:username/edit' component={}/>*/}
+          <Route component={NotFound} />
+          {/*<MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
+          />*/}
+
+        </Switch>
+        {/*<TopBar universalPostFunction={this.universalPostFunction}
         universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
-        />
-        {this.props.loggedIn ? <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction} /> : <UserForm universalPostFunction={this.universalPostFunction} />}
+        />*/}
+        {/*this.props.loggedIn ? <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction} /> : <UserForm universalPostFunction={this.universalPostFunction} />*/}
       </div>
     );
   }
@@ -228,8 +248,17 @@ function mdp(dispatch){
     sendOutfitsToState: (outfits) => {
       dispatch({type: "GET_OUTFITS", payload: outfits})
     },
-    addUser: (user) => {
-      dispatch({type: "ADD_USER", payload: user})
+    newUser: (user) => {
+      dispatch({type: "NEW_USER", payload: user})
+    },
+    newItem: (item) => {
+      dispatch({type: "NEW_ITEM", payload: item})
+    },
+    newOutfit: (outfit) => {
+      dispatch({type: "NEW_OUTFIT", payload: outfit})
+    },
+    newFollow: (follow) => {
+      dispatch({type: "NEW_FOLLOW", payload: follow})
     }
   }
 }
