@@ -7,6 +7,17 @@ import { connect } from 'react-redux';
 
 class Slider extends React.Component {
 
+  state = {
+    outfitName: "Outfit name here"
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+
   render(){
 
     const flickityOptions = {
@@ -28,7 +39,7 @@ class Slider extends React.Component {
       let topId = Array.from(e.target.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.children[0].children[0].children).filter(child => child.className === 'is-selected')[0].id
 
       params = {
-          name: "testy",
+          name: this.state.outfitName,
           user_id: this.props.currentUserId,
           topItem: topId,
           bottomItem: bottomId,
@@ -40,6 +51,12 @@ class Slider extends React.Component {
 
     return (
       <div>
+        <form onSubmit={(e) => e.preventDefault()}><input
+          type="text"
+          name="outfitName"
+          value={this.state.outfitName}
+          onChange={this.handleChange}
+        /></form>
         <Flickity
           className={'carousel'}
           elementType={'div'}

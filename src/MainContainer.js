@@ -13,7 +13,6 @@ const MainContainer = (props) => {
     <div className="MainContainer">
     {!props.loggedIn ? null :
       <div>
-        <Slider universalPostFunction={props.universalPostFunction}/>
         <UserHeader
         universalPostFunction={props.universalPostFunction} universalPatchFunction={props.universalPatchFunction} universalDeleteFunction={props.universalDeleteFunction}
         />

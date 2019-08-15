@@ -7,6 +7,7 @@ import OutfitForm from './OutfitForm';
 import LoginForm from './LoginForm';
 import NotFound from './NotFound';
 import NavBar from './NavBar';
+import Slider from './Slider';
 import { connect } from 'react-redux';
 
 import { Route, Switch } from 'react-router-dom'
@@ -224,7 +225,7 @@ class App extends React.Component {
           />}/>
           <Route path='/dashboard' render={() => <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
           />}/>
-          <Route patch='/outfit/new' render={() => <OutfitForm universalPostFunction={this.universalPostFunction}
+          <Route patch='/outfit/new' render={() => <Slider universalPostFunction={this.universalPostFunction}
           />}/>
           {/*<Route path='/:username' component={}/>
           <Route path='/:username/edit' component={}/>*/}
