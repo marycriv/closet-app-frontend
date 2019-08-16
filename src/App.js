@@ -77,7 +77,8 @@ class App extends React.Component {
       case "NEW_USER":
         payload = {
           username: params.username,
-          profile_picture: params.profilePicture
+          profile_picture: params.profilePicture,
+          bio: params.bio
         }
         loc = 'users'
         fetchFunction(loc, payload)
@@ -135,7 +136,8 @@ class App extends React.Component {
         patchLoc = parseInt(params.id)
         payload = {
           username: params.username,
-          profile_picture: params.profilePicture
+          profile_picture: params.profilePicture,
+          bio: params.bio
         }
         loc = 'users'
         fetchFunction(loc, patchLoc, payload)

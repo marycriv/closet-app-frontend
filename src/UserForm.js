@@ -6,7 +6,8 @@ class UserForm extends React.Component {
   state = {
     userId: this.props.currentUserId,
     username: "serena",
-    profilePicture: "https://66.media.tumblr.com/279015f65eef8112eb3e84aa27417be0/tumblr_owzholWRAb1vwrqjho9_250.png"
+    profilePicture: "https://66.media.tumblr.com/279015f65eef8112eb3e84aa27417be0/tumblr_owzholWRAb1vwrqjho9_250.png",
+    bio: "Bio here"
   }
 
   handleSubmit = (e, state) => {
@@ -16,10 +17,10 @@ class UserForm extends React.Component {
     let params = {}
 
     if (parent === "UserSettings") {
-      params = {username: state.username, profilePicture: state.profilePicture, id: this.state.userId}
+      params = {username: state.username, profilePicture: state.profilePicture, id: this.state.userId, bio: state.bio}
       this.props.universalPatchFunction(params, "EDIT_USER")
     } else {
-      params = {username: state.username, profilePicture: state.profilePicture, id: this.state.userId}
+      params = {username: state.username, profilePicture: state.profilePicture, id: this.state.userId, bio: state.bio}
       this.props.universalPostFunction(params, "NEW_USER")
     }
   }
@@ -48,6 +49,13 @@ class UserForm extends React.Component {
             type="text"
             name="profilePicture"
             value={this.state.profilePicture}
+            onChange={this.handleChange}
+          />
+          Bio:
+          <input
+            type="textarea"
+            name="bio"
+            value={this.state.bio}
             onChange={this.handleChange}
           />
           <input type="submit" value="Submit" />

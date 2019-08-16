@@ -5,31 +5,11 @@ import { connect } from 'react-redux';
 
 class UserHeader extends React.Component{
   render(){
-    let followees = this.props.follows.filter(user => user.follower_id === this.props.currentUserId).map(follow => follow.followee_id)
-
-    let followers = this.props.follows.filter(user => user.followee_id === this.props.currentUserId).map(follow => follow.follower_id)
-
     return (
       <div>
         <UserData
           universalDeleteFunction={this.props.universalDeleteFunction} universalPatchFunction={this.props.universalPatchFunction}
          />
-         <h3>Follow suggestions:</h3>
-         <div className="FollowersBox">
-        {this.props.users.filter((user) => {return !followees.includes(user.id) && user.id !== this.props.currentUserId}).map(user =>
-            <div className="FollowersItem">
-            <img width="100px" src={user.profile_picture} alt="avatar" /><br/>
-            <button onClick={() => this.props.universalPostFunction(user.id, "NEW_FOLLOW")}>FOLLOW {user.username}!</button>
-            </div>
-          )}</div>
-        <h4>Followers ({followers.length}): </h4>
-        <div className="FollowersBox" style={{border: 'solid hotpink'}}>
-          {followers.map(follower => this.props.users.find(user => user.id === follower)).map(user => <div><img width="100px" src={user.profile_picture} title={user.username} alt="avatar"/><h4>{user.username}</h4></div>)}
-        </div>
-        <h4>Following: </h4>
-        <div className="FollowersBox" style={{border: 'solid aquamarine'}}>
-          {followees.map(followee => this.props.users.find(user => user.id === followee)).map(user => <div className="FollowersItem"><img width="100px" title={user.username} src={user.profile_picture} alt="avatar" /><h4>{user.username}</h4></div>)}
-        </div>
       </div>
     )
   }

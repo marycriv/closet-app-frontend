@@ -18,9 +18,10 @@ render(){
 
   return (
     <div className="UserData">
-      <h1 className="profile-real-name">Welcome back, {user.username}!</h1>
+      <h1 className="profile-real-name">{user.username}'s profile</h1>
       <h2 hidden>{user.id}</h2>
       <img width="100px" alt="profile" src={user.profile_picture} />
+      <p><b>bio:</b> {user.bio}</p>
       <br/>
       <button onClick={() => this.props.logout()}>Logout</button>
       <br/>
