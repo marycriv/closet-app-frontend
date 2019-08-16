@@ -23,8 +23,6 @@ render(){
       <img width="100px" alt="profile" src={user.profile_picture} />
       <p><b>bio:</b> {user.bio}</p>
       <br/>
-      <button onClick={() => this.props.logout()}>Logout</button>
-      <br/>
       <button onClick={() => this.setState({toggleEdit: !this.state.toggleEdit})}>Edit user info!</button>
       <br/><br/>
       { !this.state.toggleEdit ? null : <div className="UserSettings"><button onClick={() => this.props.universalDeleteFunction(user.id, 'users')}>Delete</button>
@@ -44,9 +42,6 @@ function msp(state){
 
 function mdp(dispatch){
   return {
-    logout: () => {
-      dispatch({type: "LOGOUT"})
-    }
   }
 }
 
