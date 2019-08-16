@@ -14,3 +14,47 @@
   weight: bold;
   text-transform: capitalize;
 }
+
+/* Gallery Section */
+
+.CardGallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem -1rem;
+    padding-bottom: 3rem;
+}
+
+.CardGalleryItem {
+    position: relative;
+    flex: 1 0 15rem;
+    margin: 1rem;
+    color: #fff;
+}
+
+.UserData{
+  border: solid pink;
+}
+
+.ItemForm{
+  border: solid turquoise;
+}
+
+.FollowersBox {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.FollowersItem {
+  width: 20%;
+}
+
+.TopBar {
+  border-style: solid;
+  border-width: 3px;
+  border-color: pink;
+}
+
+.TopBar p {
+  font-size: 25px;
+}

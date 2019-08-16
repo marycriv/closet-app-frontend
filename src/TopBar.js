@@ -1,5 +1,5 @@
 import React from 'react';
-import './header.css';
+import './main.css';
 import LoginForm from './LoginForm';
 import UserHeader from './UserHeader';
 import SearchBar from './SearchBar';
