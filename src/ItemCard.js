@@ -13,13 +13,18 @@ class ItemCard extends React.Component {
     itemId: null
   }
 
-  // const user = props.users.find(user => user.id === props.currentUserId)
-
-
-  // remember patch by element id!!
-
 render(){
+
   const items = this.props.items.filter(item => {return item.user_id === this.props.currentUserId})
+
+  const tops = items.filter(item => {return ['top', 'blouse', 'sweater'].includes(item.classification)})
+
+  const bottoms = items.filter(item => {return ['bottom', 'trousers', 'jeans', 'skirt', 'shorts'].includes(item.classification)})
+
+  const shoes = items.filter(item => {return item.classification === 'shoes'})
+
+  const dresses = items.filter(item => {return ['dress', 'romper'].includes(item.classification)})
+
   return (
     <div className="CardGallery">
       {items.map((item) => {
