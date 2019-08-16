@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import TopBar from './TopBar';
 import UserForm from './UserForm';
 import MainContainer from './MainContainer';
 import LoginForm from './LoginForm';
@@ -238,9 +237,6 @@ class App extends React.Component {
         </Switch>
         </div>
       }
-        {/*<TopBar universalPostFunction={this.universalPostFunction}
-        universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
-        />*/}
         {/*this.props.loggedIn ? <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction} /> : <UserForm universalPostFunction={this.universalPostFunction} />*/}
       </div>
     );
