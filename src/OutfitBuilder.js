@@ -27,13 +27,23 @@ class OutfitBuilder extends React.Component {
         initialIndex: 2
     }
 
-    const myTops = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'top')
+    const items = this.props.items.filter(item => {return item.user_id === this.props.currentUserId})
 
-    const myBottoms = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'bottom')
+    const  myTops = items.filter(item => {return ['top', 'blouse', 'sweater'].includes(item.classification)})
 
-    const myDresses = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'dress')
+    const  myBottoms = items.filter(item => {return ['bottom', 'trousers', 'jeans', 'skirt', 'shorts'].includes(item.classification)})
 
-    const myShoes = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'shoes')
+    const  myShoes = items.filter(item => {return item.classification === 'shoes'})
+
+    const  myDresses = items.filter(item => {return ['dress', 'romper'].includes(item.classification)})
+
+    // const myTops = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'top')
+    //
+    // const myBottoms = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'bottom')
+    //
+    // const myDresses = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'dress')
+    //
+    // const myShoes = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'shoes')
 
     // const followees = this.props.follows.filter(user => user.follower_id === this.props.currentUserId).map(follow => follow.followee)
     //
