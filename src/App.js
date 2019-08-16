@@ -87,7 +87,7 @@ class App extends React.Component {
         payload = {
           name: params.name,
           user_id: params.user_id,
-          ids: [params.topItem, params.bottomItem, params.shoesItem],
+          ids: params.ids,
           username: params.username
         }
         loc = 'outfits'

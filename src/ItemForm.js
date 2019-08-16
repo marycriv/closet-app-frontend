@@ -68,6 +68,7 @@ class ItemForm extends React.Component {
           value={this.state.value} onChange={this.handleChange}>
           <option value="top">Top</option>
           <option value="bottom">Bottom</option>
+          <option value="dress">Dress</option>
           <option value="shoes">Shoes</option>
         </select>
         <input type="submit" value="Submit" />
