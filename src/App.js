@@ -3,7 +3,6 @@ import './App.css';
 import TopBar from './TopBar';
 import UserForm from './UserForm';
 import MainContainer from './MainContainer';
-import OutfitForm from './OutfitForm';
 import LoginForm from './LoginForm';
 import NotFound from './NotFound';
 import NavBar from './NavBar';
