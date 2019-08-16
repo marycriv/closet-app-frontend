@@ -6,7 +6,7 @@ import MainContainer from './MainContainer';
 import LoginForm from './LoginForm';
 import NotFound from './NotFound';
 import NavBar from './NavBar';
-import Slider from './Slider';
+import OutfitBuilder from './OutfitBuilder';
 import LandingPage from './LandingPage'
 import { connect } from 'react-redux';
 
@@ -227,7 +227,7 @@ class App extends React.Component {
           />}/>
           <Route path='/:username' exact render={() => <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
           />}/>
-          <Route path='/outfit/new' render={() => <Slider universalPostFunction={this.universalPostFunction}
+          <Route path='/outfit/new' render={() => <OutfitBuilder universalPostFunction={this.universalPostFunction}
           />}/>
           {/*<Route path='/:username' component={}/>
           <Route path='/:username/edit' component={}/>*/}

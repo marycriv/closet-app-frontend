@@ -1,7 +1,7 @@
 import React from 'react';
 import './main.css';
 import UserHeader from './UserHeader'
-import Slider from './Slider'
+import OutfitBuilder from './OutfitBuilder'
 
 import ProfileContainer from './ProfileContainer'
 

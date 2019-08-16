@@ -5,7 +5,7 @@ import Flickity from 'react-flickity-component';
 import { connect } from 'react-redux';
 
 
-class Slider extends React.Component {
+class OutfitBuilder extends React.Component {
 
   state = {
     outfitName: "Outfit name here",
@@ -153,4 +153,4 @@ function mdp(dispatch){
   }
 }
 
-export default connect(msp, mdp)(Slider);
+export default connect(msp, mdp)(OutfitBuilder);
