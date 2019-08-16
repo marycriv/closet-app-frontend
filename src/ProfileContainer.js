@@ -20,7 +20,8 @@ const ProfileContainer = (props) => {
         universalPatchFunction={props.universalPatchFunction}
         />
       </div>
-      <ItemCard universalPatchFunction={props.universalPatchFunction} universalDeleteFunction={props.universalDeleteFunction} />
+      <ItemCard universalPatchFunction={props.universalPatchFunction}
+      universalPostFunction={props.universalPostFunction} universalDeleteFunction={props.universalDeleteFunction} />
     </div>
   )
 }

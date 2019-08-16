@@ -7,7 +7,9 @@ import ProfileContainer from './ProfileContainer'
 
 import OutfitsContainer from './OutfitsContainer';
 
-import FollowsContainer from './FollowsContainer'
+import FollowsContainer from './FollowsContainer';
+
+import {BrowserRouter} from 'react-router-dom'
 
 import { connect } from 'react-redux';
 
@@ -77,7 +79,7 @@ class MainContainer extends React.Component {
             <button onClick={(e) => this.handleClick(e, 'outfits')} className="ProfileNavButton">Outfits</button>
             <button onClick={(e) => this.handleClick(e, 'followers')} className="ProfileNavButton">Followers</button>
             <button onClick={(e) => this.handleClick(e, 'following')} className="ProfileNavButton">Following</button>
-            <button onClick={(e) => this.handleClick(e, 'new outfit')} className="NewOutfitButton">New Outfit!!!!</button>
+            <button onClick={console.log("bepis")} className="NewOutfitButton">New Outfit!!!!</button>
           </div>
 
           {!this.state.items ? null : <ProfileContainer universalPostFunction={this.props.universalPostFunction} universalPatchFunction={this.props.universalPatchFunction} universalDeleteFunction={this.props.universalDeleteFunction} />}

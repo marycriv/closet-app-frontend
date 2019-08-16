@@ -12,9 +12,8 @@ class ItemForm extends React.Component {
 
   handleSubmit = (e, state) => {
     e.preventDefault();
-
-    const parent = e.target.parentElement.className
-    const itemId = e.target.parentElement.id
+    const parent = e.target.parentElement.parentElement.className
+    const itemId = e.target.parentElement.parentElement.id
     let params = {}
     //remember this is conditional
     if (parent === "CardGalleryItem") {

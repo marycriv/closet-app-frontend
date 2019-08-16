@@ -28,28 +28,37 @@ class OutfitBuilder extends React.Component {
     }
 
     const myTops = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'top')
+
     const myBottoms = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'bottom')
 
     const myDresses = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'dress')
 
     const myShoes = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'shoes')
 
+    // const followees = this.props.follows.filter(user => user.follower_id === this.props.currentUserId).map(follow => follow.followee)
+    //
+    // followees.push(this.props.user)
+    //
+    // const userHeads = followees.reverse()
+
+
     const threeItemOutfit = (e) => {
 
       let params = {}
 
-      let shoeId = Array.from(e.target.previousSibling.previousSibling.children[0].children[0].children).filter(child => child.className === 'is-selected')[0].id
+      // let userId = document.getElementsByClassName('user is-selected')[0].id
 
-      let bottomId = Array.from(e.target.previousSibling.previousSibling.previousSibling.previousSibling.children[0].children[0].children).filter(child => child.className === 'is-selected')[0].id
+      let shoeId = document.getElementsByClassName('shoes is-selected')[0].id
 
-      let topId = Array.from(e.target.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.children[0].children[0].children).filter(child => child.className === 'is-selected')[0].id
+      let bottomId =
+      document.getElementsByClassName('bottom is-selected')[0].id
+
+      let topId = document.getElementsByClassName('top is-selected')[0].id
 
       params = {
           name: this.state.outfitName,
           user_id: this.props.currentUserId,
-          topItem: topId,
-          bottomItem: bottomId,
-          shoesItem: shoeId
+          ids: [topId, bottomId, shoeId]
       }
 
       this.props.universalPostFunction(params, "NEW_OUTFIT")
@@ -59,9 +68,10 @@ class OutfitBuilder extends React.Component {
 
       let params = {}
 
-      let shoeId = Array.from(e.target.previousSibling.previousSibling.children[0].children[0].children).filter(child => child.className === 'is-selected')[0].id
+      let shoeId = document.getElementsByClassName('shoes is-selected')[0].id
 
-      let dressId = Array.from(e.target.previousSibling.previousSibling.previousSibling.previousSibling.children[0].children[0].children).filter(child => child.className === 'is-selected')[0].id
+      let dressId = document.getElementsByClassName('dress is-selected')[0].id
+
 
       params = {
           name: this.state.outfitName,
@@ -74,6 +84,16 @@ class OutfitBuilder extends React.Component {
 
     return (
       <div>
+        {/*<h2>Who is this outfit for?</h2>
+
+        <Flickity
+          className={'carousel'}
+          elementType={'div'}
+          options={flickityOptions}
+        >
+        {userHeads.map(user => <img id={user.id} width="200px" src={user.profile_picture} className="user" />)}
+        </Flickity>*/}
+
         <button onClick={(e) => this.setState({dressMode: true, threeItemMode: false})}>DressMode</button>
         <button onClick={(e) => this.setState({dressMode: false, threeItemMode: true})}>ThreeItemMode</button>
         <form onSubmit={(e) => e.preventDefault()}><input
@@ -90,7 +110,7 @@ class OutfitBuilder extends React.Component {
             elementType={'div'}
             options={flickityOptions}
           >
-          {myTops.map(top => <img id={top.id} width="200px" src={top.image} />)}
+          {myTops.map(top => <img id={top.id} width="200px" src={top.image} className="top" />)}
           </Flickity>
           <br/>
           <Flickity
@@ -98,7 +118,7 @@ class OutfitBuilder extends React.Component {
             elementType={'div'}
             options={flickityOptions}
           >
-          {myBottoms.map(bottom => <img id={bottom.id} width="200px" src={bottom.image} />)}
+          {myBottoms.map(bottom => <img id={bottom.id} width="200px" src={bottom.image} className="bottom" />)}
           </Flickity>
           <br/>
           <Flickity
@@ -106,7 +126,7 @@ class OutfitBuilder extends React.Component {
             elementType={'div'}
             options={flickityOptions}
           >
-          {myShoes.map(shoe => <img id={shoe.id} width="200px" src={shoe.image} />)}
+          {myShoes.map(shoe => <img id={shoe.id} width="200px" src={shoe.image} className="shoes" />)}
           </Flickity>
           <br />
           <button onClick={(e) => threeItemOutfit(e)}>RATE MY FIT</button>
@@ -118,7 +138,7 @@ class OutfitBuilder extends React.Component {
               elementType={'div'}
               options={flickityOptions}
             >
-            {myDresses.map(dress => <img id={dress.id} width="200px" src={dress.image} />)}
+            {myDresses.map(dress => <img id={dress.id} width="200px" src={dress.image} className="dress" />)}
             </Flickity>
             <br/>
             <Flickity
@@ -126,7 +146,7 @@ class OutfitBuilder extends React.Component {
               elementType={'div'}
               options={flickityOptions}
             >
-            {myShoes.map(shoe => <img id={shoe.id} width="200px" src={shoe.image} />)}
+            {myShoes.map(shoe => <img id={shoe.id} width="200px" src={shoe.image} className="shoes" />)}
             </Flickity>
             <br />
             <button onClick={(e) => twoItemOutfit(e)}>RATE MY FIT</button>
@@ -144,7 +164,9 @@ function msp(state){
     loggedIn: state.loggedIn,
     currentUserId: state.currentUserId,
     users: state.users,
-    items: state.items
+    items: state.items,
+    user: state.user,
+    follows: state.follows
   }
 }
 

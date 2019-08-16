@@ -5,13 +5,9 @@ import { connect } from 'react-redux';
 class FollowsContainer extends React.Component{
 
   render(){
-    let followerIds = this.props.follows.filter(user => user.followee_id === this.props.currentUserId).map(follow => follow.follower_id)
+    let followers = this.props.follows.filter(user => user.followee_id === this.props.currentUserId).map(follow => follow.follower)
 
-    let followeeIds = this.props.follows.filter(user => user.follower_id === this.props.currentUserId).map(follow => follow.followee_id)
-
-    let followers = this.props.users.filter(user => followerIds.includes(user.id))
-
-    let followees = this.props.users.filter(user => followeeIds.includes(user.id))
+    let followees = this.props.follows.filter(user => user.follower_id === this.props.currentUserId).map(follow => follow.followee)
 
     return(
       <div className="FollowsContainer">
