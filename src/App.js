@@ -51,7 +51,7 @@ class App extends React.Component {
       } else if (loc === 'users') {
         this.props.newUser(json)
         this.props.login(json.id)
-        this.props.history.push('/dashboard')
+        this.props.history.push('/closet')
       } else if (loc === 'outfits') {
         this.getOutfits()
         this.props.history.push(`/${payload.username}`)

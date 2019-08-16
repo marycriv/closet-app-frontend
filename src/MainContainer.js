@@ -65,19 +65,20 @@ class MainContainer extends React.Component {
 
     return (
       <div className="MainContainer">
-        <div className="ProfileNavButtons">
-          <button onClick={(e) => this.handleClick(e, 'items')} className="ProfileNavButton">My Closet</button>
-          <button onClick={(e) => this.handleClick(e, 'outfits')} className="ProfileNavButton">My Outfits</button>
-          <button onClick={(e) => this.handleClick(e, 'followers')} className="ProfileNavButton">Followers</button>
-          <button onClick={(e) => this.handleClick(e, 'following')} className="ProfileNavButton">Following</button>
-          <button onClick={(e) => this.handleClick(e, 'new outfit')} className="NewOutfitButton">New Outfit!!!!</button>
-        </div>
 
       {!this.props.loggedIn ? null :
         <div>
           <UserHeader
           universalPostFunction={this.props.universalPostFunction} universalPatchFunction={this.props.universalPatchFunction} universalDeleteFunction={this.props.universalDeleteFunction}
           />
+
+          <div className="ProfileNavButtons">
+            <button onClick={(e) => this.handleClick(e, 'items')} className="ProfileNavButton">My Closet</button>
+            <button onClick={(e) => this.handleClick(e, 'outfits')} className="ProfileNavButton">My Outfits</button>
+            <button onClick={(e) => this.handleClick(e, 'followers')} className="ProfileNavButton">Followers</button>
+            <button onClick={(e) => this.handleClick(e, 'following')} className="ProfileNavButton">Following</button>
+            <button onClick={(e) => this.handleClick(e, 'new outfit')} className="NewOutfitButton">New Outfit!!!!</button>
+          </div>
 
           {!this.state.items ? null : <ProfileContainer universalPostFunction={this.props.universalPostFunction} universalPatchFunction={this.props.universalPatchFunction} universalDeleteFunction={this.props.universalDeleteFunction} />}
 

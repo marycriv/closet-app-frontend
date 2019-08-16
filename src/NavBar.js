@@ -11,7 +11,7 @@ class NavBar extends React.Component {
       <div className="NavBar">
       {this.props.loggedIn ?
         <div>
-          <Link to='/dashboard'>Home</Link>
+          <Link to={`/${user.username}`}>Home</Link>
           <br/>
           <Link to='/outfit/new'>New Outfit</Link>
           <br/>
@@ -19,7 +19,7 @@ class NavBar extends React.Component {
           <h3>Welcome back, {user.username}!</h3>
         </div>
         : <div>
-          <Link to='/dashboard'>Home</Link>
+          <Link to='/'>Home</Link>
           <br/>
           <Link to='/login'>Login</Link>
           <br/>
@@ -36,7 +36,8 @@ function msp(state){
   return {
     loggedIn: state.loggedIn,
     currentUserId: state.currentUserId,
-    users: state.users
+    users: state.users,
+    user: state.user
   }
 }
 
