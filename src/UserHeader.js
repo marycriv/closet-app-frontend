@@ -3,6 +3,8 @@ import UserData from './UserData';
 
 import { connect } from 'react-redux';
 
+// may be extraneous
+
 class UserHeader extends React.Component{
   render(){
     return (
