@@ -53,7 +53,7 @@ class OutfitBuilder extends React.Component {
 
 
     const threeItemOutfit = (e) => {
-
+      console.log(e)
       let params = {}
 
       // let userId = document.getElementsByClassName('user is-selected')[0].id
@@ -141,7 +141,7 @@ class OutfitBuilder extends React.Component {
           {myShoes.map(shoe => <img id={shoe.id} src={shoe.image} className="carousel-image shoes" />)}
           </Flickity>
           <br />
-          <button onClick={(e) => threeItemOutfit(e)}>RATE MY FIT</button>
+          <button onClick={threeItemOutfit}>RATE MY FIT</button>
           </div>
           :
           <div className="TwoItems">
@@ -161,7 +161,7 @@ class OutfitBuilder extends React.Component {
             {myShoes.map(shoe => <img id={shoe.id} src={shoe.image} className="carousel-image shoes" />)}
             </Flickity>
             <br />
-            <button onClick={(e) => twoItemOutfit(e)}>RATE MY FIT</button>
+            <button onClick={twoItemOutfit}>RATE MY FIT</button>
           </div>
         }
         </div>}

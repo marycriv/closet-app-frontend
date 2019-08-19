@@ -3,6 +3,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import { connect } from 'react-redux';
+import {withRouter} from "react-router-dom";
 
 class FollowsContainer extends React.Component{
 
@@ -13,7 +14,7 @@ class FollowsContainer extends React.Component{
 
     return(
       <div className="FollowsContainer">
-        {this.props.followersToggle ? <div><h3>Followers:</h3>{followers.map(follower => <div className="SingleFollow"><Link to={`/${follower.username}`}><img width="100px" src={follower.profile_picture}/></Link><h1>{follower.username}</h1></div>)}</div> : null}
+        {this.props.followersToggle ? <div><h3>Followers:</h3>{followers.map(follower => <div className="SingleFollow" onClick={() => this.props.history.push(follower.username)}><img width="100px" src={follower.profile_picture}/><h1>{follower.username}</h1></div>)}</div> : null}
 
         {this.props.followingToggle ? <div><h3>Following:</h3>{followees.map(followee => <div className="SingleFollow"><Link to={`/${followee.username}`}><img width="100px" src={followee.profile_picture}/></Link><h1>{followee.username}</h1></div>)}</div> : null}
       </div>
@@ -36,4 +37,4 @@ function mdp(dispatch){
   }
 }
 
-export default connect(msp, mdp)(FollowsContainer);
+export default withRouter(connect(msp, mdp)(FollowsContainer));

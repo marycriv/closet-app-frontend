@@ -15,7 +15,7 @@ class NavBar extends React.Component {
         <div>
           <Link to={`/${user.username}`}>Home</Link>
           <br/>
-          <Link to='/outfit/new'>New Outfit</Link>
+          <Link to='/newoutfit'>New Outfit</Link>
           <br/>
           <Link onClick={() => this.props.logout()}>Logout</Link>
           <h3>Welcome back, {user.username}!</h3>

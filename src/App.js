@@ -11,6 +11,8 @@ import { connect } from 'react-redux';
 
 import { Route, Switch } from 'react-router-dom'
 
+import {withRouter} from "react-router-dom";
+
 const API = "http://localhost:3001"
 
 class App extends React.Component {
@@ -52,7 +54,7 @@ class App extends React.Component {
         this.props.history.push('/closet')
       } else if (loc === 'outfits') {
         this.getOutfits()
-        this.props.history.push(`/${payload.username}`)
+        this.props.history.push(this.props.users.find(user => user.id === payload.user_id).username)
       } else if (loc === 'follows') {
         this.props.newFollow(json)
       }
@@ -225,7 +227,7 @@ class App extends React.Component {
           <Route path='/login' component={LoginForm}/>
           <Route path='/signup' render={() => <UserForm universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
           />}/>
-          <Route path='/outfit/new' render={() => <OutfitBuilder universalPostFunction={this.universalPostFunction}
+          <Route path='/newoutfit' render={() => <OutfitBuilder universalPostFunction={this.universalPostFunction}
           />}/>
           <Route exact path='/:username' render={() => <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
           />}/>
@@ -292,4 +294,4 @@ function mdp(dispatch){
   }
 }
 
-export default connect(msp, mdp)(App);
+export default withRouter(connect(msp, mdp)(App));
