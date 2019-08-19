@@ -28,6 +28,11 @@
     position: relative;
     flex: 1 0 15rem;
     margin: 1rem;
+    text-align: center;
+}
+
+.CardGalleryItem img {
+    border-radius: 7px;
 }
 
 .UserData{

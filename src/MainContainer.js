@@ -8,6 +8,7 @@ import ProfileContainer from './ProfileContainer'
 import OutfitsContainer from './OutfitsContainer';
 
 import FollowsContainer from './FollowsContainer';
+import ItemForm from './ItemForm';
 
 import {BrowserRouter} from 'react-router-dom'
 
@@ -19,7 +20,8 @@ class MainContainer extends React.Component {
     items: true,
     outfits: false,
     followers: false,
-    following: false
+    following: false,
+    newItem: false
   }
 
   handleClick = (e, button) => {
@@ -29,7 +31,8 @@ class MainContainer extends React.Component {
         items: true,
         outfits: false,
         followers: false,
-        following: false
+        following: false,
+        newItem: false
       })
       break
     case "outfits":
@@ -37,7 +40,8 @@ class MainContainer extends React.Component {
         items: false,
         outfits: true,
         followers: false,
-        following: false
+        following: false,
+        newItem: false
       })
       break
     case "followers":
@@ -45,7 +49,8 @@ class MainContainer extends React.Component {
         items: false,
         outfits: false,
         followers: true,
-        following: false
+        following: false,
+        newItem: false
       })
       break
     case "following":
@@ -53,7 +58,17 @@ class MainContainer extends React.Component {
         items: false,
         outfits: false,
         followers: false,
-        following: true
+        following: true,
+        newItem: false
+      })
+      break
+    case "new item":
+      this.setState({
+        items: false,
+        outfits: false,
+        followers: false,
+        following: false,
+        newItem: true
       })
       break
     default:
@@ -80,6 +95,7 @@ class MainContainer extends React.Component {
             <button onClick={(e) => this.handleClick(e, 'outfits')} className="ProfileNavButton">Outfits</button>
             <button onClick={(e) => this.handleClick(e, 'followers')} className="ProfileNavButton">Followers</button>
             <button onClick={(e) => this.handleClick(e, 'following')} className="ProfileNavButton">Following</button>
+            <button onClick={(e) => this.handleClick(e, 'new item')} className="ProfileNavButton">New Item</button>
             <button onClick={console.log("bepis")} className="NewOutfitButton">New Outfit!!!!</button>
           </div>
 
@@ -92,7 +108,8 @@ class MainContainer extends React.Component {
             path={path} followersToggle={this.state.followers} />}
           {!this.state.following ? null : <FollowsContainer
             path={path} followingToggle={this.state.following} />}
-
+          {!this.state.newItem ? null : <ItemForm
+          path={path}/>}
           </div>
         }
       </div>

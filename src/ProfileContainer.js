@@ -13,13 +13,6 @@ import OutfitsContainer from './OutfitsContainer';
 const ProfileContainer = (props) => {
   return (
     <div className="ProfileContainer">
-      <div>
-        <h3>New item form:</h3>
-        <br/>
-        <ItemForm universalPostFunction={props.universalPostFunction}
-        universalPatchFunction={props.universalPatchFunction}
-        />
-      </div>
       <ItemCard
       path={props.path} universalPatchFunction={props.universalPatchFunction}
       universalPostFunction={props.universalPostFunction} universalDeleteFunction={props.universalDeleteFunction} />
