@@ -111,6 +111,7 @@ class OutfitBuilder extends React.Component {
           name="outfitName"
           value={this.state.outfitName}
           onChange={this.handleChange}
+          className="effect-4"
         /></form>
         {<div>
           {!this.state.dressMode ?
@@ -120,7 +121,7 @@ class OutfitBuilder extends React.Component {
             elementType={'div'}
             options={flickityOptions}
           >
-          {myTops.map(top => <img id={top.id} width="200px" src={top.image} className="top" />)}
+          {myTops.map(top => <img id={top.id} src={top.image} className="carousel-image top" />)}
           </Flickity>
           <br/>
           <Flickity
@@ -128,7 +129,7 @@ class OutfitBuilder extends React.Component {
             elementType={'div'}
             options={flickityOptions}
           >
-          {myBottoms.map(bottom => <img id={bottom.id} width="200px" src={bottom.image} className="bottom" />)}
+          {myBottoms.map(bottom => <img id={bottom.id} src={bottom.image} className="bottom carousel-image" />)}
           </Flickity>
           <br/>
           <Flickity
@@ -136,7 +137,7 @@ class OutfitBuilder extends React.Component {
             elementType={'div'}
             options={flickityOptions}
           >
-          {myShoes.map(shoe => <img id={shoe.id} width="200px" src={shoe.image} className="shoes" />)}
+          {myShoes.map(shoe => <img id={shoe.id} src={shoe.image} className="carousel-image shoes" />)}
           </Flickity>
           <br />
           <button onClick={(e) => threeItemOutfit(e)}>RATE MY FIT</button>
@@ -148,7 +149,7 @@ class OutfitBuilder extends React.Component {
               elementType={'div'}
               options={flickityOptions}
             >
-            {myDresses.map(dress => <img id={dress.id} width="200px" src={dress.image} className="dress" />)}
+            {myDresses.map(dress => <img id={dress.id} src={dress.image} className="carousel-image dress" />)}
             </Flickity>
             <br/>
             <Flickity
@@ -156,7 +157,7 @@ class OutfitBuilder extends React.Component {
               elementType={'div'}
               options={flickityOptions}
             >
-            {myShoes.map(shoe => <img id={shoe.id} width="200px" src={shoe.image} className="shoes" />)}
+            {myShoes.map(shoe => <img id={shoe.id} src={shoe.image} className="carousel-image shoes" />)}
             </Flickity>
             <br />
             <button onClick={(e) => twoItemOutfit(e)}>RATE MY FIT</button>

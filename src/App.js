@@ -220,19 +220,23 @@ class App extends React.Component {
         <div>
         <NavBar/>
         <Switch>
-          <Route path='/' exact component={LandingPage}/>
+
+          <Route path='/' exact component={LandingPage} />
           <Route path='/login' component={LoginForm}/>
           <Route path='/signup' render={() => <UserForm universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
           />}/>
-          <Route path='/:username' exact render={() => <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
-          />}/>
           <Route path='/outfit/new' render={() => <OutfitBuilder universalPostFunction={this.universalPostFunction}
           />}/>
+          <Route exact path='/:username' render={() => <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
+          />}/>
+          <Route component={NotFound} />
+
           {/*<Route path='/:username' component={}/>
           <Route path='/:username/edit' component={}/>*/}
-          <Route component={NotFound} />
+
           {/*<MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
           />*/}
+
 
         </Switch>
         </div>
