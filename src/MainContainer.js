@@ -13,6 +13,7 @@ import ItemForm from './ItemForm';
 import {BrowserRouter} from 'react-router-dom'
 
 import { connect } from 'react-redux';
+import {withRouter} from "react-router-dom";
 
 class MainContainer extends React.Component {
 
@@ -71,6 +72,9 @@ class MainContainer extends React.Component {
         newItem: true
       })
       break
+    case "new outfit":
+      this.props.history.push('/newoutfit')
+      break
     default:
       return null
     }
@@ -96,7 +100,7 @@ class MainContainer extends React.Component {
             <button onClick={(e) => this.handleClick(e, 'followers')} className="ProfileNavButton">Followers</button>
             <button onClick={(e) => this.handleClick(e, 'following')} className="ProfileNavButton">Following</button>
             <button onClick={(e) => this.handleClick(e, 'new item')} className="ProfileNavButton">New Item</button>
-            <button onClick={console.log("bepis")} className="NewOutfitButton">New Outfit!!!!</button>
+            <button onClick={(e) => this.handleClick(e, 'new outfit')} className="NewOutfitButton">New Outfit!!!!</button>
           </div>
 
           {!this.state.items ? null : <ProfileContainer
@@ -133,4 +137,4 @@ function mdp(dispatch){
   }
 }
 
-export default connect(msp, mdp)(MainContainer);
+export default withRouter(connect(msp, mdp)(MainContainer));
