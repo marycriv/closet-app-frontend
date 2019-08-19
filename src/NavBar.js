@@ -12,23 +12,17 @@ class NavBar extends React.Component {
     return (
       <div className="NavBar">
       {this.props.loggedIn ?
-        <div>
-          <Link to={`/${user.username}`}>Home</Link>
-          <br/>
-          <Link to='/newoutfit'>New Outfit</Link>
-          <br/>
-          <Link onClick={() => this.props.logout()}>Logout</Link>
-          <h3>Welcome back, {user.username}!</h3>
+        <div className="NavBar">
+          <Link to={`/${user.username}`} className="NavBarItem">Home</Link>
+          <Link to='/newoutfit' className="NavBarItem">New Outfit</Link>
+          <Link onClick={() => this.props.logout()} className="NavBarItem">Logout</Link>
         </div>
-        : <div>
-          <Link to='/'>Home</Link>
-          <br/>
-          <Link to='/login'>Login</Link>
-          <br/>
-          <Link to='/signup'>Signup</Link>
+        : <div className="NavBar">
+          <Link to='/' className="NavBarItem">Home</Link>
+          <Link to='/login' className="NavBarItem">Login</Link>
+          <Link to='/signup' className="NavBarItem">Signup</Link>
         </div>
         }
-        <SearchBar />
       </div>
     )
   }

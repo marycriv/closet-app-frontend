@@ -109,6 +109,8 @@ class MainContainer extends React.Component {
           {!this.state.following ? null : <FollowsContainer
             path={path} followingToggle={this.state.following} />}
           {!this.state.newItem ? null : <ItemForm
+          universalPostFunction={this.props.universalPostFunction}
+          universalPatchFunction={this.props.universalPatchFunction}
           path={path}/>}
           </div>
         }
