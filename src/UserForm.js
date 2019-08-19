@@ -52,8 +52,7 @@ class UserForm extends React.Component {
             onChange={this.handleChange}
           />
           Bio:
-          <input
-            type="textarea"
+          <textarea
             name="bio"
             value={this.state.bio}
             onChange={this.handleChange}

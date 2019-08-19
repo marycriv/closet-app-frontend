@@ -64,7 +64,9 @@ class ItemForm extends React.Component {
         />
         <select
           name="classification"
-          value={this.state.value} onChange={this.handleChange}>
+          value={this.state.value} onChange={this.handleChange}
+          class="select-css"
+          >
           <option value="top">Blouse</option>
           <option value="sweater">Sweater</option>
           <option value="trousers">Trousers</option>

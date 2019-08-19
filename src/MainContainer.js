@@ -63,7 +63,7 @@ class MainContainer extends React.Component {
 
 
   render(){
-
+    const path = window.location.pathname.substring(1);
 
     return (
       <div className="MainContainer">
@@ -71,6 +71,7 @@ class MainContainer extends React.Component {
       {!this.props.loggedIn ? null :
         <div>
           <UserHeader
+          path={path}
           universalPostFunction={this.props.universalPostFunction} universalPatchFunction={this.props.universalPatchFunction} universalDeleteFunction={this.props.universalDeleteFunction}
           />
 
@@ -82,11 +83,15 @@ class MainContainer extends React.Component {
             <button onClick={console.log("bepis")} className="NewOutfitButton">New Outfit!!!!</button>
           </div>
 
-          {!this.state.items ? null : <ProfileContainer universalPostFunction={this.props.universalPostFunction} universalPatchFunction={this.props.universalPatchFunction} universalDeleteFunction={this.props.universalDeleteFunction} />}
+          {!this.state.items ? null : <ProfileContainer
+            path={path} universalPostFunction={this.props.universalPostFunction} universalPatchFunction={this.props.universalPatchFunction} universalDeleteFunction={this.props.universalDeleteFunction} />}
 
-          {!this.state.outfits ? null : <OutfitsContainer universalPostFunction={this.props.universalPostFunction} universalPatchFunction={this.props.universalPatchFunction} universalDeleteFunction={this.props.universalDeleteFunction} />}
-          {!this.state.followers ? null : <FollowsContainer followersToggle={this.state.followers} />}
-          {!this.state.following ? null : <FollowsContainer followingToggle={this.state.following} />}
+          {!this.state.outfits ? null : <OutfitsContainer
+            path={path} universalPostFunction={this.props.universalPostFunction} universalPatchFunction={this.props.universalPatchFunction} universalDeleteFunction={this.props.universalDeleteFunction} />}
+          {!this.state.followers ? null : <FollowsContainer
+            path={path} followersToggle={this.state.followers} />}
+          {!this.state.following ? null : <FollowsContainer
+            path={path} followingToggle={this.state.following} />}
 
           </div>
         }

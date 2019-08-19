@@ -7,9 +7,11 @@ import { connect } from 'react-redux';
 
 class UserHeader extends React.Component{
   render(){
+
     return (
       <div>
         <UserData
+          path={this.props.path}
           universalDeleteFunction={this.props.universalDeleteFunction} universalPatchFunction={this.props.universalPatchFunction}
          />
       </div>

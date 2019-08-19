@@ -112,6 +112,7 @@ class OutfitBuilder extends React.Component {
           value={this.state.outfitName}
           onChange={this.handleChange}
           className="effect-4"
+          autocomplete="off"
         /></form>
         {<div>
           {!this.state.dressMode ?
