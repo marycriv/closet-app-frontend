@@ -11,6 +11,7 @@ const OutfitsContainer = (props) => {
       <OutfitCard   universalDeleteFunction={props.universalDeleteFunction}
         universalPatchFunction={props.universalPatchFunction}
         universalPostFunction={props.universalPostFunction}
+        path={props.path}
       />
 
     </div>

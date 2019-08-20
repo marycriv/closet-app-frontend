@@ -13,11 +13,32 @@ class OutfitCard extends React.Component {
 
   render(){
 
+    const path = this.props.path
+
+    const notUser = this.props.users.filter(user => user.username === this.props.path)[0]
+    
+    const match = this.props.user === notUser
+
+    let outfits = []
+
+    let checkMatch = (match) => {
+
+      if (match) {
+        outfits = this.props.outfits.filter(outfit => {return outfit.user_id === this.props.currentUserId})
+
+      } else {
+
+        outfits = this.props.outfits.filter(outfit => {return outfit.user_id === notUser.id})
+      }
+    }
+
+    checkMatch(match)
+
     // const items = this.props.outfits.map(outfit => {return outfit.items})
 
 
     // outfit doesnt have user_id
-    const outfits = this.props.outfits.filter(outfit => {return outfit.user_id === this.props.currentUserId})
+
     return (
       <div className="OutfitsContainer">
       {outfits.map((outfit) => {
