@@ -8,13 +8,11 @@ import { connect } from 'react-redux';
 
 class NavBar extends React.Component {
   render(){
-    let user = this.props.users.find(user => user.id === this.props.currentUserId)
     return (
       <div className="NavBar">
       {this.props.loggedIn ?
         <div className="NavBar">
-          <Link to={`/${user.username}`} className="NavBarItem">Home</Link>
-          <Link to='/newoutfit' className="NavBarItem">New Outfit</Link>
+          <Link to={`/${this.props.user.username}`} className="NavBarItem">Home</Link>
           <Link onClick={() => this.props.logout()} className="NavBarItem">Logout</Link>
         </div>
         : <div className="NavBar">

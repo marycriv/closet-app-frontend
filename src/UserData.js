@@ -21,16 +21,22 @@ render(){
 
 
   return (
-    <div className="UserData">
+    <div className="container">
+    <div className="profile">
     { match ?
       <div className="CurrentUserBio">
-        <h1 className="profile-real-name">{user.username}'s profile</h1>
-        <h2 hidden>{user.id}</h2>
-        <img width="100px" alt="profile" src={user.profile_picture} />
-        <p><b>bio:</b> {user.bio}</p>
-        <br/>
-        <button onClick={() => this.setState({toggleEdit: !this.state.toggleEdit})}>Edit user info!</button>
-        <br/><br/>
+        <div className="profile-image">
+          <img width="100px" alt="profile" src={user.profile_picture} />
+        </div>
+        <div class="profile-user-settings">
+          <h1 className="profile-user-name">{user.username}</h1>
+          <h2 hidden>{user.id}</h2>
+          <button class="btn profile-edit-btn" onClick={() => this.setState({toggleEdit: !this.state.toggleEdit})}>Edit</button>
+        <div class="profile-bio">
+          <p>{user.bio}</p>
+        </div>
+
+        </div>
         { !this.state.toggleEdit ? null : <div className="UserSettings"><button onClick={() => this.props.universalDeleteFunction(user.id, 'users')}>Delete</button>
         <UserForm universalPatchFunction={this.props.universalPatchFunction} /><br/><br/></div>}
       </div>
@@ -41,6 +47,7 @@ render(){
         <p><b>bio:</b> {notUser.bio}</p>
       </div>
     }
+    </div>
     </div>
   )
 }
