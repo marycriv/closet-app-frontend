@@ -8,9 +8,32 @@ import {withRouter} from "react-router-dom";
 class FollowsContainer extends React.Component{
 
   render(){
-    let followers = this.props.follows.filter(user => user.followee_id === this.props.currentUserId).map(follow => follow.follower)
 
-    let followees = this.props.follows.filter(user => user.follower_id === this.props.currentUserId).map(follow => follow.followee)
+    const path = this.props.path
+
+    const notUser = this.props.users.filter(user => user.username === this.props.path)[0]
+
+    const match = this.props.user === notUser
+
+    let followers = []
+    let followees = []
+
+    let checkMatch = (match) => {
+
+      if (match) {
+        followers = this.props.follows.filter(user => user.followee_id === this.props.currentUserId).map(follow => follow.follower)
+
+        followees = this.props.follows.filter(user => user.follower_id === this.props.currentUserId).map(follow => follow.followee)
+
+      } else {
+        followers = this.props.follows.filter(user => user.followee_id === notUser.id).map(follow => follow.follower)
+
+        followees = this.props.follows.filter(user => user.follower_id === notUser.id).map(follow => follow.followee)
+      }
+    }
+
+    checkMatch(match)
+
 
     return(
       <div className="FollowsContainer">
