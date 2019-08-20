@@ -21,7 +21,6 @@ class OutfitBuilder extends React.Component {
 
 
   render(){
-
     const flickityOptions = {
         wrapAround: true,
         initialIndex: 2
@@ -37,26 +36,10 @@ class OutfitBuilder extends React.Component {
 
     const  myDresses = items.filter(item => {return ['dress', 'romper'].includes(item.classification)})
 
-    // const myTops = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'top')
-    //
-    // const myBottoms = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'bottom')
-    //
-    // const myDresses = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'dress')
-    //
-    // const myShoes = this.props.items.filter(item => item.user_id === this.props.currentUserId && item.classification === 'shoes')
-
-    // const followees = this.props.follows.filter(user => user.follower_id === this.props.currentUserId).map(follow => follow.followee)
-    //
-    // followees.push(this.props.user)
-    //
-    // const userHeads = followees.reverse()
-
 
     const threeItemOutfit = (e) => {
-      console.log(e)
-      let params = {}
 
-      // let userId = document.getElementsByClassName('user is-selected')[0].id
+      let params = {}
 
       let shoeId = document.getElementsByClassName('shoes is-selected')[0].id
 
@@ -68,9 +51,9 @@ class OutfitBuilder extends React.Component {
       params = {
           name: this.state.outfitName,
           user_id: this.props.currentUserId,
+          author_id: this.props.currentUserId,
           ids: [topId, bottomId, shoeId]
       }
-
       this.props.universalPostFunction(params, "NEW_OUTFIT")
     }
 
@@ -82,10 +65,10 @@ class OutfitBuilder extends React.Component {
 
       let dressId = document.getElementsByClassName('dress is-selected')[0].id
 
-
       params = {
           name: this.state.outfitName,
           user_id: this.props.currentUserId,
+          author_id: this.props.currentUserId,
           ids: [dressId, shoeId]
       }
 
@@ -93,6 +76,7 @@ class OutfitBuilder extends React.Component {
     }
 
     return (
+
       <div>
         {/*<h2>Who is this outfit for?</h2>
 

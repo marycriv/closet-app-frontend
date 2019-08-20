@@ -88,6 +88,7 @@ class App extends React.Component {
           name: params.name,
           user_id: params.user_id,
           ids: params.ids,
+          author_id: params.author_id,
           username: params.username
         }
         loc = 'outfits'
