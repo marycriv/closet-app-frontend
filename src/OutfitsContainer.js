@@ -7,7 +7,7 @@ import OutfitCard from './OutfitCard';
 
 const OutfitsContainer = (props) => {
   return (
-    <div className="OutfitsContainer">
+    <div>
       <OutfitCard   universalDeleteFunction={props.universalDeleteFunction}
         universalPatchFunction={props.universalPatchFunction}
         universalPostFunction={props.universalPostFunction}

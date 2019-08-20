@@ -2,8 +2,6 @@ import React from 'react';
 
 import './main.css';
 
-import './App.css';
-
 import { connect } from 'react-redux';
 
 class OutfitCard extends React.Component {
@@ -21,21 +19,20 @@ class OutfitCard extends React.Component {
     // outfit doesnt have user_id
     const outfits = this.props.outfits.filter(outfit => {return outfit.user_id === this.props.currentUserId})
     return (
-      <div className="OutfitCard">
+      <div className="OutfitsContainer">
       {outfits.map((outfit) => {
         return (
-          <div id={outfit.id} style={{border: 'solid darkviolet'}}>
-            <h3>Outfit name: {outfit.name}</h3>
-            <div className="CardGallery">
+          <div id={outfit.id} className="OutfitCard">
+            <div className="title"><h3>{outfit.name}</h3><p onClick={(e) => this.props.universalDeleteFunction(e.target.parentElement.parentElement.id, 'outfits')} ><i class="fa fa-times fa-2x" aria-hidden="true"></i></p></div>
+            <div className="OutfitImages">
             {outfit.items.map((item) => {
               return (
-                <div className="CardGalleryItem">
+                <div>
                   <p hidden id={item.id}>{item.classification}</p>
-                  <img width="100px" alt="item" src={item.image} />
+                  <img width="100px" alt="item" className="OutfitImage" src={item.image} />
                 </div>
               )})}
               </div>
-              <button onClick={(e) => this.props.universalDeleteFunction(e.target.parentElement.id, 'outfits')} >Delete outfit</button>
 
           </div>
         )

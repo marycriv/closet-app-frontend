@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './App.css'
+import './main.css'
 
 const NotFound = () => {
   return (<div class="videoContainer">
