@@ -16,7 +16,7 @@ class OutfitCard extends React.Component {
     const path = this.props.path
 
     const notUser = this.props.users.filter(user => user.username === this.props.path)[0]
-    
+
     const match = this.props.user === notUser
 
     let outfits = []
@@ -50,7 +50,7 @@ class OutfitCard extends React.Component {
               return (
                 <div>
                   <p hidden id={item.id}>{item.classification}</p>
-                  <img width="100px" alt="item" className="OutfitImage" src={item.image} />
+                  <img width="100px" title={item.id} alt="item" className="OutfitImage" src={item.image} />
                 </div>
               )})}
               </div>
