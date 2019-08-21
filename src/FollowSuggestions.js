@@ -13,9 +13,13 @@ class FollowSuggestions extends React.Component {
 
   render(){
 
-    let followees = this.props.follows.filter(user => user.follower_id === this.props.currentUserId).map(follow => follow.followee)
+    let followees = this.props.follows.filter(user => user.follower_id === this.props.currentUserId).map(follow => follow.followee.username)
 
-    let otherUsers = this.props.users.filter(user => user.id !== this.props.currentUserId && !followees.includes(user))
+    let otherUsers = this.props.users.filter(user => {
+
+      return user.id !== this.props.currentUserId && !followees.includes(user.username)
+    })
+
 
     console.log(otherUsers)
 
