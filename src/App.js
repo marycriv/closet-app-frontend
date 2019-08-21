@@ -219,7 +219,7 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-      {this.state.loading ? <div><h1>loadin</h1></div> :
+      {this.state.loading ? <div><h1>loading</h1></div> :
         <div>
         <NavBar/>
         <Switch>
@@ -228,8 +228,11 @@ class App extends React.Component {
           <Route path='/login' component={LoginForm}/>
           <Route path='/signup' render={() => <UserForm universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
           />}/>
-          <Route path='/newoutfit' render={() => <OutfitBuilder universalPostFunction={this.universalPostFunction}
-          />}/>
+          { this.props.loggedIn &&
+          <Route path='/newoutfit' render={() =>
+            <OutfitBuilder universalPostFunction={this.universalPostFunction} />}
+          />
+        }
           <Route exact path='/:username' render={() => <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
           />}/>
           <Route component={NotFound} />

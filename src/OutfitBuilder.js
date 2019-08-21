@@ -4,13 +4,15 @@ import Flickity from 'react-flickity-component';
 
 import { connect } from 'react-redux';
 
-
 class OutfitBuilder extends React.Component {
 
   state = {
     outfitName: "Outfit name here",
     dressMode: false,
-    threeItemMode: true
+    threeItemMode: true,
+    loading: true,
+    selectedUserId: this.props.currentUserId,
+    selectedUser: this.props.user
   }
 
   handleChange = (e) => {
@@ -19,22 +21,38 @@ class OutfitBuilder extends React.Component {
     })
   }
 
+  componentDidMount(){
+    this.setState({loading: false})
+  }
+
+  handleClick = (e) => {
+
+    this.setState({selectedUserId: parseInt(e.target.id), dressMode: false,
+    threeItemMode: true, selectedUser: this.props.users.find(user => user.id === this.state.selectedUserId)}, () => console.log(this.state))
+  }
+
 
   render(){
+
     const flickityOptions = {
         wrapAround: true,
-        initialIndex: 2
+        initialIndex: 0
     }
 
-    const items = this.props.items.filter(item => {return item.user_id === this.props.currentUserId})
+    let followees = this.props.follows.filter(follow => follow.follower_id === this.props.currentUserId).map(follow => follow.followee_id)
 
-    const  myTops = items.filter(item => {return ['top', 'blouse', 'sweater'].includes(item.classification)})
 
-    const  myBottoms = items.filter(item => {return ['bottom', 'trousers', 'jeans', 'skirt', 'shorts'].includes(item.classification)})
+    let userOptions = this.props.users.filter(user => user.id === this.props.currentUserId || followees.includes(user.id)).filter(user => user.id !== parseInt(this.state.selectedUserId))
 
-    const  myShoes = items.filter(item => {return item.classification === 'shoes'})
+    let items = this.props.items.filter(item => {return item.user_id === this.state.selectedUserId})
 
-    const  myDresses = items.filter(item => {return ['dress', 'romper'].includes(item.classification)})
+    let  myTops = items.filter(item => {return ['top', 'blouse', 'sweater'].includes(item.classification)})
+
+    let  myBottoms = items.filter(item => {return ['bottom', 'trousers', 'jeans', 'skirt', 'shorts'].includes(item.classification)})
+
+    let  myShoes = items.filter(item => {return item.classification === 'shoes'})
+
+    let  myDresses = items.filter(item => {return ['dress', 'romper'].includes(item.classification)})
 
 
     const threeItemOutfit = (e) => {
@@ -87,7 +105,9 @@ class OutfitBuilder extends React.Component {
         >
         {userHeads.map(user => <img id={user.id} width="200px" src={user.profile_picture} className="user" />)}
         </Flickity>*/}
-
+        {<div className="OutfitBuilderUsers">
+        <p>Who is this outfit for?</p>
+        {userOptions.map(user => <img width="100px" id={user.id} onClick={this.handleClick} src={user.profile_picture} />)}</div>}
         <button className="ProfileNavButton" onClick={(e) => this.setState({dressMode: true, threeItemMode: false})}>DressMode</button>
         <button className="ProfileNavButton" onClick={(e) => this.setState({dressMode: false, threeItemMode: true})}>ThreeItemMode</button>
         <form onSubmit={(e) => e.preventDefault()}><input
@@ -96,9 +116,10 @@ class OutfitBuilder extends React.Component {
           value={this.state.outfitName}
           onChange={this.handleChange}
           className="effect-4"
-          autocomplete="off"
+          autoComplete="off"
         /></form>
         {<div>
+          <img className="carousel-image top" src={this.state.selectedUser.profile_picture} />
           {!this.state.dressMode ?
           <div className="ThreeItems">
           <Flickity

@@ -17,8 +17,6 @@ class FollowSuggestions extends React.Component {
 
     let otherUsers = this.props.users.filter(user => user.id !== this.props.currentUserId && !followees.includes(user.username)).slice(0,4)
 
-    console.log(otherUsers)
-
     return (
       <div>
       {this.props.path !== this.props.user.username ? null : <div>{otherUsers.map(user => <p onClick={this.handleClick} id={user.id}>+ {user.username}</p>)}</div>}
