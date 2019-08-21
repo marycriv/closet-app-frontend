@@ -1,5 +1,6 @@
 import React from 'react';
 import UserData from './UserData';
+import FollowSuggestions from './FollowSuggestions'
 
 import { connect } from 'react-redux';
 
@@ -10,6 +11,9 @@ class UserHeader extends React.Component{
 
     return (
       <div>
+      <FollowSuggestions
+        path={this.props.path} universalPostFunction={this.props.universalPostFunction}
+      />
         <UserData
           path={this.props.path}
           universalDeleteFunction={this.props.universalDeleteFunction} universalPatchFunction={this.props.universalPatchFunction}

@@ -98,7 +98,7 @@ class App extends React.Component {
       case "NEW_FOLLOW":
         payload = {
           follower_id: currentUserId,
-          followee_id: params
+          followee_id: params.followee_id
         }
         loc = 'follows'
         fetchFunction(loc, payload)

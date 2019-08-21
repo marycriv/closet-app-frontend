@@ -44,7 +44,7 @@ class OutfitCard extends React.Component {
       {outfits.map((outfit) => {
         return (
           <div id={outfit.id} className="OutfitCard">
-            <div className="title"><h3>{outfit.name}</h3><p onClick={(e) => this.props.universalDeleteFunction(e.target.parentElement.parentElement.id, 'outfits')} ><i class="fa fa-times fa-2x" aria-hidden="true"></i></p></div>
+            <div className="title"><h3>{outfit.name}</h3><p onClick={(e) => this.props.universalDeleteFunction(e.target.parentElement.parentElement.parentElement.id, 'outfits')} ><i class="fa fa-times fa-2x" aria-hidden="true"></i></p></div>
             <div className="OutfitImages">
             {outfit.items.map((item) => {
               return (
