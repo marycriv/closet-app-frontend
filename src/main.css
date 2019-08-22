@@ -1,3 +1,7 @@
+body {
+  /* background-color: rgba(244,129,171,.25); */
+}
+
 .MainContainer {
 }
 
@@ -15,7 +19,7 @@
 /* Gallery Section */
 
 .CardGallery {
-  background-color: #faa5c5;
+  /* background-color: #faa5c5; */
     display: flex;
     flex-wrap: wrap;
     margin: -1rem -1rem;
@@ -36,7 +40,7 @@
     width: 250px;
     height: 250px;
     border: 8px solid white;
-    /* box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .UserData{
@@ -46,7 +50,6 @@
 .ItemForm{
   margin: -1rem -1rem;
   padding: 2rem;
-  background-color: #faa5c5;
   color: white;
   font-weight: 600;
 }
@@ -68,7 +71,6 @@
   justify-content: space-between;
   margin: -1rem -1rem;
   padding: 2rem;
-  background-color: #faa5c5;
 }
 
 .OutfitCard {
@@ -204,70 +206,89 @@ input[type="submit" i]{
   box-shadow: 0 2px 5px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
+input[type="submit" i]:hover{
+  background: dodgerblue;
+  cursor: pointer;
+}
+
+input[type="submit" i]:active{
+  background: dodgerblue;
+}
+
 .ProfileNavButtons {
-  background-color: rgba(244,129,171,.25);
+  /* background-color: rgba(244,129,171,.25); */
+  /* margin-top: -1rem; */
+  margin-left: 25vw;
 }
 
 .ProfileNavButton {
-    font-size: 13px;
-    border-top: 1px solid #faa5c5;
-    border-right: 1px solid #faa5c5;
-    border-bottom: none;
-    border-left: none;
-    background: #f481ab;
-    font: 15px/24px "Lato", Arial, sans-serif;
-    color: white;
+    border: 1px solid #faa5c5;
+    border-radius: 7px;
+    font: 20px "Lato", Arial, sans-serif;
     letter-spacing: 1px;
-    height: 30px;
+    height: 40px;
+    font-weight: bolder;
+    margin: 2px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .ProfileNavButton:hover {
-    font-size: 13px;
-    border: 1px solid #faa5c5;
     background: #faa5c5;
-    font: 15px/24px "Lato", Arial, sans-serif;
     color: white;
-    letter-spacing: 1px;
-    height: 30px;
+    cursor: pointer;
+
 }
 
-#selected-tab {
+
+/* #selected-tab {
   background: #faa5c5;
+  color: white;
 }
+
+#selected-tab:hover {
+  background: white;
+  color: black;
+} */
 
 .NewOutfitButton {
-    font-size: 13px;
-    border-radius: 4px;
-    border: 1px solid purple;
-    background: #b794c6;
-    font: 15px/24px "Lato", Arial, sans-serif;
-    color: white;
-    box-sizing: border-box;
-    letter-spacing: 1px;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-    height: 30px;
-    margin: 1vw;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border-radius: 7px;
+  background: #f481ab;
+  font: 20px "Lato", Arial, sans-serif;
+  letter-spacing: 1px;
+  height: 40px;
+  font-weight: bolder;
+  margin: 1vw;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .NewOutfitButton:hover {
-  background: #e3e7e9;
+  background: #b794c6;
+  cursor: pointer;
+}
+
+.NewOutfitButton:active {
+  background: #faa5c5;
 }
 
 .SubmitOutfitButton {
-    font-size: 13px;
     border-radius: 4px;
-    border: 1px solid darkgreen;
-    background: green;
-    font: 15px/24px "Lato", Arial, sans-serif;
+    border: 1px solid #5979ff;
+    background: #38A1F3;
+    font: 20px "Lato", Arial, sans-serif;
     color: white;
     box-sizing: border-box;
     letter-spacing: 1px;
+    padding: 7px;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-    height: 30px;
+    height: 40px;
     margin: 1vw;
+    margin-left: 42vw;
     box-shadow: 0 2px 5px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    margin-left: 45%;
+}
+
+.SubmitOutfitButton:hover {
+  background: dodgerblue;
+  cursor: pointer;
 }
 
 
@@ -306,6 +327,7 @@ input[type="submit" i]{
   padding-left: 1rem;
   padding-right: 1rem;
   color: white;
+  cursor: pointer;
 }
 
 .UserProfile {
@@ -317,7 +339,7 @@ input[type="submit" i]{
   justify-content: space-around;
   height: 150px;
   align-items: center;
-  background-color: rgba(244,129,171,.25);
+  background-color: white;
 }
 
 .CurrentUserHeader {
@@ -369,7 +391,6 @@ input[type="submit" i]{
 .FollowsContainer{
   display: flex;
   padding: 2rem;
-  background-color: #faa5c5;
   margin: -1rem -1rem;
 }
 
@@ -395,6 +416,7 @@ input[type="submit" i]{
   background-color: #b794c6;
   border-radius: 7px;
   opacity: 0.7;
+  cursor: pointer;
 }
 
 .SuggestedFollowContainer{
@@ -402,21 +424,24 @@ input[type="submit" i]{
 }
 
 .SuggestedFollow{
-  background-color: rgb(160,160,160, 0.5);
+  background-color: #b794c6;
   display: flex;
   padding-left: 1rem;
   padding-right: 1rem;
   border-radius: 7px;
   margin-bottom: 10px;
+  height: 40px;
+  opacity: 0.8;
 }
 
 .SuggestedFollow:hover{
-  background-color: rgb(160,160,160, 0.8);
+  background-color: #B280C3;
+  cursor: pointer;
 }
 
 .SuggestedFollowText{
-  height: 45px;
-  padding: 23px 8px 0 1px;
+  padding-top: 1vw;
+  padding-right: 1vw;
 }
 
 .SuggestedFollow h3{

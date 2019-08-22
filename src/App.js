@@ -4,6 +4,7 @@ import UserForm from './UserForm';
 import MainContainer from './MainContainer';
 import LoginForm from './LoginForm';
 import NotFound from './NotFound';
+import DemoVideo from './DemoVideo';
 import NavBar from './NavBar';
 import OutfitBuilder from './OutfitBuilder';
 import LandingPage from './LandingPage'
@@ -228,6 +229,7 @@ class App extends React.Component {
           <Route path='/login' component={LoginForm}/>
           <Route path='/signup' render={() => <UserForm universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
           />}/>
+          <Route path='/demo' component={DemoVideo}/>
           { this.props.loggedIn &&
           <Route path='/newoutfit' render={() =>
             <OutfitBuilder universalPostFunction={this.universalPostFunction} />}

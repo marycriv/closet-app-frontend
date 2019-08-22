@@ -35,7 +35,7 @@ class MainContainer extends React.Component {
         following: false,
         newItem: false
       })
-      e.target.id = "selected-tab" 
+      e.target.id = "selected-tab"
 
       break
     case "outfits":
@@ -109,7 +109,7 @@ class MainContainer extends React.Component {
             : <button onClick={(e) => this.handleClick(e, 'new item')} className="ProfileNavButton">New Item</button>}
 
             {this.props.user.username !== path ? null
-            :<button onClick={(e) => this.handleClick(e, 'new outfit')} className="NewOutfitButton">New Outfit!!!!</button>}
+            :<button onClick={(e) => this.handleClick(e, 'new outfit')} className="NewOutfitButton">New Outfit</button>}
           </div>
 
           {!this.state.items ? null : <ProfileContainer
