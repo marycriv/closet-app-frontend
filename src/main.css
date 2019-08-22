@@ -225,7 +225,7 @@ input[type="submit" i]{
     font-size: 13px;
     border-radius: 4px;
     border: 1px solid purple;
-    background: violet;
+    background: #b794c6;
     font: 15px/24px "Lato", Arial, sans-serif;
     color: white;
     box-sizing: border-box;
@@ -234,6 +234,10 @@ input[type="submit" i]{
     height: 30px;
     margin: 1vw;
     box-shadow: 0 2px 5px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.NewOutfitButton:hover {
+  background: #e3e7e9;
 }
 
 .SubmitOutfitButton {
