@@ -347,13 +347,22 @@ input[type="submit" i]:active{
   flex-direction: row;
 }
 
+.NotCurrentUserBio {
+  display: flex;
+  flex-direction: row;
+}
+
 .Username {
   display: inline-block;
 }
 
 .ProfileBio {
-
+  border-top: 1px solid lightgray;
 }
+.ProfileBio p {
+  padding-top: 1rem;
+}
+
 
 .ProfilePicture {
   border-radius: 50%;
@@ -404,6 +413,7 @@ input[type="submit" i]:active{
 
 .SingleFollow{
   padding: 1rem;
+  cursor: pointer;
 }
 
 .SingleFollow h3 {
