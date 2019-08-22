@@ -50,7 +50,7 @@ class OutfitCard extends React.Component {
               return (
                 <div>
                   <p hidden id={item.id}>{item.classification}</p>
-                  <img width="100px" title={item.id} alt="item" className="OutfitImage" src={item.image} />
+                  <img title={item.id} alt="item" className="OutfitImage" src={item.image} />
                 </div>
               )})}
               </div>
