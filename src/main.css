@@ -1,7 +1,4 @@
 .MainContainer {
-  border-style: solid;
-  border-width: 3px;
-  border-color: purple;
 }
 
 .MainContainer p {
@@ -18,6 +15,7 @@
 /* Gallery Section */
 
 .CardGallery {
+  background-color: pink;
     display: flex;
     flex-wrap: wrap;
     margin: -1rem -1rem;
@@ -191,7 +189,10 @@ input[type="submit" i]{
 
 .ProfileNavButton {
     font-size: 13px;
-    border: 1px solid hotpink;
+    border-top: 1px solid hotpink;
+    border-right: 1px solid hotpink;
+    border-bottom: none;
+    border-left: none;
     background: pink;
     font: 15px/24px "Lato", Arial, sans-serif;
     color: white;
@@ -199,7 +200,7 @@ input[type="submit" i]{
     height: 30px;
 }
 
-.ProfileNavButton#active {
+.ProfileNavButton:hover {
     font-size: 13px;
     border: 1px solid hotpink;
     background: hotpink;

@@ -26,9 +26,10 @@ class OutfitBuilder extends React.Component {
   }
 
   handleClick = (e) => {
+    let bepis = this.props.users.find(user => user.id === parseInt(e.target.id))
 
     this.setState({selectedUserId: parseInt(e.target.id), dressMode: false,
-    threeItemMode: true, selectedUser: this.props.users.find(user => user.id === this.state.selectedUserId)}, () => console.log(this.state))
+    threeItemMode: true, selectedUser: bepis})
   }
 
 
@@ -68,7 +69,7 @@ class OutfitBuilder extends React.Component {
 
       params = {
           name: this.state.outfitName,
-          user_id: this.props.currentUserId,
+          user_id: this.state.selectedUserId,
           author_id: this.props.currentUserId,
           ids: [topId, bottomId, shoeId]
       }
@@ -85,7 +86,7 @@ class OutfitBuilder extends React.Component {
 
       params = {
           name: this.state.outfitName,
-          user_id: this.props.currentUserId,
+          user_id: this.state.selectedUserId,
           author_id: this.props.currentUserId,
           ids: [dressId, shoeId]
       }
@@ -119,7 +120,13 @@ class OutfitBuilder extends React.Component {
           autoComplete="off"
         /></form>
         {<div>
-          <img className="carousel-image top" src={this.state.selectedUser.profile_picture} />
+          {<Flickity
+            className={'carousel'}
+            elementType={'div'}
+            options={flickityOptions}
+          >
+          <img id={this.state.selectedUserId} src={this.state.selectedUser.profile_picture} className="carousel-image" />
+          </Flickity>}
           {!this.state.dressMode ?
           <div className="ThreeItems">
           <Flickity
