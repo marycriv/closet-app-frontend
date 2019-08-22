@@ -34,7 +34,7 @@ render(){
   let checkMatch = (match) => {
 
     if (match) {
-      items = this.props.items.filter(item => {return item.user_id === this.props.currentUserId})
+      items = this.props.items.filter(item => {return item.user_id === this.props.currentUserId}).reverse()
 
       tops = items.filter(item => {return ['top', 'blouse', 'sweater'].includes(item.classification)})
 
@@ -45,7 +45,7 @@ render(){
       dresses = items.filter(item => {return ['dress', 'romper'].includes(item.classification)})
     } else {
 
-      items = this.props.items.filter(item => {return item.user_id === notUser.id})
+      items = this.props.items.filter(item => {return item.user_id === notUser.id}).reverse()
 
       tops = items.filter(item => {return ['top', 'blouse', 'sweater'].includes(item.classification)})
 

@@ -47,6 +47,8 @@
   margin: -1rem -1rem;
   padding: 2rem;
   background-color: #faa5c5;
+  color: white;
+  font-weight: 600;
 }
 
 .FollowersBox {
@@ -265,6 +267,7 @@ input[type="submit" i]{
     height: 30px;
     margin: 1vw;
     box-shadow: 0 2px 5px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    margin-left: 45%;
 }
 
 
@@ -417,7 +420,7 @@ input[type="submit" i]{
 }
 
 .SuggestedFollow h3{
-  color: red;
+
 }
 
 .SuggestedFollowImage{

@@ -48,20 +48,20 @@ class ItemForm extends React.Component {
     return (
       <div className="ItemForm">
       <form onSubmit={(e) => this.handleSubmit(e, this.state)}>
-        Image URL:
+        Image URL:<br/>
         <input
           type="text"
           name="imageUrl"
           value={this.state.imageUrl}
           onChange={this.handleChange}
-        />
-        Brand:
+        /><br/>
+        Brand:<br/>
         <input
           type="text"
           name="brand"
           value={this.state.brand}
           onChange={this.handleChange}
-        />
+        /><br/>
         <select
           name="classification"
           value={this.state.value} onChange={this.handleChange}

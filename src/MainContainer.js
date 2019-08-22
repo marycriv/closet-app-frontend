@@ -35,8 +35,7 @@ class MainContainer extends React.Component {
         following: false,
         newItem: false
       })
-      e.target.id = "selected-tab"
-      e.target.nextSibling.id = ""
+      e.target.id = "selected-tab" 
 
       break
     case "outfits":
@@ -48,10 +47,6 @@ class MainContainer extends React.Component {
         newItem: false
       })
       e.target.id = "selected-tab"
-      e.target.previousSibling.id = ""
-      e.target.nextSibling.id = ""
-      e.target.nextSibling.id = ""
-      e.target.nextSibling.id = ""
       break
     case "followers":
       this.setState({
@@ -62,10 +57,6 @@ class MainContainer extends React.Component {
         newItem: false
       })
       e.target.id = "selected-tab"
-      e.target.previousSibling.id = ""
-      e.target.previousSibling.id = ""
-      e.target.nextSibling.id = ""
-      e.target.nextSibling.id = ""
       break
     case "following":
       this.setState({
@@ -76,10 +67,6 @@ class MainContainer extends React.Component {
         newItem: false
       })
       e.target.id = "selected-tab"
-      e.target.previousSibling.id = ""
-      e.target.previousSibling.id = ""
-      e.target.previousSibling.id = ""
-      e.target.nextSibling.id = ""
       break
     case "new item":
       this.setState({
@@ -90,10 +77,6 @@ class MainContainer extends React.Component {
         newItem: true
       })
       e.target.id = "selected-tab"
-      e.target.previousSibling.id = ""
-      e.target.previousSibling.previousSibling.id = ""
-      e.target.previousSibling.previousSibling.previousSibling.id = ""
-      e.target.previousSibling.previousSibling.previousSibling.id = ""
       break
     case "new outfit":
       this.props.history.push('/newoutfit')

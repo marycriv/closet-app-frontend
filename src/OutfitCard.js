@@ -24,11 +24,11 @@ class OutfitCard extends React.Component {
     let checkMatch = (match) => {
 
       if (match) {
-        outfits = this.props.outfits.filter(outfit => {return outfit.user_id === this.props.currentUserId})
+        outfits = this.props.outfits.filter(outfit => {return outfit.user_id === this.props.currentUserId}).reverse()
 
       } else {
 
-        outfits = this.props.outfits.filter(outfit => {return outfit.user_id === notUser.id})
+        outfits = this.props.outfits.filter(outfit => {return outfit.user_id === notUser.id}).reverse()
       }
     }
 
