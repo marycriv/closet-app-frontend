@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LandingPage = () => {
-  return <h2>Landing page</h2>
+  return <div className="LandingPage"><center><img width="150px" src='/logo.png' /></center></div>
 }
 
 export default LandingPage;

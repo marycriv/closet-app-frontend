@@ -35,6 +35,9 @@ class MainContainer extends React.Component {
         following: false,
         newItem: false
       })
+      e.target.id = "selected-tab"
+      e.target.nextSibling.id = ""
+
       break
     case "outfits":
       this.setState({
@@ -44,6 +47,11 @@ class MainContainer extends React.Component {
         following: false,
         newItem: false
       })
+      e.target.id = "selected-tab"
+      e.target.previousSibling.id = ""
+      e.target.nextSibling.id = ""
+      e.target.nextSibling.id = ""
+      e.target.nextSibling.id = ""
       break
     case "followers":
       this.setState({
@@ -53,6 +61,11 @@ class MainContainer extends React.Component {
         following: false,
         newItem: false
       })
+      e.target.id = "selected-tab"
+      e.target.previousSibling.id = ""
+      e.target.previousSibling.id = ""
+      e.target.nextSibling.id = ""
+      e.target.nextSibling.id = ""
       break
     case "following":
       this.setState({
@@ -62,6 +75,11 @@ class MainContainer extends React.Component {
         following: true,
         newItem: false
       })
+      e.target.id = "selected-tab"
+      e.target.previousSibling.id = ""
+      e.target.previousSibling.id = ""
+      e.target.previousSibling.id = ""
+      e.target.nextSibling.id = ""
       break
     case "new item":
       this.setState({
@@ -71,6 +89,11 @@ class MainContainer extends React.Component {
         following: false,
         newItem: true
       })
+      e.target.id = "selected-tab"
+      e.target.previousSibling.id = ""
+      e.target.previousSibling.previousSibling.id = ""
+      e.target.previousSibling.previousSibling.previousSibling.id = ""
+      e.target.previousSibling.previousSibling.previousSibling.id = ""
       break
     case "new outfit":
       this.props.history.push('/newoutfit')
@@ -95,7 +118,7 @@ class MainContainer extends React.Component {
           />
 
           <div className="ProfileNavButtons">
-            <button onClick={(e) => this.handleClick(e, 'items')} className="ProfileNavButton">Closet</button>
+            <button id="selected-tab" onClick={(e) => this.handleClick(e, 'items')} className="ProfileNavButton">Closet</button>
             <button onClick={(e) => this.handleClick(e, 'outfits')} className="ProfileNavButton">Outfits</button>
             <button onClick={(e) => this.handleClick(e, 'followers')} className="ProfileNavButton">Followers</button>
             <button onClick={(e) => this.handleClick(e, 'following')} className="ProfileNavButton">Following</button>

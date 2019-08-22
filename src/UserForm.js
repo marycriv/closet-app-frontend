@@ -35,7 +35,7 @@ class UserForm extends React.Component {
   render(){
     return (
       <div className="UserForm">
-        {!this.props.currentUserId ? <h2>New user form:</h2> : <h3>Edit current user info:</h3>}
+        {!this.props.currentUserId ? <h2>Create an account!</h2> : <h3>Edit profile:</h3>}
         <form onSubmit={(e) => this.handleSubmit(e, this.state)}>
           Username:
           <input
@@ -44,6 +44,7 @@ class UserForm extends React.Component {
             value={this.state.username}
             onChange={this.handleChange}
           />
+          <br/>
           Profile picture:
           <input
             type="text"
@@ -51,12 +52,14 @@ class UserForm extends React.Component {
             value={this.state.profilePicture}
             onChange={this.handleChange}
           />
+          <br/>
           Bio:
           <textarea
             name="bio"
             value={this.state.bio}
             onChange={this.handleChange}
           />
+          <br/>
           <input type="submit" value="Submit" />
         </form>
       </div>

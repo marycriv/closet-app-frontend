@@ -9,13 +9,14 @@ import { connect } from 'react-redux';
 class NavBar extends React.Component {
   render(){
     return (
-      <div className="NavBar">
+      <div>
       {this.props.loggedIn ?
         <div className="NavBar">
           <Link to={`/${this.props.user.username}`} className="NavBarItem">Home</Link>
           <Link onClick={() => this.props.logout()} className="NavBarItem">Logout</Link>
         </div>
-        : <div className="NavBar">
+        :
+        <div className="NavBar">
           <Link to='/' className="NavBarItem">Home</Link>
           <Link to='/login' className="NavBarItem">Login</Link>
           <Link to='/signup' className="NavBarItem">Signup</Link>
