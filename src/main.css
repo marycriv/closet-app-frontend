@@ -31,6 +31,10 @@
 
 .CardGalleryItem img {
     border-radius: 7px;
+    object-fit: contain;
+    background: white;
+    width: 250px;
+    height: 250px;
 }
 
 .UserData{
@@ -288,6 +292,7 @@ input[type="submit" i]{
 
 .UserHeader {
   display: flex;
+  justify-content: space-around;
 }
 
 .CurrentUserHeader {

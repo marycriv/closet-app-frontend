@@ -64,7 +64,7 @@ render(){
       {items.map((item) => {
         return (
           <div className="CardGalleryItem" id={item.id}>
-            <img width="250px" alt={`${item.user_id}-${item.brand}`} key={`${item.brand}-${item.id}`} src={item.image} title={item.id}  />
+            <img alt={`${item.user_id}-${item.brand}`} key={`${item.brand}-${item.id}`} src={item.image} title={item.id}  />
             <h3>{item.brand} {item.classification}</h3>
             {match ?
             <div className="editButtons">
