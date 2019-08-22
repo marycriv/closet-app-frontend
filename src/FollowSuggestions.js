@@ -19,7 +19,7 @@ class FollowSuggestions extends React.Component {
 
     return (
       <div>
-      {this.props.path !== this.props.user.username ? null : <div>{otherUsers.map(user => <p onClick={this.handleClick} id={user.id}>+ {user.username}</p>)}</div>}
+      {this.props.path !== this.props.user.username ? null : <div>{otherUsers.map(user => <div onClick={this.handleClick} id={user.id} className="SuggestedFollow"> <h3 className="SuggestedFollowText">+ {user.username}</h3><img width="75px" className="SuggestedFollowImage" src={user.profile_picture} /></div>)}</div>}
       </div>
     )
   }

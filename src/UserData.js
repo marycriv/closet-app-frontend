@@ -47,6 +47,7 @@ render(){
         <h2 hidden>{notUser.id}</h2>
         <img width="100px" alt="profile" src={notUser.profile_picture} />
         <p><b>bio:</b> {notUser.bio}</p>
+        <p onClick={() => this.props.universalDeleteFunction(this.props.follows.filter(follow => follow.follower_id === this.props.currentUserId && follow.followee_id === notUser.id)[0].id, 'follows')}>unfollow</p>
       </div>
     }
     </div>
@@ -60,7 +61,8 @@ function msp(state){
   return {
     currentUserId: state.currentUserId,
     users: state.users,
-    user: state.user
+    user: state.user,
+    follows: state.follows
   }
 }
 

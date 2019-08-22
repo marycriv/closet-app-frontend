@@ -350,3 +350,32 @@ input[type="submit" i]{
 .SingleFollow{
   padding: 1rem;
 }
+
+.SuggestedFollow{
+  background: gray;
+  display: flex;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 7px;
+}
+
+.SuggestedFollow:hover{
+  opacity: 50%;
+}
+
+.SuggestedFollowText{
+  height: 45px;
+  padding: 23px 8px 0 1px;
+}
+
+.SuggestedFollow h3{
+  height: 20px;
+  color: red;
+}
+
+.SuggestedFollowImage{
+  border-radius: 7px;
+  height: 37px;
+  width: 37px;
+  align-self: center;
+}
