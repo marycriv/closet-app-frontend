@@ -281,7 +281,8 @@ input[type="submit" i]:active{
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
     height: 40px;
     margin: 1vw;
-    margin-left: 42vw;
+    margin-bottom: 2vw;
+    margin-left: 44vw;
     box-shadow: 0 2px 5px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
@@ -370,6 +371,18 @@ input[type="submit" i]:active{
 .NotCurrentUserBio {
   flex-direction: row;
   display: -webkit-inline-box;
+}
+
+.OutfitBuilderUsers{
+  display: -webkit-inline-box;
+  margin-top: 2vw;
+}
+
+.OutfitBuilderUsers p{
+  font-size: 20px;
+  margin-top: 10px;
+  padding: 1rem;
+  font-weight: bolder;
 }
 
 .NotUserBio{

@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 class OutfitBuilder extends React.Component {
 
   state = {
-    outfitName: "Outfit name here",
+    outfitName: "Outfit name...",
     dressMode: false,
     threeItemMode: true,
     loading: true,
@@ -114,19 +114,15 @@ class OutfitBuilder extends React.Component {
         >
         {userHeads.map(user => <img id={user.id} width="200px" src={user.profile_picture} className="user" />)}
         </Flickity>*/}
+        <div>
         {<div className="OutfitBuilderUsers">
         <p>Who is this outfit for?</p>
-        {userOptions.map(user => <img width="100px" id={user.id} onClick={this.handleClick} src={user.profile_picture} />)}</div>}
-        <button className="ProfileNavButton" onClick={(e) => this.setState({dressMode: true, threeItemMode: false})}>DressMode</button>
-        <button className="ProfileNavButton" onClick={(e) => this.setState({dressMode: false, threeItemMode: true})}>ThreeItemMode</button>
-        <form onSubmit={(e) => e.preventDefault()}><input
-          type="text"
-          name="outfitName"
-          value={this.state.outfitName}
-          onChange={this.handleChange}
-          className="effect-4"
-          autoComplete="off"
-        /></form>
+        {userOptions.map(user => <img width="75px" className="ProfilePicture" id={user.id} onClick={this.handleClick} src={user.profile_picture} />)}</div>}
+
+        <center><button className="ProfileNavButton" onClick={(e) => this.setState({dressMode: true, threeItemMode: false})}>Dresses & Co-ords</button>
+        <button className="ProfileNavButton" onClick={(e) => this.setState({dressMode: false, threeItemMode: true})}>Tops & Bottoms</button></center>
+        </div>
+        <br/>
         {<div>
           {<Flickity
             className={'carousel'}
@@ -161,7 +157,16 @@ class OutfitBuilder extends React.Component {
           {myShoes.map(shoe => <img id={shoe.id} src={shoe.image} className="carousel-image shoes" />)}
           </Flickity>
           <br />
-          <button className="SubmitOutfitButton" onClick={threeItemOutfit}>RATE MY FIT</button>
+          <center><form onSubmit={(e) => e.preventDefault()}><input
+            type="text"
+            name="outfitName"
+            value={this.state.outfitName}
+            onChange={this.handleChange}
+            className="effect-4"
+            autoComplete="off"
+          /></form></center>
+          <br />
+          <button className="SubmitOutfitButton" onClick={threeItemOutfit}>Submit</button>
           </div>
           :
           <div className="TwoItems">
@@ -181,7 +186,16 @@ class OutfitBuilder extends React.Component {
             {myShoes.map(shoe => <img id={shoe.id} src={shoe.image} className="carousel-image shoes" />)}
             </Flickity>
             <br />
-            <button className="SubmitOutfitButton" onClick={twoItemOutfit}>RATE MY FIT</button>
+            <center><form onSubmit={(e) => e.preventDefault()}><input
+              type="text"
+              name="outfitName"
+              value={this.state.outfitName}
+              onChange={this.handleChange}
+              className="effect-4"
+              autoComplete="off"
+            /></form></center>
+            <br />
+            <center><button className="SubmitOutfitButton" onClick={twoItemOutfit}>Submit</button></center>
           </div>
         }
         </div>}
