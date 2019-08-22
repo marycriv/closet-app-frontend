@@ -16,8 +16,8 @@ class UserForm extends React.Component {
     const parent = e.target.parentElement.parentElement.className
     let params = {}
 
-    if (parent === "UserSettings") {
-      params = {username: state.username, profilePicture: state.profilePicture, id: this.state.userId, bio: state.bio}
+    if (this.props.loggedIn) {
+      params = {username: state.username, profilePicture: state.profilePicture, id: this.props.currentUserId, bio: state.bio}
       this.props.universalPatchFunction(params, "EDIT_USER")
     } else {
       params = {username: state.username, profilePicture: state.profilePicture, id: this.state.userId, bio: state.bio}

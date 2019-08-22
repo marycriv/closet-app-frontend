@@ -235,6 +235,8 @@ class App extends React.Component {
             <OutfitBuilder universalPostFunction={this.universalPostFunction} />}
           />
         }
+        <Route exact path='/edit' render={() => <UserForm universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
+        />}/>
           <Route exact path='/:username' render={() => <MainContainer universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
           />}/>
           <Route component={NotFound} />

@@ -50,7 +50,6 @@ body {
 .ItemForm{
   margin: -1rem -1rem;
   padding: 2rem;
-  color: white;
   font-weight: 600;
 }
 
@@ -291,6 +290,27 @@ input[type="submit" i]:active{
   cursor: pointer;
 }
 
+.RedButton {
+    border-radius: 4px;
+    border: 1px solid #5979ff;
+    background: red;
+    font: 20px "Lato", Arial, sans-serif;
+    color: white;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    padding: 7px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    height: 40px;
+    margin: 1vw;
+    margin-left: 42vw;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.RedButton:hover {
+  background: red;
+  cursor: pointer;
+}
+
 
 .NavBar {
   width: 100%;
@@ -348,8 +368,8 @@ input[type="submit" i]:active{
 }
 
 .NotCurrentUserBio {
-  display: flex;
   flex-direction: row;
+  display: -webkit-inline-box;
 }
 
 .Username {

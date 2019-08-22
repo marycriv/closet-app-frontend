@@ -40,6 +40,14 @@ class OutfitBuilder extends React.Component {
         initialIndex: 0
     }
 
+    const flickityOptionsTwo = {
+        wrapAround: true,
+        initialIndex: 0,
+        prevNextButtons: false,
+        pageDots: false
+    }
+
+
     let followees = this.props.follows.filter(follow => follow.follower_id === this.props.currentUserId).map(follow => follow.followee_id)
 
 
@@ -123,7 +131,7 @@ class OutfitBuilder extends React.Component {
           {<Flickity
             className={'carousel'}
             elementType={'div'}
-            options={flickityOptions}
+            options={flickityOptionsTwo}
           >
           <img id={this.state.selectedUserId} src={this.state.selectedUser.profile_picture} className="carousel-image" />
           </Flickity>}
