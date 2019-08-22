@@ -37,9 +37,11 @@ class FollowsContainer extends React.Component{
 
     return(
       <div className="FollowsContainer">
-        {this.props.followersToggle ? <div><h3>Followers:</h3>{followers.map(follower => <div className="SingleFollow" onClick={() => this.props.history.push(follower.username)}><img width="100px" src={follower.profile_picture}/><h1>{follower.username}</h1></div>)}</div> : null}
+        {this.props.followersToggle ? <div><h3>Followers:</h3><div className="Followers">{followers.map(follower => <div className="SingleFollow" onClick={() => this.props.history.push(follower.username)}><h3>{follower.username}</h3><img className="ProfilePicture" width="100px" src={follower.profile_picture}/></div>)}</div></div> : null}
 
-        {this.props.followingToggle ? <div><h3>Following:</h3>{followees.map(followee => <div className="SingleFollow"><Link to={`/${followee.username}`}><img width="100px" src={followee.profile_picture}/></Link><h1>{followee.username}</h1></div>)}</div> : null}
+        {this.props.followingToggle ? <div><h3>Following:</h3><div className="Followees">{followees.map(followee => <div className="SingleFollow">
+        <h3>{followee.username}</h3>
+        <Link to={`/${followee.username}`}><img className="ProfilePicture" width="100px" src={followee.profile_picture}/></Link></div>)}</div></div> : null}
       </div>
     )
   }

@@ -10,13 +10,13 @@ class UserHeader extends React.Component{
   render(){
 
     return (
-      <div>
-      <FollowSuggestions
-        path={this.props.path} universalPostFunction={this.props.universalPostFunction}
-      />
+      <div className="UserHeader">
         <UserData
           path={this.props.path}
           universalDeleteFunction={this.props.universalDeleteFunction} universalPatchFunction={this.props.universalPatchFunction}
+         />
+         <FollowSuggestions
+           path={this.props.path} universalPostFunction={this.props.universalPostFunction}
          />
       </div>
     )

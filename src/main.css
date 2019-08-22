@@ -286,6 +286,10 @@ input[type="submit" i]{
 
 }
 
+.UserHeader {
+  display: flex;
+}
+
 .CurrentUserHeader {
   display: flex;
   flex-direction: row;
@@ -329,3 +333,20 @@ input[type="submit" i]{
 .LoginForm {
   padding: 2rem;
  }
+
+.FollowsContainer{
+  display: flex;
+  padding: 2rem;
+}
+
+.Followers{
+  display: flex;
+}
+
+.Followees{
+  display: flex;
+}
+
+.SingleFollow{
+  padding: 1rem;
+}
