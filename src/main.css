@@ -320,5 +320,12 @@ input[type="submit" i]{
 
 .UserForm{
   padding: 2rem;
-  display: table-caption;
 }
+
+.UserFormDelete{
+
+}
+
+.LoginForm {
+  padding: 2rem;
+ }

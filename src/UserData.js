@@ -24,17 +24,22 @@ render(){
     <div className="container">
     <div className="UserHeader">
     { match ?
+      <div>
       <div className="CurrentUserHeader">
           <img className="ProfilePicture" width="100px" alt="profile" src={user.profile_picture} />
           <div className="UserBioRight">
-          <h1 className="Username">{user.username}</h1>
-          <h2 hidden>{user.id}</h2>
-          <button class="EditButton" onClick={() => this.setState({toggleEdit: !this.state.toggleEdit})}>Edit</button>
-        <div class="ProfileBio">
-          <p>{user.bio}</p>
+            <h1 className="Username">{user.username}</h1>
+            <h2 hidden>{user.id}</h2>
+            <button class="EditButton" onClick={() => this.setState({toggleEdit: !this.state.toggleEdit})}>Edit</button>
+          <div class="ProfileBio">
+            <p>{user.bio}</p>
+          </div>
         </div>
         </div>
-        { !this.state.toggleEdit ? null : <div className="UserSettings"><button onClick={() => this.props.universalDeleteFunction(user.id, 'users')}>Delete</button>
+        { !this.state.toggleEdit ? null : <div className="UserSettings">
+        <p className="UserFormDelete" onClick={(e) => this.props.universalDeleteFunction(user.id, 'users')} ><i class="fa fa-times fa-2x" aria-hidden="true"></i></p>
+
+
         <UserForm universalPatchFunction={this.props.universalPatchFunction} /><br/><br/></div>}
       </div>
       : <div className="NotCurrentUserBio">

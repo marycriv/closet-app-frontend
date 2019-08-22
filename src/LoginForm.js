@@ -34,9 +34,11 @@ class LoginForm extends React.Component {
 
   render(){
     return (
+      <div className="LoginForm">
       <form onSubmit={(e) => this.submission(e, this.state.value)}>
       <h3>Login</h3>
       Username:
+      <br/>
         <input
           type="text"
           // defaultValue="5"
@@ -45,6 +47,7 @@ class LoginForm extends React.Component {
         />
         <input type="submit" value="Submit" />
       </form>
+      </div>
     )
   }
 }
