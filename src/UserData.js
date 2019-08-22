@@ -46,11 +46,16 @@ render(){
       </div>
       : <div className="NotCurrentUserBio">
         <img className="ProfilePicture" width="100px" alt="profile" src={notUser.profile_picture} />
-        <h1 className="Username">{notUser.username}</h1>
-        <h2 hidden>{notUser.id}</h2>
-        <button className="EditButton" onClick={() => this.props.universalDeleteFunction(this.props.follows.filter(follow => follow.follower_id === this.props.currentUserId && follow.followee_id === notUser.id)[0].id, 'follows')}>unfollow</button>
-
-        <p>{notUser.bio}</p>
+        <div className="NotUserBio">
+          <div>
+            <h1 className="Username">{notUser.username}</h1>
+            <h2 hidden>{notUser.id}</h2>
+            <button className="EditButton" onClick={() => this.props.universalDeleteFunction(this.props.follows.filter(follow => follow.follower_id === this.props.currentUserId && follow.followee_id === notUser.id)[0].id, 'follows')}>unfollow</button>
+          </div>
+          <div class="ProfileBio">
+            <p>{notUser.bio}</p>
+          </div>
+        </div>
 
       </div>
     }

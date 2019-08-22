@@ -372,6 +372,10 @@ input[type="submit" i]:active{
   display: -webkit-inline-box;
 }
 
+.NotUserBio{
+  padding-left: 2rem;
+}
+
 .Username {
   display: inline-block;
 }
