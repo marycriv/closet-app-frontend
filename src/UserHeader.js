@@ -10,7 +10,7 @@ class UserHeader extends React.Component{
   render(){
 
     return (
-      <div className="UserHeader">
+      <div className="UserHeaderMain">
         <UserData
           path={this.props.path}
           universalDeleteFunction={this.props.universalDeleteFunction} universalPatchFunction={this.props.universalPatchFunction}
