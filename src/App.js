@@ -224,7 +224,7 @@ class App extends React.Component {
         <div>
         <NavBar/>
         <Switch>
-
+          <Route path='/bepis' exact component={NotFound} />
           <Route path='/' exact component={LandingPage} />
           <Route path='/login' component={LoginForm}/>
           <Route path='/signup' render={() => <UserForm universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
