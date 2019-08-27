@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 class UserForm extends React.Component {
   state = {
     userId: this.props.currentUserId,
-    username: "serena",
-    profilePicture: "https://66.media.tumblr.com/279015f65eef8112eb3e84aa27417be0/tumblr_owzholWRAb1vwrqjho9_250.png",
-    bio: "Bio here"
+    username: this.props.user.username,
+    profilePicture: this.props.user.profile_picture,
+    bio: this.props.user.bio
   }
 
   handleSubmit = (e, state) => {
@@ -75,7 +75,8 @@ function msp(state){
     loggedIn: state.loggedIn,
     currentUserId: state.currentUserId,
     users: state.users,
-    items: state.items
+    items: state.items,
+    user: state.user
   }
 }
 
