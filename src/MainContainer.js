@@ -108,8 +108,7 @@ class MainContainer extends React.Component {
             {this.props.user.username !== path ? null
             : <button onClick={(e) => this.handleClick(e, 'new item')} className="ProfileNavButton">New Item</button>}
 
-            {this.props.user.username !== path ? null
-            :<button onClick={(e) => this.handleClick(e, 'new outfit')} className="NewOutfitButton">New Outfit</button>}
+            {<button onClick={(e) => this.handleClick(e, 'new outfit')} className="NewOutfitButton">New Outfit</button>}
           </div>
 
           {!this.state.items ? null : <ProfileContainer
