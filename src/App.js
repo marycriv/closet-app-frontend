@@ -188,6 +188,7 @@ class App extends React.Component {
       this.getOutfits()
     } else if (loc === 'follows') {
       this.getFollows()
+      this.props.history.push(`/${this.props.user.username}`)
     }
     })
 
@@ -263,7 +264,8 @@ function msp(state){
     currentUserId: state.currentUserId,
     users: state.users,
     items: state.items,
-    outfits: state.outfits
+    outfits: state.outfits,
+    user: state.user
   }
 }
 
