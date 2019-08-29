@@ -17,43 +17,43 @@ render(){
 
   const path = this.props.path
 
-  const notUser = this.props.users.filter(user => user.username === this.props.path)[0]
+  const notUser = this.props.users.filter(user => user.username === path)[0]
 
   const match = this.props.user === notUser
 
   let items = []
 
-  let tops = []
-
-  let bottoms = []
-
-  let shoes = []
-
-  let dresses = []
+  // let tops = []
+  //
+  // let bottoms = []
+  //
+  // let shoes = []
+  //
+  // let dresses = []
 
   let checkMatch = (match) => {
 
     if (match) {
       items = this.props.items.filter(item => {return item.user_id === this.props.currentUserId}).reverse()
-
-      tops = items.filter(item => {return ['top', 'blouse', 'sweater'].includes(item.classification)})
-
-      bottoms = items.filter(item => {return ['bottom', 'trousers', 'jeans', 'skirt', 'shorts'].includes(item.classification)})
-
-      shoes = items.filter(item => {return item.classification === 'shoes'})
-
-      dresses = items.filter(item => {return ['dress', 'romper'].includes(item.classification)})
+      //
+      // tops = items.filter(item => {return ['top', 'blouse', 'sweater'].includes(item.classification)})
+      //
+      // bottoms = items.filter(item => {return ['bottom', 'trousers', 'jeans', 'skirt', 'shorts'].includes(item.classification)})
+      //
+      // shoes = items.filter(item => {return item.classification === 'shoes'})
+      //
+      // dresses = items.filter(item => {return ['dress', 'romper'].includes(item.classification)})
     } else {
 
       items = this.props.items.filter(item => {return item.user_id === notUser.id}).reverse()
 
-      tops = items.filter(item => {return ['top', 'blouse', 'sweater'].includes(item.classification)})
-
-      bottoms = items.filter(item => {return ['bottom', 'trousers', 'jeans', 'skirt', 'shorts'].includes(item.classification)})
-
-      shoes = items.filter(item => {return item.classification === 'shoes'})
-
-      dresses = items.filter(item => {return ['dress', 'romper'].includes(item.classification)})
+      // tops = items.filter(item => {return ['top', 'blouse', 'sweater'].includes(item.classification)})
+      //
+      // bottoms = items.filter(item => {return ['bottom', 'trousers', 'jeans', 'skirt', 'shorts'].includes(item.classification)})
+      //
+      // shoes = items.filter(item => {return item.classification === 'shoes'})
+      //
+      // dresses = items.filter(item => {return ['dress', 'romper'].includes(item.classification)})
     }
   }
 

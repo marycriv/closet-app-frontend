@@ -1,7 +1,7 @@
 import React from 'react';
 import './../main.css';
 import UserHeader from './UserHeader'
-import OutfitBuilder from './../components/OutfitBuilder'
+
 
 import ProfileContainer from './ProfileContainer'
 
@@ -9,8 +9,6 @@ import OutfitsContainer from './OutfitsContainer';
 
 import FollowsContainer from './FollowsContainer';
 import ItemForm from './../components/ItemForm';
-
-import {BrowserRouter} from 'react-router-dom'
 
 import { connect } from 'react-redux';
 import {withRouter} from "react-router-dom";

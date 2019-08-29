@@ -11,7 +11,7 @@ class FollowsContainer extends React.Component{
 
     const path = this.props.path
 
-    const notUser = this.props.users.filter(user => user.username === this.props.path)[0]
+    const notUser = this.props.users.filter(user => user.username === path)[0]
 
     const match = this.props.user === notUser
 
@@ -37,11 +37,11 @@ class FollowsContainer extends React.Component{
 
     return(
       <div className="FollowsContainer">
-        {this.props.followersToggle ? <div><h3>Followers:</h3><div className="Followers">{followers.map(follower => <div className="SingleFollow" onClick={() => this.props.history.push(follower.username)}><h3 className="SingleFollow">{follower.username}</h3><img className="ProfilePicture" width="100px" src={follower.profile_picture}/></div>)}</div></div> : null}
+        {this.props.followersToggle ? <div><h3>Followers:</h3><div className="Followers">{followers.map(follower => <div className="SingleFollow" onClick={() => this.props.history.push(follower.username)}><h3 className="SingleFollow">{follower.username}</h3><img alt={follower.username} className="ProfilePicture" width="100px" src={follower.profile_picture}/></div>)}</div></div> : null}
 
         {this.props.followingToggle ? <div><h3>Following:</h3><div className="Followees">{followees.map(followee => <div className="SingleFollow">
         <h3 className="SingleFollow">{followee.username}</h3>
-        <Link to={`/${followee.username}`}><img className="ProfilePicture" width="100px" src={followee.profile_picture}/></Link></div>)}</div></div> : null}
+        <Link to={`/${followee.username}`}><img alt={followee.username} className="ProfilePicture" width="100px" src={followee.profile_picture}/></Link></div>)}</div></div> : null}
       </div>
     )
   }

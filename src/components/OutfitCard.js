@@ -15,7 +15,7 @@ class OutfitCard extends React.Component {
 
     const path = this.props.path
 
-    const notUser = this.props.users.filter(user => user.username === this.props.path)[0]
+    const notUser = this.props.users.filter(user => user.username === path)[0]
 
     const match = this.props.user === notUser
 
@@ -47,7 +47,7 @@ class OutfitCard extends React.Component {
       {myOutfits.map((outfit) => {
         return (
           <div id={outfit.id} className="OutfitCard">
-            <div className="title"><h3>{outfit.name}</h3><img style={{'borderRadius': '50%'}} width="40px" src={this.props.users.find(user => user.id === parseInt(outfit.author_id)).profile_picture}/><p onClick={(e) => this.props.universalDeleteFunction(e.target.parentElement.parentElement.parentElement.id, 'outfits')} ><i class="fa fa-times fa-2x" aria-hidden="true"></i></p></div>
+            <div className="title"><h3>{outfit.name}</h3><img alt={outfit.name} style={{'borderRadius': '50%'}} width="40px" src={this.props.users.find(user => user.id === parseInt(outfit.author_id)).profile_picture}/><p onClick={(e) => this.props.universalDeleteFunction(e.target.parentElement.parentElement.parentElement.id, 'outfits')} ><i class="fa fa-times fa-2x" aria-hidden="true"></i></p></div>
             <div className="OutfitImages">
             {outfit.items.map((item) => {
               return (
@@ -65,7 +65,7 @@ class OutfitCard extends React.Component {
       {notMyOutfits.map((outfit) => {
         return (
           <div id={outfit.id} className="OutfitCard">
-            <div className="title"><h3>{outfit.name}</h3><img style={{'borderRadius': '50%'}} width="40px" src={this.props.users.find(user => user.id === parseInt(outfit.author_id)).profile_picture}/></div>
+            <div className="title"><h3>{outfit.name}</h3><img alt={outfit.name} style={{'borderRadius': '50%'}} width="40px" src={this.props.users.find(user => user.id === parseInt(outfit.author_id)).profile_picture}/></div>
             <div className="OutfitImages">
             {outfit.items.map((item) => {
               return (

@@ -117,7 +117,7 @@ class OutfitBuilder extends React.Component {
         <div>
         {<div className="OutfitBuilderUsers">
         <p>Who is this outfit for?</p>
-        {userOptions.map(user => <img width="75px" className="ProfilePicture" id={user.id} onClick={this.handleClick} src={user.profile_picture} />)}</div>}
+        {userOptions.map(user => <img width="75px" className="ProfilePicture" alt={user.id} id={user.id} onClick={this.handleClick} src={user.profile_picture} />)}</div>}
 
         <center><button className="ProfileNavButton" onClick={(e) => this.setState({dressMode: true, threeItemMode: false})}>Dresses & Co-ords</button>
         <button className="ProfileNavButton" onClick={(e) => this.setState({dressMode: false, threeItemMode: true})}>Tops & Bottoms</button></center>
@@ -129,7 +129,7 @@ class OutfitBuilder extends React.Component {
             elementType={'div'}
             options={flickityOptionsTwo}
           >
-          <img id={this.state.selectedUserId} src={this.state.selectedUser.profile_picture} className="carousel-image" />
+          <img alt={this.state.selectedUserId} id={this.state.selectedUserId} src={this.state.selectedUser.profile_picture} className="carousel-image" />
           </Flickity>}
           {!this.state.dressMode ?
           <div className="ThreeItems">
@@ -138,7 +138,7 @@ class OutfitBuilder extends React.Component {
             elementType={'div'}
             options={flickityOptions}
           >
-          {myTops.map(top => <img id={top.id} src={top.image} className="carousel-image top" />)}
+          {myTops.map(top => <img alt={top.id} id={top.id} src={top.image} className="carousel-image top" />)}
           </Flickity>
           <br/>
           <Flickity
@@ -146,7 +146,7 @@ class OutfitBuilder extends React.Component {
             elementType={'div'}
             options={flickityOptions}
           >
-          {myBottoms.map(bottom => <img id={bottom.id} src={bottom.image} className="bottom carousel-image" />)}
+          {myBottoms.map(bottom => <img alt={bottom.id} id={bottom.id} src={bottom.image} className="bottom carousel-image" />)}
           </Flickity>
           <br/>
           <Flickity
@@ -154,7 +154,7 @@ class OutfitBuilder extends React.Component {
             elementType={'div'}
             options={flickityOptions}
           >
-          {myShoes.map(shoe => <img id={shoe.id} src={shoe.image} className="carousel-image shoes" />)}
+          {myShoes.map(shoe => <img alt={shoe.id} id={shoe.id} src={shoe.image} className="carousel-image shoes" />)}
           </Flickity>
           <br />
           <center><form onSubmit={(e) => e.preventDefault()}><input
@@ -175,7 +175,7 @@ class OutfitBuilder extends React.Component {
               elementType={'div'}
               options={flickityOptions}
             >
-            {myDresses.map(dress => <img id={dress.id} src={dress.image} className="carousel-image dress" />)}
+            {myDresses.map(dress => <img alt={dress.id} id={dress.id} src={dress.image} className="carousel-image dress" />)}
             </Flickity>
             <br/>
             <Flickity
@@ -183,7 +183,7 @@ class OutfitBuilder extends React.Component {
               elementType={'div'}
               options={flickityOptions}
             >
-            {myShoes.map(shoe => <img id={shoe.id} src={shoe.image} className="carousel-image shoes" />)}
+            {myShoes.map(shoe => <img alt={shoe.id} id={shoe.id} src={shoe.image} className="carousel-image shoes" />)}
             </Flickity>
             <br />
             <center><form onSubmit={(e) => e.preventDefault()}><input

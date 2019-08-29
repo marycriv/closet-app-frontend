@@ -6,10 +6,6 @@ import './../main.css'
 
 import ItemCard from './../components/ItemCard';
 
-import ItemForm from './../components/ItemForm';
-
-import OutfitsContainer from './OutfitsContainer';
-
 const ProfileContainer = (props) => {
   return (
     <div className="ProfileContainer">

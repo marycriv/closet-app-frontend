@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, HANDLE_CHANGE, GET_USERS, GET_ITEMS, GET_FOLLOWS, GET_OUTFITS, ADD_USER } from './types'
+import { LOGIN, LOGOUT, HANDLE_CHANGE, GET_USERS, GET_ITEMS, GET_FOLLOWS, GET_OUTFITS, NEW_USER, NEW_ITEM, NEW_OUTFIT, NEW_FOLLOW } from './types'
 
 const defaultState = {
   loggedIn: false,
@@ -12,27 +12,27 @@ const defaultState = {
 
 function reducer(prevState=defaultState, action) {
   switch(action.type){
-    case "LOGIN":
+    case LOGIN:
       return {...prevState, loggedIn: true, currentUserId: action.payload, user: prevState.users.find(user => user.id === action.payload)}
-    case "LOGOUT":
+    case LOGOUT:
       return {...prevState, loggedIn: false, currentUserId: null, user: null}
-    case "HANDLE_CHANGE":
+    case HANDLE_CHANGE:
       return {...prevState, text: action.payload}
-    case "GET_USERS":
+    case GET_USERS:
       return {...prevState, users: action.payload}
-    case "GET_ITEMS":
+    case GET_ITEMS:
       return {...prevState, items: action.payload}
-    case "GET_OUTFITS":
+    case GET_OUTFITS:
       return {...prevState, outfits: action.payload}
-    case "GET_FOLLOWS":
+    case GET_FOLLOWS:
       return {...prevState, follows: action.payload}
-    case "NEW_USER":
+    case NEW_USER:
       return {...prevState, users: [...prevState.users, action.payload]}
-    case "NEW_ITEM":
+    case NEW_ITEM:
       return {...prevState, items: [...prevState.items, action.payload]}
-    case "NEW_OUTFIT":
+    case NEW_OUTFIT:
       return {...prevState, outfits: [...prevState.outfits, action.payload]}
-    case "NEW_FOLLOW":
+    case NEW_FOLLOW:
       return {...prevState, follows: [...prevState.follows, action.payload]}
     default:
       return prevState

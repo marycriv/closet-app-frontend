@@ -13,7 +13,7 @@ class UserForm extends React.Component {
   handleSubmit = (e, state) => {
     e.preventDefault();
 
-    const parent = e.target.parentElement.parentElement.className
+    
     let params = {}
 
     if (this.props.loggedIn) {

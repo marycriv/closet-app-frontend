@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import ProfileContainer from './containers/ProfileContainer'
 
 import * as serviceWorker from './serviceWorker';
 
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 
 import reducer from './reducer'
 

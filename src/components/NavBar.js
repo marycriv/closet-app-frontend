@@ -2,8 +2,6 @@ import React from 'react'
 
 import {Link} from 'react-router-dom'
 
-import SearchBar from './SearchBar'
-
 import { connect } from 'react-redux';
 
 class NavBar extends React.Component {
