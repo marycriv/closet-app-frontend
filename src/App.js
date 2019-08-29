@@ -33,17 +33,17 @@ class App extends React.Component {
   universalPostFunction = (params, type) => {
 
     let currentUserId = this.props.currentUserId
-    let payload = {}
+    let input = {}
     let loc = null
 
-    const fetchFunction = (loc, payload) => {
+    const fetchFunction = (loc, input) => {
       fetch(`${API}/${loc}`, {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
         method: 'POST',
-        body: JSON.stringify(payload)
+        body: JSON.stringify(input)
       })
       .then(resp => resp.json())
       .then((json) => {
@@ -55,7 +55,7 @@ class App extends React.Component {
         this.props.history.push('/closet')
       } else if (loc === 'outfits') {
         this.getOutfits()
-        this.props.history.push(this.props.users.find(user => user.id === payload.user_id).username)
+        this.props.history.push(this.props.users.find(user => user.id === input.user_id).username)
       } else if (loc === 'follows') {
         this.props.newFollow(json)
       }
@@ -65,27 +65,27 @@ class App extends React.Component {
     function postFunc(params, type){
 
       switch(type){
-      case "NEW_ITEM":
-        payload = {
+      case "new_item":
+        input = {
           user_id: currentUserId,
           image: params.image,
           classification: params.classification,
           brand: params.brand
         }
         loc = 'items'
-        fetchFunction(loc, payload)
+        fetchFunction(loc, input)
         break
-      case "NEW_USER":
-        payload = {
+      case "new_user":
+        input = {
           username: params.username,
           profile_picture: params.profilePicture,
           bio: params.bio
         }
         loc = 'users'
-        fetchFunction(loc, payload)
+        fetchFunction(loc, input)
         break
-      case "NEW_OUTFIT":
-        payload = {
+      case "new_outfit":
+        input = {
           name: params.name,
           user_id: params.user_id,
           ids: params.ids,
@@ -93,16 +93,16 @@ class App extends React.Component {
           username: params.username
         }
         loc = 'outfits'
-        fetchFunction(loc, payload)
+        fetchFunction(loc, input)
         break
       //UNTESTED:
-      case "NEW_FOLLOW":
-        payload = {
+      case "new_follow":
+        input = {
           follower_id: currentUserId,
           followee_id: params.followee_id
         }
         loc = 'follows'
-        fetchFunction(loc, payload)
+        fetchFunction(loc, input)
         break
       default:
         return null
@@ -116,33 +116,33 @@ class App extends React.Component {
   universalPatchFunction = (params, type) => {
 
     let currentUserId = this.props.currentUserId
-    let payload = {}
+    let input = {}
     let loc = null
     let patchLoc = null
 
     function postFunc(params, type){
 
       switch(type){
-      case "EDIT_ITEM":
+      case "edit_item":
         patchLoc = parseInt(params.item_id)
-        payload = {
+        input = {
           user_id: currentUserId,
           image: params.image,
           classification: params.classification,
           brand: params.brand
         }
         loc = 'items'
-        fetchFunction(loc, patchLoc, payload)
+        fetchFunction(loc, patchLoc, input)
         break
-      case "EDIT_USER":
+      case "edit_user":
         patchLoc = parseInt(params.id)
-        payload = {
+        input = {
           username: params.username,
           profile_picture: params.profilePicture,
           bio: params.bio
         }
         loc = 'users'
-        fetchFunction(loc, patchLoc, payload)
+        fetchFunction(loc, patchLoc, input)
         break
       default:
         return  null
@@ -150,18 +150,19 @@ class App extends React.Component {
 
     }
 
-    const fetchFunction = (loc, patchLoc, payload) => {
+    const fetchFunction = (loc, patchLoc, input) => {
       fetch(`${API}/${loc}/${patchLoc}`, {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
         method: 'PATCH',
-        body: JSON.stringify(payload)
+        body: JSON.stringify(input)
       })
       .then(resp => resp.json())
       .then((json) => {
-      console.log("doesnt work lol", json)
+      // fix this later
+      console.log("Refresh the page and login to see this change!", json)
       })
     }
 

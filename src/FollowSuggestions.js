@@ -9,7 +9,7 @@ class FollowSuggestions extends React.Component {
     let params = {
         followee_id: e.target.id
     }
-    this.props.universalPostFunction(params, "NEW_FOLLOW")
+    this.props.universalPostFunction(params, "new_follow")
   }
 
   render(){

@@ -12,8 +12,8 @@ class ItemForm extends React.Component {
 
   handleSubmit = (e, state) => {
     e.preventDefault();
-    const parent = e.target.parentElement.parentElement.className
-    const itemId = e.target.parentElement.parentElement.id
+    const parent = e.target.parentElement.parentElement.parentElement.className
+    const itemId = e.target.parentElement.parentElement.parentElement.id
     let params = {}
     //remember this is conditional
     if (parent === "CardGalleryItem") {
@@ -24,7 +24,7 @@ class ItemForm extends React.Component {
         item_id: itemId
       }
 
-      this.props.universalPatchFunction(params, "EDIT_ITEM")
+      this.props.universalPatchFunction(params, "edit_item")
     } else {
       params = {
         image: state.imageUrl,
@@ -32,7 +32,7 @@ class ItemForm extends React.Component {
         classification: state.classification
       }
 
-      this.props.universalPostFunction(params, "NEW_ITEM")
+      this.props.universalPostFunction(params, "new_item")
     }
 
   }

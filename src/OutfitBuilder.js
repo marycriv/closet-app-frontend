@@ -81,7 +81,7 @@ class OutfitBuilder extends React.Component {
           author_id: this.props.currentUserId,
           ids: [topId, bottomId, shoeId]
       }
-      this.props.universalPostFunction(params, "NEW_OUTFIT")
+      this.props.universalPostFunction(params, "new_outfit")
     }
 
     const twoItemOutfit = (e) => {
@@ -99,7 +99,7 @@ class OutfitBuilder extends React.Component {
           ids: [dressId, shoeId]
       }
 
-      this.props.universalPostFunction(params, "NEW_OUTFIT")
+      this.props.universalPostFunction(params, "new_outfit")
     }
 
     return (

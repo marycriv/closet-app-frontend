@@ -18,10 +18,10 @@ class UserForm extends React.Component {
 
     if (this.props.loggedIn) {
       params = {username: state.username, profilePicture: state.profilePicture, id: this.props.currentUserId, bio: state.bio}
-      this.props.universalPatchFunction(params, "EDIT_USER")
+      this.props.universalPatchFunction(params, "edit_user")
     } else {
       params = {username: state.username, profilePicture: state.profilePicture, id: this.state.userId, bio: state.bio}
-      this.props.universalPostFunction(params, "NEW_USER")
+      this.props.universalPostFunction(params, "new_user")
     }
   }
 
