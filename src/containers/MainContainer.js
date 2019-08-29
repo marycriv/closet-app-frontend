@@ -1,14 +1,14 @@
 import React from 'react';
-import './main.css';
+import './../main.css';
 import UserHeader from './UserHeader'
-import OutfitBuilder from './OutfitBuilder'
+import OutfitBuilder from './../components/OutfitBuilder'
 
 import ProfileContainer from './ProfileContainer'
 
 import OutfitsContainer from './OutfitsContainer';
 
 import FollowsContainer from './FollowsContainer';
-import ItemForm from './ItemForm';
+import ItemForm from './../components/ItemForm';
 
 import {BrowserRouter} from 'react-router-dom'
 

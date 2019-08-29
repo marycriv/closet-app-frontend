@@ -1,6 +1,6 @@
 import React from 'react';
 import UserData from './UserData';
-import FollowSuggestions from './FollowSuggestions'
+import FollowSuggestions from './../components/FollowSuggestions'
 
 import { connect } from 'react-redux';
 

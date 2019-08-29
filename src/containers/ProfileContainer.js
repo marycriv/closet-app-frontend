@@ -2,11 +2,11 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import './main.css'
+import './../main.css'
 
-import ItemCard from './ItemCard';
+import ItemCard from './../components/ItemCard';
 
-import ItemForm from './ItemForm';
+import ItemForm from './../components/ItemForm';
 
 import OutfitsContainer from './OutfitsContainer';
 

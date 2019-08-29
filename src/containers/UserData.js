@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './main.css'
+import './../main.css'
 
 import { connect } from 'react-redux';
 
-import UserForm from './UserForm'
+import UserForm from './../components/UserForm'
 
 import {withRouter} from "react-router-dom";
 

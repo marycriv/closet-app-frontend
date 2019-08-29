@@ -1,5 +1,5 @@
 import React from 'react';
-import './flickity.css';
+import './../flickity.css';
 import Flickity from 'react-flickity-component';
 
 import { connect } from 'react-redux';

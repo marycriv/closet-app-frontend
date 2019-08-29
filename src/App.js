@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import UserForm from './UserForm';
-import MainContainer from './MainContainer';
-import LoginForm from './LoginForm';
-import NotFound from './NotFound';
-import DemoVideo from './DemoVideo';
-import NavBar from './NavBar';
-import OutfitBuilder from './OutfitBuilder';
-import LandingPage from './LandingPage'
+import UserForm from './components/UserForm';
+import MainContainer from './containers/MainContainer';
+import LoginForm from './components/LoginForm';
+import NotFound from './components/NotFound';
+import DemoVideo from './components/DemoVideo';
+import NavBar from './components/NavBar';
+import OutfitBuilder from './components/OutfitBuilder';
+import LandingPage from './components/LandingPage'
 import { connect } from 'react-redux';
 
 import { Route, Switch } from 'react-router-dom'

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import OutfitCard from './OutfitCard';
+import OutfitCard from './../components/OutfitCard';
 
 
 const OutfitsContainer = (props) => {
