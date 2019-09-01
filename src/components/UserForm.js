@@ -4,20 +4,20 @@ import { connect } from 'react-redux';
 
 class UserForm extends React.Component {
   state = {
-    userId: this.props.currentUserId,
-    username: this.props.user.username,
-    profilePicture: this.props.user.profile_picture,
-    bio: this.props.user.bio
+    userId: null,
+    username: null,
+    profilePicture: null,
+    bio: null
   }
 
   handleSubmit = (e, state) => {
     e.preventDefault();
 
-    
+
     let params = {}
 
     if (this.props.loggedIn) {
-      params = {username: state.username, profilePicture: state.profilePicture, id: this.props.currentUserId, bio: state.bio}
+      params = {username: this.props.user.username, profilePicture: this.props.user.profile_picture, id: this.props.currentUserId, bio: this.props.user.bio}
       this.props.universalPatchFunction(params, "edit_user")
     } else {
       params = {username: state.username, profilePicture: state.profilePicture, id: this.state.userId, bio: state.bio}
