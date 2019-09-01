@@ -14,7 +14,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import {withRouter} from "react-router-dom";
 
-const API = "http://localhost:3001"
+const API = "https://missmatched-backend.herokuapp.com/"
 
 class App extends React.Component {
 
