@@ -35,7 +35,7 @@ class UserForm extends React.Component {
   render(){
     return (
       <div className="UserForm">
-        {!this.props.currentUserId ? <h2>Create an account!</h2> : <h3>Edit profile:</h3>}
+        {!this.props.currentUserId ? <div><div class="loginHeading">I do not recommend making a new account if this is your first visit. Use the <a href="/login">demo user</a> instead.</div><h2>Create an account!</h2></div> : <h3>Edit profile:</h3>}
         <form onSubmit={(e) => this.handleSubmit(e, this.state)}>
           Username:
           <br/>
