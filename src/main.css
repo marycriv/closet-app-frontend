@@ -2,6 +2,12 @@ body {
   /* background-color: rgba(244,129,171,.25); */
 }
 
+.welcomeHeading {
+  font-size: 26px;
+padding: 50px 150px;
+line-height: 1.5;
+}
+
 .MainContainer {
 }
 
