@@ -8,6 +8,12 @@ padding: 50px 150px;
 line-height: 1.5;
 }
 
+.loginHeading {
+  font-size: 18px;
+  padding: 20px 20px;
+  line-height: 1.5;
+}
+
 .MainContainer {
 }
 

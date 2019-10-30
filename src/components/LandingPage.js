@@ -5,7 +5,6 @@ import './../main.css'
 const LandingPage = () => {
   return <div>
   <div className="welcomeHeading">Welcome to MissMatched. Please <a href="/login">go to the login page</a> and log in as the demo user "elle", with the credentials provided.</div>
-  <br/>
   <div className="LandingPage"><center><img width="300px" alt="logo" src='/logo.png' /></center></div></div>
 }
 

@@ -34,6 +34,8 @@ class LoginForm extends React.Component {
 
   render(){
     return (
+      <div>
+      <div className="loginHeading">Login credentials are prepopulated for you below. If you cannot see them, simply log in with the name "elle". If you're experiencing a log in error, just wait a minute for the backend to wake up.</div>
       <div className="LoginForm">
       <form onSubmit={(e) => this.submission(e, this.state.value)}>
       <h3>Login</h3>
@@ -47,6 +49,7 @@ class LoginForm extends React.Component {
         />
         <input type="submit" value="Submit" />
       </form>
+      </div>
       </div>
     )
   }
