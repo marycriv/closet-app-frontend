@@ -4,7 +4,6 @@ import UserForm from './components/UserForm';
 import MainContainer from './containers/MainContainer';
 import LoginForm from './components/LoginForm';
 import NotFound from './components/NotFound';
-import DemoVideo from './components/DemoVideo';
 import NavBar from './components/NavBar';
 import OutfitBuilder from './components/OutfitBuilder';
 import LandingPage from './components/LandingPage'
@@ -226,12 +225,10 @@ class App extends React.Component {
         <div>
         <NavBar/>
         <Switch>
-          <Route path='/bepis' exact component={NotFound} />
           <Route path='/' exact component={LandingPage} />
           <Route path='/login' component={LoginForm}/>
           <Route path='/signup' render={() => <UserForm universalPostFunction={this.universalPostFunction} universalPatchFunction={this.universalPatchFunction} universalDeleteFunction={this.universalDeleteFunction}
           />}/>
-          <Route path='/demo' component={DemoVideo}/>
           { this.props.loggedIn &&
           <Route path='/newoutfit' render={() =>
             <OutfitBuilder universalPostFunction={this.universalPostFunction} />}
