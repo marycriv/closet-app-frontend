@@ -1,6 +1,7 @@
 # README
+[Live Demo Here!]('https://master.dc87mfbscfkye.amplifyapp.com/')
 
-Rails backend for MissMatched, a fashion app for people with no sense of style. Front end written in React.
+MissMatched, a fashion app for people with no sense of style. Front end written in React. 
 
 Made with:
 * ruby 2.6.3p62
